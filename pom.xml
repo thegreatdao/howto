@@ -7,7 +7,7 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>ch01</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<developers>
 		<developer>
 			<id>1</id>
@@ -61,16 +61,12 @@
 			<id>projectlombok.org</id>
 			<url>http://projectlombok.org/mavenrepo</url>
 		</repository>
-		<repository>
-			<id>sakai-maven</id>
-			<name>Sakai Maven Repo</name>
+		<!--
+			<repository> <id>sakai-maven</id> <name>Sakai Maven Repo</name>
 			<layout>default</layout>
-			<url>http://source.sakaiproject.org/maven2</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-
+			<url>http://source.sakaiproject.org/maven2</url> <snapshots>
+			<enabled>false</enabled> </snapshots> </repository>
+		-->
 		<repository>
 			<id>local</id>
 			<url>http://localhost:8081/artifactory/repo/</url>
@@ -89,12 +85,11 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.sakaiproject</groupId>
-			<artifactId>generic-dao</artifactId>
-			<version>[0.9.8,1.0.0)</version>
-		</dependency>
-
+		<!--
+			<dependency> <groupId>org.sakaiproject</groupId>
+			<artifactId>generic-dao</artifactId> <version>[0.9.8,1.0.0)</version>
+			</dependency>
+		-->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
