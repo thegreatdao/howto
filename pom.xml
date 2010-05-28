@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>training.hl</groupId>
-	<artifactId>ch02</artifactId>
+	<artifactId>ch01</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>ch02</name>
+	<name>ch01</name>
 	<url>http://maven.apache.org</url>
 
 	<developers>
@@ -263,12 +263,6 @@
 			<version>5.1.12</version>
 		</dependency>
 
-		<dependency>
-			<groupId>hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<version>1.8.0.7</version>
-		</dependency>
-
 		<!--
 			<dependency> <groupId>com.oracle</groupId>
 			<artifactId>oracle</artifactId> <version>1.0</version> </dependency>
@@ -309,7 +303,7 @@
 	</licenses>
 
 	<build>
-		<finalName>ch02</finalName>
+		<finalName>ch01</finalName>
 
 		<filters>
 			<filter>src/main/filters/app.filter.properties</filter>
