@@ -2,6 +2,8 @@ package training.hl.dao;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,8 +47,17 @@ public class TestHibernateDao
 		int afterSaveSize = departMentDao.findAll().size();
 		assertEquals(initialSize + 1, afterSaveSize);
 		departMentDao.delete(department);
-		int afterDeletionSize = departMentDao.findAll().size();
+		List<Department> departments = departMentDao.findAll();
+		int afterDeletionSize = departments.size();
 		assertEquals(initialSize, afterDeletionSize);
+		for(Department tempDepartment : departments)
+		{
+			Department foundDepartment = departMentDao.findById(tempDepartment.getId());
+			assertEquals(foundDepartment, tempDepartment);
+			departMentDao.delete(foundDepartment);
+		}
+		departments = departMentDao.findAll();
+		assertEquals(0, departments.size());
 	}
 	
 	@Test
