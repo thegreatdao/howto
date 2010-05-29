@@ -6,11 +6,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Data
-public class Employee
+@EqualsAndHashCode(callSuper=false)
+public class Employee extends RootEnitity
 {
+	private static final long serialVersionUID = 3085808750192155928L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;

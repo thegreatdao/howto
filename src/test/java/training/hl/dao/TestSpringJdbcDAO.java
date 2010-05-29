@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -28,16 +29,18 @@ public class TestSpringJdbcDao
 	private static final Logger LOGGER = LoggerFactory.getLogger(TestSpringJdbcDao.class);
 	
 	@Autowired
+	@Qualifier("departmentSpringJdbcDao")
 	private DepartMentDao departMentDao;
 	@Autowired
+	@Qualifier("employeeSpringJdbcDao")
 	private EmployeeDao employeeDao;
 	@Autowired
 	private InsurancePolicyDao insurancePolicyDao;
 	
 	@Before
-	public void setUp()
+	public void setUP()
 	{
-		LOGGER.info("setup fixture for each test");
+		LOGGER.info(departMentDao.toString());
 	}
 	
 	@Test

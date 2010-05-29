@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import training.hl.dao.EmployeeDao;
 import training.hl.dao.bean.Employee;
 
-@Repository
+@Repository("employeeSpringJdbcDao")
 public class EmployeeSpringJdbcImpl implements EmployeeDao
 {
 	@Autowired

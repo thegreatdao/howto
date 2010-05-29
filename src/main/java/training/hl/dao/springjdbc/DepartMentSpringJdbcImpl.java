@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import training.hl.dao.DepartMentDao;
 import training.hl.dao.bean.Department;
 
-@Repository
+@Repository("departmentSpringJdbcDao")
 public class DepartMentSpringJdbcImpl implements DepartMentDao
 {
 	@Autowired

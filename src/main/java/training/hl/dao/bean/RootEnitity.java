@@ -1,4 +1,4 @@
-package training.hl.dao.springjdbc;
+package training.hl.dao.bean;
 
 import java.io.Serializable;
 
