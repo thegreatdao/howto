@@ -16,6 +16,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import training.hl.dao.bean.springjdbc.Department;
+import training.hl.dao.bean.springjdbc.Employee;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/application-context.xml")
@@ -27,6 +28,8 @@ public class TestSpringJdbc
 	
 	@Autowired
 	private DepartMentDao departMentDao;
+	@Autowired
+	private EmployeeDao employeeDao;
 	
 	@Before
 	public void setUp()
@@ -60,6 +63,25 @@ public class TestSpringJdbc
 	@Test
 	public void testEmployee()
 	{
-		
+		List<Employee> employees = employeeDao.findAll();
+		int initialSize = employees.size();
+		Employee employee = new Employee();
+		employee.setAge(20);
+		employee.setDepartmentId(1l);
+		employee.setFirstName("Bill");
+		employee.setLastName("Black");
+		employeeDao.save(employee);
+		employees = employeeDao.findAll();
+		int afterSaveSize = employees.size();
+		assertEquals(initialSize + 1, afterSaveSize);
+		for(Employee emlEmployee : employees)
+		{
+			LOGGER.info(emlEmployee.toString());
+			Employee tempEmployee = employeeDao.findById(emlEmployee.getId());
+			assertEquals(emlEmployee, tempEmployee);
+			employeeDao.delete(emlEmployee);
+		}
+		employees = employeeDao.findAll();
+		assertEquals(0, employees.size());
 	}
 }

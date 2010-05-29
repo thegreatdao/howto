@@ -12,13 +12,6 @@ public class Employee
 	private String firstName;
 	private String lastName;
 	private int age;
-	private Gender gender;
 	private Long departmentId;
-	private Long insurancePolicyId;
-	
-	enum Gender
-	{
-		MALE,
-		FEMALE
-	}
+	private Long insurancePolicyId;		
 }
