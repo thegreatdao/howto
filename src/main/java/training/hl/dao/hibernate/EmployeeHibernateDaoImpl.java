@@ -12,7 +12,7 @@ public class EmployeeHibernateDaoImpl implements EmployeeDao
 {
 
 	@Override
-	public void delete(Employee Employee)
+	public void delete(Employee employee)
 	{
 		
 	}
@@ -30,7 +30,7 @@ public class EmployeeHibernateDaoImpl implements EmployeeDao
 	}
 
 	@Override
-	public void save(Employee Employee)
+	public void save(Employee employee)
 	{
 		
 	}

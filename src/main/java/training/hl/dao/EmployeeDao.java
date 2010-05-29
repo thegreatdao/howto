@@ -9,8 +9,8 @@ import training.hl.dao.bean.springjdbc.Employee;
  */
 public interface EmployeeDao
 {
-	public void save(Employee Employee);
-	public void delete(Employee Employee);
+	public void save(Employee employee);
+	public void delete(Employee employee);
 	public Employee findById(long id);
 	public List<Employee> findAll();
 }

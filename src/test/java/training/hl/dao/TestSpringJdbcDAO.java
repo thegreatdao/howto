@@ -17,19 +17,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 import training.hl.dao.bean.springjdbc.Department;
 import training.hl.dao.bean.springjdbc.Employee;
+import training.hl.dao.bean.springjdbc.InsurancePolicy;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/application-context.xml")
 @Transactional
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
-public class TestSpringJdbc
+public class TestSpringJdbcDAO
 {
-	private static final Logger LOGGER = LoggerFactory.getLogger(TestSpringJdbc.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(TestSpringJdbcDAO.class);
 	
 	@Autowired
 	private DepartMentDao departMentDao;
 	@Autowired
 	private EmployeeDao employeeDao;
+	@Autowired
+	private InsurancePolicyDao insurancePolicyDao;
 	
 	@Before
 	public void setUp()
@@ -83,5 +86,29 @@ public class TestSpringJdbc
 		}
 		employees = employeeDao.findAll();
 		assertEquals(0, employees.size());
+	}
+	
+	@Test
+	public void testInsurancePolicy()
+	{
+		List<InsurancePolicy> insurancePolicies = insurancePolicyDao.findAll();
+		int initialSize = insurancePolicies.size();
+		InsurancePolicy insurancePolicy = new InsurancePolicy();
+		insurancePolicy.setIssuer("HEALTH-WARRANTY");
+		insurancePolicy.setPolicyNumber("HW1234567890");
+		insurancePolicy.setValid(true);
+		insurancePolicyDao.save(insurancePolicy);
+		insurancePolicies = insurancePolicyDao.findAll();
+		int afterSaveSize = insurancePolicies.size();
+		assertEquals(initialSize + 1, afterSaveSize);
+		for(InsurancePolicy insPolicy : insurancePolicies)
+		{
+			LOGGER.info(insPolicy.toString());
+			InsurancePolicy tempInsurancePolicy = insurancePolicyDao.findById(insPolicy.getId());
+			assertEquals(insPolicy, tempInsurancePolicy);
+			insurancePolicyDao.delete(insPolicy);
+		}
+		insurancePolicies = insurancePolicyDao.findAll();
+		assertEquals(0, insurancePolicies.size());
 	}
 }
