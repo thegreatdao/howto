@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>training.hl</groupId>
-	<artifactId>ch02</artifactId>
+	<artifactId>howto</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>ch02</name>
+	<name>howto</name>
 	<url>http://maven.apache.org</url>
 
 	<developers>
@@ -309,7 +309,7 @@
 	</licenses>
 
 	<build>
-		<finalName>ch02</finalName>
+		<finalName>howto</finalName>
 
 		<filters>
 			<filter>src/main/filters/app.filter.properties</filter>
