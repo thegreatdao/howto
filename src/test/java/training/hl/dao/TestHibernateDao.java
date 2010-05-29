@@ -44,5 +44,14 @@ public class TestHibernateDao
 		departMentDao.save(department);
 		int afterSaveSize = departMentDao.findAll().size();
 		assertEquals(initialSize + 1, afterSaveSize);
+		departMentDao.delete(department);
+		int afterDeletionSize = departMentDao.findAll().size();
+		assertEquals(initialSize, afterDeletionSize);
+	}
+	
+	@Test
+	public void testEmployee()
+	{
+		
 	}
 }
