@@ -15,17 +15,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import training.hl.dao.bean.springjdbc.Department;
-import training.hl.dao.bean.springjdbc.Employee;
-import training.hl.dao.bean.springjdbc.InsurancePolicy;
+import training.hl.dao.bean.Department;
+import training.hl.dao.bean.Employee;
+import training.hl.dao.bean.InsurancePolicy;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/application-context.xml")
 @Transactional
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
-public class TestSpringJdbcDAO
+public class TestSpringJdbcDao
 {
-	private static final Logger LOGGER = LoggerFactory.getLogger(TestSpringJdbcDAO.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(TestSpringJdbcDao.class);
 	
 	@Autowired
 	private DepartMentDao departMentDao;

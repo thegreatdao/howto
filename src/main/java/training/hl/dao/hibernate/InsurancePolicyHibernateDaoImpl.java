@@ -3,7 +3,7 @@ package training.hl.dao.hibernate;
 import java.util.List;
 
 import training.hl.dao.InsurancePolicyDao;
-import training.hl.dao.bean.springjdbc.InsurancePolicy;
+import training.hl.dao.bean.InsurancePolicy;
 
 public class InsurancePolicyHibernateDaoImpl implements InsurancePolicyDao
 {

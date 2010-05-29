@@ -3,7 +3,7 @@ package training.hl.dao.hibernate;
 import java.util.List;
 
 import training.hl.dao.DepartMentDao;
-import training.hl.dao.bean.springjdbc.Department;
+import training.hl.dao.bean.Department;
 
 public class DepartmentHibernateDaoImpl implements DepartMentDao
 {

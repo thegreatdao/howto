@@ -17,11 +17,10 @@
 	<context:annotation-config/>
 	<context:component-scan base-package="training.hl.dao.springjdbc"/>
 	
-	<tx:annotation-driven />
+	<tx:annotation-driven/>
 	
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	
 	<jdbc:embedded-database id="dataSource" type="HSQL">
@@ -32,4 +31,23 @@
 	<bean id="simpleJdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
 		<constructor-arg ref="dataSource"/>
 	</bean>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" p:dataSource-ref="dataSource">
+		<property name="annotatedClasses">
+			<list>
+				<value>training.hl.dao.bean.Department</value>
+				<value>training.hl.dao.bean.Employee</value>
+				<value>training.hl.dao.bean.InsurancePolicy</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<value>
+				hibernate.format_sql=true
+				hibernate.dialect=org.hibernate.dialect.HSQLDialect
+            </value>
+		</property>
+	</bean>
+
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate" p:sessionFactory-ref="sessionFactory"/>
+	
 </beans>

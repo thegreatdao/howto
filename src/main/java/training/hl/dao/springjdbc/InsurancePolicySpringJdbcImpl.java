@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import training.hl.dao.InsurancePolicyDao;
-import training.hl.dao.bean.springjdbc.InsurancePolicy;
+import training.hl.dao.bean.InsurancePolicy;
 
 @Repository
 public class InsurancePolicySpringJdbcImpl implements InsurancePolicyDao

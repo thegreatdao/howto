@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import training.hl.dao.EmployeeDao;
-import training.hl.dao.bean.springjdbc.Employee;
+import training.hl.dao.bean.Employee;
 
 @Repository
 public class EmployeeSpringJdbcImpl implements EmployeeDao

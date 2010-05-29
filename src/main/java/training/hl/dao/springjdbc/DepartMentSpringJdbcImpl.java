@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import training.hl.dao.DepartMentDao;
-import training.hl.dao.bean.springjdbc.Department;
+import training.hl.dao.bean.Department;
 
 @Repository
 public class DepartMentSpringJdbcImpl implements DepartMentDao
