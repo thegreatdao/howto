@@ -60,7 +60,6 @@ public class TestSpringJdbc
 	@Test
 	public void testEmployee()
 	{
-		List<Department> departments = departMentDao.findAll();
-		assertEquals(2, departments.size());
+		
 	}
 }
