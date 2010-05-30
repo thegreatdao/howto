@@ -9,11 +9,13 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import training.hl.dao.InsurancePolicyDao;
 import training.hl.dao.bean.InsurancePolicy;
 
-@Repository
+@Repository("insurancePolicySpringJdbcDao")
+@Transactional(readOnly=false)
 public class InsurancePolicySpringJdbcImpl implements InsurancePolicyDao
 {
 	@Autowired
@@ -29,6 +31,7 @@ public class InsurancePolicySpringJdbcImpl implements InsurancePolicyDao
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public List<InsurancePolicy> findAll()
 	{
 		String sql = "select * from insurance_policy";
@@ -36,6 +39,7 @@ public class InsurancePolicySpringJdbcImpl implements InsurancePolicyDao
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public InsurancePolicy findById(long id)
 	{
 		String sql = "select * from insurance_policy where id = :id";

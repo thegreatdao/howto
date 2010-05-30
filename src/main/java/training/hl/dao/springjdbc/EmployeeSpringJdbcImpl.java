@@ -9,11 +9,13 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import training.hl.dao.EmployeeDao;
 import training.hl.dao.bean.Employee;
 
 @Repository("employeeSpringJdbcDao")
+@Transactional(readOnly=false)
 public class EmployeeSpringJdbcImpl implements EmployeeDao
 {
 	@Autowired
@@ -29,6 +31,7 @@ public class EmployeeSpringJdbcImpl implements EmployeeDao
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public List<Employee> findAll()
 	{
 		String sql = "select * from employee";
@@ -36,6 +39,7 @@ public class EmployeeSpringJdbcImpl implements EmployeeDao
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public Employee findById(long id)
 	{
 		String sql = "select * from employee where id = :id";

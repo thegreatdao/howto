@@ -35,8 +35,9 @@ public class TestSpringJdbcDao
 	@Qualifier("employeeSpringJdbcDao")
 	private EmployeeDao employeeDao;
 	@Autowired
+	@Qualifier("insurancePolicySpringJdbcDao")
 	private InsurancePolicyDao insurancePolicyDao;
-	
+	 
 	@Before
 	public void setUP()
 	{

@@ -54,15 +54,12 @@ public class TestHibernateDao
 		{
 			Department foundDepartment = departMentDao.findById(tempDepartment.getId());
 			assertEquals(foundDepartment, tempDepartment);
-			departMentDao.delete(foundDepartment);
 		}
-		departments = departMentDao.findAll();
-		assertEquals(0, departments.size());
 	}
 	
 	@Test
 	public void testEmployee()
 	{
-		//TODO
+		
 	}
 }

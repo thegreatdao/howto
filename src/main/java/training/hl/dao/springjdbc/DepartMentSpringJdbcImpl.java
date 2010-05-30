@@ -9,11 +9,13 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import training.hl.dao.DepartMentDao;
 import training.hl.dao.bean.Department;
 
 @Repository("departmentSpringJdbcDao")
+@Transactional(readOnly=false)
 public class DepartMentSpringJdbcImpl implements DepartMentDao
 {
 	@Autowired
@@ -29,6 +31,7 @@ public class DepartMentSpringJdbcImpl implements DepartMentDao
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public Department findById(long id)
 	{
 		String sql = "select * from department where id = :id";
@@ -48,6 +51,7 @@ public class DepartMentSpringJdbcImpl implements DepartMentDao
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public List<Department> findAll()
 	{
 		String sql = "select * from department";
