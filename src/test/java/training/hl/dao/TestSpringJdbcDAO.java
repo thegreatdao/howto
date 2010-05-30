@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -37,12 +36,6 @@ public class TestSpringJdbcDao
 	@Autowired
 	@Qualifier("insurancePolicySpringJdbcDao")
 	private InsurancePolicyDao insurancePolicyDao;
-	 
-	@Before
-	public void setUP()
-	{
-		LOGGER.info(departMentDao.toString());
-	}
 	
 	@Test
 	public void testDepartment()

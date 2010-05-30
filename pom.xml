@@ -86,6 +86,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.googlecode.lambdaj</groupId>
+			<artifactId>lambdaj</artifactId>
+			<version>2.2</version>
+		</dependency>
+
 		<!--
 			<dependency> <groupId>org.sakaiproject</groupId>
 			<artifactId>generic-dao</artifactId> <version>[0.9.8,1.0.0)</version>
@@ -237,12 +243,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>org.springframework.context.support</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>quartz</groupId>
-			<artifactId>quartz</artifactId>
-			<version>1.5.2</version>
 		</dependency>
 
 		<!--  for jdk 1.6 only -->
