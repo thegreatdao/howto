@@ -35,9 +35,9 @@
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" p:dataSource-ref="dataSource">
 		<property name="annotatedClasses">
 			<list>
-				<value>training.hl.dao.bean.Department</value>
-				<value>training.hl.dao.bean.Employee</value>
-				<value>training.hl.dao.bean.InsurancePolicy</value>
+				<value>training.hl.bean.Department</value>
+				<value>training.hl.bean.Employee</value>
+				<value>training.hl.bean.InsurancePolicy</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

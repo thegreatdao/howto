@@ -11,8 +11,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import training.hl.bean.Employee;
 import training.hl.dao.EmployeeDao;
-import training.hl.dao.bean.Employee;
 
 @Repository("employeeSpringJdbcDao")
 @Transactional(readOnly=false)

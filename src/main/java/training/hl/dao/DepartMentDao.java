@@ -2,7 +2,7 @@ package training.hl.dao;
 
 import java.util.List;
 
-import training.hl.dao.bean.Department;
+import training.hl.bean.Department;
 /*
  * I will show you how to implement a GenericDao later on
  */

@@ -11,8 +11,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import training.hl.bean.InsurancePolicy;
 import training.hl.dao.InsurancePolicyDao;
-import training.hl.dao.bean.InsurancePolicy;
 
 @Repository("insurancePolicySpringJdbcDao")
 @Transactional(readOnly=false)

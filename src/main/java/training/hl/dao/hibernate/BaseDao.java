@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import training.hl.dao.bean.RootEnitity;
+import training.hl.bean.RootEnitity;
 
 public abstract class BaseDao
 {

@@ -19,9 +19,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import training.hl.dao.bean.Department;
-import training.hl.dao.bean.Employee;
-import training.hl.dao.bean.InsurancePolicy;
+import training.hl.bean.Department;
+import training.hl.bean.Employee;
+import training.hl.bean.InsurancePolicy;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/application-context.xml")

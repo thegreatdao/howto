@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import training.hl.bean.Department;
 import training.hl.dao.DepartMentDao;
-import training.hl.dao.bean.Department;
 
 @Repository("departmentHibernateDao")
 @Transactional(readOnly=false)

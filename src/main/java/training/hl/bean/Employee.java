@@ -1,4 +1,4 @@
-package training.hl.dao.bean;
+package training.hl.bean;
 
 import java.util.Set;
 
