@@ -10,33 +10,33 @@ import training.hl.dao.bean.InsurancePolicy;
 
 @Repository("insurancePolicyHibernateDao")
 @Transactional(readOnly=false)
-public class InsurancePolicyHibernateDaoImpl implements InsurancePolicyDao
+public class InsurancePolicyHibernateDaoImpl extends BaseDao implements InsurancePolicyDao
 {
 
 	@Override
 	public void delete(InsurancePolicy insurancePolicy)
 	{
-		
+		super.delete(insurancePolicy);
 	}
 
 	@Override
 	@Transactional(readOnly=true)
 	public List<InsurancePolicy> findAll()
 	{
-		return null;
+		return super.findAll(InsurancePolicy.class);
 	}
 
 	@Override
 	@Transactional(readOnly=true)
 	public InsurancePolicy findById(long id)
 	{
-		return null;
+		return findById(id, InsurancePolicy.class);
 	}
 
 	@Override
 	public void save(InsurancePolicy insurancePolicy)
 	{
-		
+		super.save(insurancePolicy);
 	}
 
 }

@@ -51,14 +51,13 @@ public class EmployeeSpringJdbcImpl implements EmployeeDao
 	@Override
 	public void save(Employee employee)
 	{
-		String sql = "insert into employee (first_name, last_name, age, department_id, insurance_policy_id) " +
-				"values (:firstName, :lastName, :age, :departmentId, :insurancePolicyId)";
+		String sql = "insert into employee (first_name, last_name, age, department_id) " +
+				"values (:firstName, :lastName, :age, :departmentId)";
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("firstName", employee.getFirstName());
 		parameters.put("lastName", employee.getLastName());
 		parameters.put("age", employee.getAge());
 		parameters.put("departmentId", employee.getDepartmentId());
-		parameters.put("insurancePolicyId", employee.getInsurancePolicyId());
 		simpleJdbcTemplate.update(sql, parameters);
 	}
 

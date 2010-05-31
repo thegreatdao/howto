@@ -1,7 +1,6 @@
 package training.hl.dao;
 
 import static ch.lambdaj.Lambda.filter;
-import static ch.lambdaj.Lambda.forEach;
 import static ch.lambdaj.Lambda.having;
 import static ch.lambdaj.Lambda.on;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
@@ -38,6 +37,9 @@ public class TestHibernateDao
 	@Autowired
 	@Qualifier("employeeHibernateDao")
 	private EmployeeDao employeeDao;
+	@Autowired
+	@Qualifier("insurancePolicyHibernateDao")
+	private InsurancePolicyDao insurancePolicyDao;
 	
 	@Test
 	public void testDepartment()
@@ -68,7 +70,8 @@ public class TestHibernateDao
 		employee.setAge(20);
 		employee.setFirstName("Bill");
 		employee.setLastName("Black");
-		employee.setDepartmentId(1l);
+		Department department = departMentDao.findById(1l);
+		employee.setDepartmentId(department.getId());
 		employeeDao.save(employee);
 		List<Employee> employees = employeeDao.findAll();
 		List<Employee> singleEmployee = filter(having(on(Employee.class).getFirstName(), equalToIgnoringCase("Bill")), employees);
@@ -78,5 +81,11 @@ public class TestHibernateDao
 		employees = employeeDao.findAll();
 		List<Employee> zeroEmployee = filter(having(on(Employee.class).getFirstName(), equalToIgnoringCase("Bill")), employees);
 		assertEquals(0, zeroEmployee.size());
+	}
+	
+	@Test
+	public void testInsurance()
+	{
+		
 	}
 }

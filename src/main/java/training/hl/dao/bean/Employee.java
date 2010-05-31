@@ -7,13 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Data
 @EqualsAndHashCode(callSuper=false)
+@ToString(callSuper=false, includeFieldNames=true)
 public class Employee extends RootEnitity
 {
 	private static final long serialVersionUID = 3085808750192155928L;
@@ -28,10 +31,6 @@ public class Employee extends RootEnitity
 	@Column(name="department_id")
 	private Long departmentId;
 	@ManyToOne
-	@JoinColumn(name="department_id", nullable = false,insertable=false,updatable=false)
-	private Department department;
-	@Column(name="insurance_policy_id", nullable = false,insertable=false,updatable=false)
-	private InsurancePolicy insurancePolicy;
-	@Column(name="insurance_policy_id")
-	private Long insurancePolicyId;
+    @JoinColumn(name="department_id", insertable=false, updatable=false)
+    private Department department;
 }
