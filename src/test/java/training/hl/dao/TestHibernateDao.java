@@ -21,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import training.hl.dao.bean.Department;
 import training.hl.dao.bean.Employee;
+import training.hl.dao.bean.InsurancePolicy;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/application-context.xml")
@@ -86,6 +87,16 @@ public class TestHibernateDao
 	@Test
 	public void testInsurance()
 	{
-		
+		InsurancePolicy insurancePolicy = new InsurancePolicy();
+		insurancePolicy.setEmployeeId(1l);
+		insurancePolicy.setIssurer("EMPIRE INSURANCE");
+		insurancePolicy.setPolicyNumber("EI-1234567890");
+		insurancePolicy.setValid(false);
+		insurancePolicy.setEmployeeId(1l);
+		insurancePolicyDao.save(insurancePolicy);
+		List<InsurancePolicy> insurancePolicies = insurancePolicyDao.findAll();
+		List<InsurancePolicy> singleInsurancePolicy = filter(having(on(InsurancePolicy.class).getIssurer(), equalToIgnoringCase("EMPIRE INSURANCE")), insurancePolicies);
+		assertEquals(1, singleInsurancePolicy.size());
+		assertEquals(insurancePolicy, singleInsurancePolicy.get(0));
 	}
 }

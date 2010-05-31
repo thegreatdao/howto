@@ -51,11 +51,12 @@ public class InsurancePolicySpringJdbcImpl implements InsurancePolicyDao
 	@Override
 	public void save(InsurancePolicy insurancePolicy)
 	{
-		String sql = "insert into insurance_policy (issurer, policy_number, valid) values (:issurer, :policyNumber, :valid)";
+		String sql = "insert into insurance_policy (issurer, policy_number, valid, employee_id) values (:issurer, :policyNumber, :valid, :employeeId)";
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("issurer", insurancePolicy.getIssuer());
+		parameters.put("issurer", insurancePolicy.getIssurer());
 		parameters.put("policyNumber", insurancePolicy.getPolicyNumber());
 		parameters.put("valid", insurancePolicy.isValid());
+		parameters.put("employeeId", insurancePolicy.getEmployeeId());
 		simpleJdbcTemplate.update(sql, parameters);
 	}
 

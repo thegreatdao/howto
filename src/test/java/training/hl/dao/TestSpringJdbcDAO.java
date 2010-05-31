@@ -91,9 +91,10 @@ public class TestSpringJdbcDao
 		List<InsurancePolicy> insurancePolicies = insurancePolicyDao.findAll();
 		int initialSize = insurancePolicies.size();
 		InsurancePolicy insurancePolicy = new InsurancePolicy();
-		insurancePolicy.setIssuer("HEALTH-WARRANTY");
+		insurancePolicy.setIssurer("HEALTH-WARRANTY");
 		insurancePolicy.setPolicyNumber("HW1234567890");
 		insurancePolicy.setValid(true);
+		insurancePolicy.setEmployeeId(1l);
 		insurancePolicyDao.save(insurancePolicy);
 		insurancePolicies = insurancePolicyDao.findAll();
 		int afterSaveSize = insurancePolicies.size();
