@@ -15,7 +15,7 @@
                            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 	<context:annotation-config/>
-	<context:component-scan base-package="training.hl.dao.springjdbc,training.hl.dao.hibernate"/>
+	<context:component-scan base-package="training.hl.bean.hibernate.dao,training.hl.dao.springjdbc,training.hl.dao.hibernate"/>
 	
 	<tx:annotation-driven/>
 	
@@ -32,12 +32,16 @@
 		<constructor-arg ref="dataSource"/>
 	</bean>
 	
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" p:dataSource-ref="dataSource">
+	<bean id="namingStrategy" class="org.hibernate.cfg.ImprovedNamingStrategy"/>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" 
+		p:dataSource-ref="dataSource" p:namingStrategy-ref="namingStrategy">
 		<property name="annotatedClasses">
 			<list>
 				<value>training.hl.bean.Department</value>
 				<value>training.hl.bean.Employee</value>
 				<value>training.hl.bean.InsurancePolicy</value>
+				<value>training.hl.bean.hibernate.User</value>
+				<value>training.hl.bean.hibernate.Category</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
