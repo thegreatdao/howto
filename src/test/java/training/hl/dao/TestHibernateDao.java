@@ -78,7 +78,11 @@ public class TestHibernateDao
 		List<Employee> singleEmployee = filter(having(on(Employee.class).getFirstName(), equalToIgnoringCase("Bill")), employees);
 		assertEquals(1, singleEmployee.size());
 		assertEquals(employee, singleEmployee.get(0));
+		Employee employee2 = employeeDao.findById(2l);
+		assertEquals(employee, employee2);
 		employeeDao.delete(employee);
+		Employee employee1 = employeeDao.findById(1l);
+		assertEquals(2, employee1.getInsurancePolicies().size());
 		employees = employeeDao.findAll();
 		List<Employee> zeroEmployee = filter(having(on(Employee.class).getFirstName(), equalToIgnoringCase("Bill")), employees);
 		assertEquals(0, zeroEmployee.size());
@@ -98,5 +102,7 @@ public class TestHibernateDao
 		List<InsurancePolicy> singleInsurancePolicy = filter(having(on(InsurancePolicy.class).getIssurer(), equalToIgnoringCase("EMPIRE INSURANCE")), insurancePolicies);
 		assertEquals(1, singleInsurancePolicy.size());
 		assertEquals(insurancePolicy, singleInsurancePolicy.get(0));
+		InsurancePolicy insurancePolicy2 = insurancePolicyDao.findById(2l);
+		assertEquals(insurancePolicy2, insurancePolicy);
 	}
 }
