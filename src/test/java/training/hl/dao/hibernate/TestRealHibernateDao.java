@@ -32,9 +32,6 @@ public class TestRealHibernateDao
 	{
 		Category category = new Category();
 		category.setName("Category");
-		baseHibernateDao.save(category);
-		Collection<Category> categories = baseHibernateDao.findAll(Category.class);
-		assertEquals(2, categories.size());
 		User user = new User();
 		user.setAge(20);
 		user.setFirstName("Peter");
@@ -43,9 +40,21 @@ public class TestRealHibernateDao
 		Post post = new Post();
 		post.setBody("This is post created by " + user);
 		post.setTitle("a test post");
-		user.addPost(post);
 		baseHibernateDao.save(user);
-		User foundusUser = baseHibernateDao.findById(User.class, 2l);
-		assertEquals(foundusUser, user);
+		baseHibernateDao.save(category);
+		post.setCategory(category);
+		post.setUser(user);
+		baseHibernateDao.save(post);
+		Collection<Category> categories = baseHibernateDao.findAll(Category.class);
+		assertEquals(3, categories.size());
+		User foundUser = baseHibernateDao.findById(User.class, 2l);
+		assertEquals(foundUser, user);
+		User secondUser = baseHibernateDao.findById(User.class, 1l);
+		for (Post tempPost : secondUser.getPosts())
+		{
+			System.out.println(tempPost);
+		}
+	/*	Collection<Post> allPosts = baseHibernateDao.findAll(Post.class);
+		assertEquals(2, allPosts.size());*/
 	}
 }

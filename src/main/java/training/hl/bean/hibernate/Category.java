@@ -11,7 +11,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+@Data
 @Entity
+@EqualsAndHashCode(callSuper=false, exclude={"posts"})
+@ToString(callSuper=false, exclude="posts")
 public class Category extends RootEntity
 {
 	private static final long serialVersionUID = 2495573965088461445L;
@@ -21,52 +28,7 @@ public class Category extends RootEntity
 	private String name;
 	@Column(insertable=false, updatable=false)
 	private Date createdDate;
-	public Long getId()
-	{
-		return id;
-	}
-
-	public void setId(Long id)
-	{
-		this.id = id;
-	}
-
-	public String getName()
-	{
-		return name;
-	}
-
-	public void setName(String name)
-	{
-		this.name = name;
-	}
-
-	public Date getCreatedDate()
-	{
-		return createdDate;
-	}
-
-	public void setCreatedDate(Date createdDate)
-	{
-		this.createdDate = createdDate;
-	}
-
-	public Set<Post> getPosts()
-	{
-		return posts;
-	}
-
-	public void setPosts(Set<Post> posts)
-	{
-		this.posts = posts;
-	}
-
 	@OneToMany(mappedBy="category")
 	private Set<Post> posts = new HashSet<Post>();
-	
-	public void addPost(Post post)
-	{
-		post.setCategory(this);
-		posts.add(post);
-	}
+
 }
