@@ -7,12 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-@Data
 @Entity
-@EqualsAndHashCode(callSuper=false)
 public class Post extends RootEntity
 {
 	private static final long serialVersionUID = -731165606859766533L;
@@ -20,6 +16,46 @@ public class Post extends RootEntity
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String title;
+	public Long getId()
+	{
+		return id;
+	}
+	public void setId(Long id)
+	{
+		this.id = id;
+	}
+	public String getTitle()
+	{
+		return title;
+	}
+	public void setTitle(String title)
+	{
+		this.title = title;
+	}
+	public String getBody()
+	{
+		return body;
+	}
+	public void setBody(String body)
+	{
+		this.body = body;
+	}
+	public User getUser()
+	{
+		return user;
+	}
+	public void setUser(User user)
+	{
+		this.user = user;
+	}
+	public Category getCategory()
+	{
+		return category;
+	}
+	public void setCategory(Category category)
+	{
+		this.category = category;
+	}
 	private String body;
 	@ManyToOne
 	@JoinColumn(name="user_id")
