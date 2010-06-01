@@ -42,6 +42,7 @@
 				<value>training.hl.bean.InsurancePolicy</value>
 				<value>training.hl.bean.hibernate.User</value>
 				<value>training.hl.bean.hibernate.Category</value>
+				<value>training.hl.bean.hibernate.Post</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

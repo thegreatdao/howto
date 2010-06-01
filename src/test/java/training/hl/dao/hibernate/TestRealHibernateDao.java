@@ -31,6 +31,8 @@ public class TestRealHibernateDao
 		category.setName("Category");
 		baseHibernateDao.save(category);
 		Collection<Category> categories = baseHibernateDao.findAll(Category.class);
-		assertEquals(1, categories.size());
+		assertEquals(2, categories.size());
+		Category category2 = baseHibernateDao.findById(Category.class, 0);
+		int a = 2;
 	}
 }
