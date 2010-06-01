@@ -43,6 +43,7 @@
 				<value>training.hl.bean.hibernate.User</value>
 				<value>training.hl.bean.hibernate.Category</value>
 				<value>training.hl.bean.hibernate.Post</value>
+				<value>training.hl.bean.hibernate.Role</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
