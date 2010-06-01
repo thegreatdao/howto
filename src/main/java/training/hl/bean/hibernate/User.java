@@ -42,12 +42,6 @@ public class User extends RootEntity
 	@OneToMany(mappedBy="user", cascade={ CascadeType.ALL})
 	private Set<Category> categories = new HashSet<Category>();
 	
-	public void addPost(Post post)
-	{
-		post.setUser(this);
-		posts.add(post);
-	}
-	
 	public void addCategory(Category category)
 	{
 		category.setUser(this);
