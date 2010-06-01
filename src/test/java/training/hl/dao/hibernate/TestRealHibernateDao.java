@@ -40,8 +40,8 @@ public class TestRealHibernateDao
 		Post post = new Post();
 		post.setBody("This is post created by " + user);
 		post.setTitle("a test post");
+		user.addCategory(category);
 		baseHibernateDao.save(user);
-		baseHibernateDao.save(category);
 		post.setCategory(category);
 		post.setUser(user);
 		baseHibernateDao.save(post);
@@ -53,5 +53,6 @@ public class TestRealHibernateDao
 		assertEquals(1, secondUser.getPosts().size());
 		Collection<Post> allPosts = baseHibernateDao.findAll(Post.class);
 		assertEquals(2, allPosts.size());
+		
 	}
 }
