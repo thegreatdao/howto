@@ -9,10 +9,12 @@ import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 @Entity
 @EqualsAndHashCode(callSuper=false)
+@ToString(callSuper=false)
 public class Post extends RootEntity
 {
 	private static final long serialVersionUID = -731165606859766533L;

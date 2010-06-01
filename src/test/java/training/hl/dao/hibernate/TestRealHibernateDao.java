@@ -15,8 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 import training.hl.bean.hibernate.Category;
 import training.hl.bean.hibernate.Post;
 import training.hl.bean.hibernate.User;
-import training.hl.bean.hibernate.dao.BaseHibernateDao;
 import training.hl.bean.hibernate.enums.Gender;
+import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/application-context.xml")
@@ -50,11 +50,8 @@ public class TestRealHibernateDao
 		User foundUser = baseHibernateDao.findById(User.class, 2l);
 		assertEquals(foundUser, user);
 		User secondUser = baseHibernateDao.findById(User.class, 1l);
-		for (Post tempPost : secondUser.getPosts())
-		{
-			System.out.println(tempPost);
-		}
-	/*	Collection<Post> allPosts = baseHibernateDao.findAll(Post.class);
-		assertEquals(2, allPosts.size());*/
+		assertEquals(1, secondUser.getPosts().size());
+		Collection<Post> allPosts = baseHibernateDao.findAll(Post.class);
+		assertEquals(2, allPosts.size());
 	}
 }

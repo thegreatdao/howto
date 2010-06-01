@@ -1,4 +1,4 @@
-package training.hl.bean.hibernate.dao;
+package training.hl.dao.hibernate.dedicated;
 
 import java.io.Serializable;
 import java.util.Collection;
