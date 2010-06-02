@@ -31,15 +31,15 @@ public class TestRealHibernateDao
 	public void testCompositions()
 	{
 		Category category = new Category();
-		category.setName("Category");
+		category.setName("Groovy");
 		User user = new User();
 		user.setAge(20);
 		user.setFirstName("Peter");
 		user.setLastName("Johnson");
 		user.setGender(Gender.MALE);
 		Post post = new Post();
-		post.setBody("This is post created by " + user);
-		post.setTitle("a test post");
+		post.setBody("Groovy is a dynamic language that enables user rapid develepment with ease... " + user);
+		post.setTitle("What is Groovy?");
 		user.addCategory(category);
 		baseHibernateDao.save(user);
 		post.setCategory(category);
