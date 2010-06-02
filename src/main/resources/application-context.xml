@@ -34,18 +34,7 @@
 	
 	<bean id="namingStrategy" class="org.hibernate.cfg.ImprovedNamingStrategy"/>
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" 
-		p:dataSource-ref="dataSource" p:namingStrategy-ref="namingStrategy">
-		<property name="annotatedClasses">
-			<list>
-				<value>training.hl.bean.Department</value>
-				<value>training.hl.bean.Employee</value>
-				<value>training.hl.bean.InsurancePolicy</value>
-				<value>training.hl.bean.hibernate.User</value>
-				<value>training.hl.bean.hibernate.Category</value>
-				<value>training.hl.bean.hibernate.Post</value>
-				<value>training.hl.bean.hibernate.Role</value>
-			</list>
-		</property>
+		p:dataSource-ref="dataSource" p:namingStrategy-ref="namingStrategy" p:packagesToScan="training.hl.bean,training.hl.bean.hibernate">
 		<property name="hibernateProperties">
 			<value>
 				hibernate.format_sql=true
