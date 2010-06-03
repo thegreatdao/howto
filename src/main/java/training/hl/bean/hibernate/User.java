@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -40,10 +41,12 @@ public class User extends RootEntity
 	private Gender gender;
 	@Column(insertable = false, updatable = false)
 	private Date createdDate;
-	@OneToMany(mappedBy = "user", cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<Post> posts = new HashSet<Post>();
-	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private Set<Category> categories = new HashSet<Category>();
+	@Embedded
+	private Profile profile;
 	@ManyToMany
 	@JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "role_id") })
 	private Set<Role> roles = new HashSet<Role>();
