@@ -14,10 +14,12 @@ import org.hibernate.search.FullTextSession;
 import org.hibernate.search.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Repository;
 
 import training.hl.bean.RootEntity;
 
-public abstract class BaseDao
+@Repository
+public class BaseDao
 {
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
@@ -56,7 +58,6 @@ public abstract class BaseDao
 			org.apache.lucene.search.Query query = parser.parse(searchTerm);
 			FullTextQuery hibQuery = fullTextSession.createFullTextQuery(query,entityClass);
 			tx.commit();
-			session.close();
 			return hibQuery.list();
 
 		}
@@ -67,10 +68,11 @@ public abstract class BaseDao
 		
 	}
 	
-	public void indexWholeDB() throws InterruptedException
+	public void indexWholeDB()
 	{
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
 		FullTextSession fullTextSession = Search.getFullTextSession(session);
-		fullTextSession.createIndexer().startAndWait();
+		fullTextSession.createIndexer().purgeAllOnStart(false).optimizeAfterPurge(true).optimizeOnFinish(true).start();
+
 	}
 }

@@ -1,9 +1,12 @@
 package training.hl.dao.hibernate;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
+import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,14 @@ public class TestRealHibernateDao
 {
 	@Autowired
 	private BaseHibernateDao baseHibernateDao;
+	@Autowired
+	private BaseDao baseDao;
+	
+	@Before
+	public void setUP()
+	{
+		baseDao.indexWholeDB();
+	}
 	
 	@Test
 	public void testCompositions()
@@ -53,6 +64,8 @@ public class TestRealHibernateDao
 		assertEquals(1, secondUser.getPosts().size());
 		Collection<Post> allPosts = baseHibernateDao.findAll(Post.class);
 		assertEquals(2, allPosts.size());
-		
+		List<Post> posts = baseDao.findBySearch(new String[]{"title"}, Post.class, "groovy");
+		int size = posts.size();
+		assertTrue(size == 2);
 	}
 }
