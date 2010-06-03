@@ -15,7 +15,7 @@
                            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 	<context:annotation-config/>
-	
+	<context:property-placeholder location="classpath:app.properties"/>
 	<context:component-scan base-package="training.hl.bean.hibernate.dao,training.hl.dao.springjdbc,training.hl.dao.hibernate"/>
 	
 	<tx:annotation-driven/>
@@ -37,6 +37,8 @@
 			<value>
 				hibernate.format_sql=true
 				hibernate.dialect=org.hibernate.dialect.HSQLDialect
+				hibernate.search.default.directory_provider=org.hibernate.search.store.FSDirectoryProvider
+				hibernate.search.default.indexBase=${lucene.indexex.folder}
             </value>
 		</property>
 	</bean>

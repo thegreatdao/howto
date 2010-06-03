@@ -37,11 +37,26 @@
 	</properties>
 
 	<repositories>
-		<repository>
+		<!--<repository>
 			<id>jboss</id>
 			<name>jboss repo</name>
 			<url>http://repository.jboss.org/maven2</url>
 		</repository>
+		-->
+		<repository>
+          <id>jboss-public-repository-group</id>
+          <name>JBoss Public Maven Repository Group</name>
+          <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+          <layout>default</layout>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </snapshots>
+        </repository>
 		<repository>
 			<id>com.springsource.repository.bundles.release</id>
 			<name>EBR Spring Release Repository</name>
@@ -97,7 +112,13 @@
 			<artifactId>urlrewritefilter</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-
+		
+		<dependency>
+		     <groupId>org.hibernate</groupId>
+		     <artifactId>hibernate-search</artifactId>
+		     <version>3.2.0.Final</version>
+		 </dependency>
+		 
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>

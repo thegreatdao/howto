@@ -18,7 +18,7 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper=false)
 @ToString(callSuper=true, includeFieldNames=true)
-public class Department extends RootEnitity
+public class Department extends RootEntity
 {
 	private static final long serialVersionUID = 6493743908873389064L;
 	@Id

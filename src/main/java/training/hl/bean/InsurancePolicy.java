@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @Entity
 @EqualsAndHashCode(callSuper=false)
-public class InsurancePolicy extends RootEnitity
+public class InsurancePolicy extends RootEntity
 {
 	private static final long serialVersionUID = 5805528164968512210L;
 	

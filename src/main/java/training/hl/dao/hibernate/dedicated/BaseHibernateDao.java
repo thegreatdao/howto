@@ -8,7 +8,7 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import training.hl.bean.hibernate.RootEntity;
+import training.hl.bean.RootEntity;
 
 @Repository
 @Transactional

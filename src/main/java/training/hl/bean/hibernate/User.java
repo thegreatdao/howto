@@ -22,6 +22,7 @@ import javax.persistence.OneToMany;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import training.hl.bean.RootEntity;
 import training.hl.bean.hibernate.enums.Gender;
 
 @Data
