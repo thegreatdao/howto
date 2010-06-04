@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name=".mainTemplate" template="/WEB-INF/jsps/main.jsp">
+		<put-attribute name="title" value="Spring MVC" type="string" />
+		<put-attribute name="header" value="/WEB-INF/jsps/header.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsps/footer.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/jsps/nav.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsps/body.jsp" />
+	</definition>
+ 
+	<definition name="index" extends=".mainTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsps/index.jsp" />
+	</definition>
+
+</tiles-definitions>

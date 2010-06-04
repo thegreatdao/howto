@@ -67,18 +67,4 @@ public class BaseDao
 		}
 		
 	}
-	
-	public void indexWholeDB()
-	{
-		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
-		FullTextSession fullTextSession = Search.getFullTextSession(session);
-		try
-		{
-			fullTextSession.createIndexer().purgeAllOnStart(true).optimizeAfterPurge(true).optimizeOnFinish(true).startAndWait();
-		}
-		catch (InterruptedException e)
-		{
-			throw new RuntimeException(e);
-		}
-	}
 }

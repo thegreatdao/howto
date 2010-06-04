@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -20,6 +21,7 @@ import training.hl.bean.hibernate.Post;
 import training.hl.bean.hibernate.User;
 import training.hl.bean.hibernate.enums.Gender;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
+import training.hl.dao.hibernate.search.LucenceIndexesHelper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/application-context.xml")
@@ -30,12 +32,14 @@ public class TestRealHibernateDao
 	@Autowired
 	private BaseHibernateDao baseHibernateDao;
 	@Autowired
+	private HibernateTemplate hibernateTemplate;
+	@Autowired
 	private BaseDao baseDao;
 	
 	@Before
 	public void setUP()
 	{
-		baseDao.indexWholeDB();
+		LucenceIndexesHelper.indexWholeDB(hibernateTemplate);
 	}
 	
 	@Test
