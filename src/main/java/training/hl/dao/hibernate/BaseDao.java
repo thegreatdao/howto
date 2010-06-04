@@ -72,7 +72,13 @@ public class BaseDao
 	{
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
 		FullTextSession fullTextSession = Search.getFullTextSession(session);
-		fullTextSession.createIndexer().purgeAllOnStart(false).optimizeAfterPurge(true).optimizeOnFinish(true).start();
-
+		try
+		{
+			fullTextSession.createIndexer().purgeAllOnStart(true).optimizeAfterPurge(true).optimizeOnFinish(true).startAndWait();
+		}
+		catch (InterruptedException e)
+		{
+			throw new RuntimeException(e);
+		}
 	}
 }
