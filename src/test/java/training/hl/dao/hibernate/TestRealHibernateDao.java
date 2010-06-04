@@ -50,7 +50,7 @@ public class TestRealHibernateDao
 		user.setGender(Gender.MALE);
 		Post post = new Post();
 		post.setBody("Groovy is a dynamic language that enables user rapid develepment with ease... " + user);
-		post.setTitle("What is Groovy?");
+		post.setTitle("What is Spring's subproject Groovy?");
 		user.addCategory(category);
 		baseHibernateDao.save(user);
 		post.setCategory(category);
@@ -64,7 +64,7 @@ public class TestRealHibernateDao
 		assertEquals(1, secondUser.getPosts().size());
 		Collection<Post> allPosts = baseHibernateDao.findAll(Post.class);
 		assertEquals(2, allPosts.size());
-		List<Post> posts = baseDao.findBySearch(new String[]{"title"}, Post.class, "groovy");
+		List<Post> posts = baseDao.findBySearch(new String[]{"title"}, Post.class, "spring");
 		int size = posts.size();
 		assertTrue(size == 2);
 	}
