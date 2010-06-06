@@ -12,7 +12,7 @@
 
 	<mvc:annotation-driven />
 
-	<mvc:view-controller path="/" view-name="index" />
+    <mvc:view-controller path="/index.html" />
 
 	<mvc:interceptors>
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
@@ -23,6 +23,5 @@
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" p:definitions="/WEB-INF/tiles-defs/templates.xml" />
 
 	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:viewClass="org.springframework.web.servlet.view.tiles2.TilesView" />
-
 
 </beans>

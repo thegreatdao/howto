@@ -433,7 +433,7 @@
 				<version>6.1.21</version>
 				<configuration>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
-					<contextPath>/</contextPath>
+					<contextPath>/howto</contextPath>
 					<stopPort>9966</stopPort>
 					<stopKey>foo</stopKey>
 					<connectors>

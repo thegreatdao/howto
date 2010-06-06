@@ -38,7 +38,7 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
 				classpath:application-context.xml
-				/WEB-INF/spring/training-servlet.xml	
+				/WEB-INF/spring/training-servlet.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
@@ -46,7 +46,7 @@
 
 	<servlet-mapping>
 		<servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
-		<url-pattern>/training/*.html</url-pattern>
+		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
 
 </web-app>
