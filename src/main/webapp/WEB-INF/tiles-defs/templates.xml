@@ -7,17 +7,17 @@
 
 	<definition name="baseLayout" template="/WEB-INF/jsp/main.jsp">
 		<put-attribute name="title" value="Spring MVC" type="string" />
-		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp" />
 		<put-attribute name="nav" value="/WEB-INF/jsp/nav.jsp" />
 		<put-attribute name="body" value="/WEB-INF/jsp/body.jsp" />
 	</definition>
  
 	<definition name="index" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+		<put-attribute name="title" value="Welcome" type="string" />
 	</definition>
 
 	<definition name="user/show" extends="baseLayout">
+		<put-attribute name="title" value="show all users" type="string" />
 		<put-attribute name="body" value="/WEB-INF/jsp/user/show.jsp" />
 	</definition>
 	

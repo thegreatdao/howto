@@ -2,30 +2,41 @@
 <html>
 	<head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="css/reset.css" />
-	<link rel="stylesheet" href="css/text.css" />
-	<link rel="stylesheet" href="css/960.css" />
+	<title><tiles:getAsString name="title"/></title>
+	<link rel="stylesheet" href="${contextPath}/css/reset.css" />
+	<link rel="stylesheet" href="${contextPath}/css/text.css" />
+	<link rel="stylesheet" href="${contextPath}/css/960.css" />
+	<link rel="stylesheet" href="${contextPath}/css/main.css" />
 	</head>
 	<body>
-		<div class="container_12">
-			<div class="grid_12" style="text-align:center;border: 1px yellow solid;" id="header">
-				<tiles:insertAttribute name="header" />
+		<div id="header">
+			<div class="container_12">
+				<div>
+					<h2>self knowledge</h2>
+				</div>
 			</div>
-			<div class="clear"></div>
+		</div>
+		
+		<div class="container_12">
 			
-			<div class="grid_3" style="text-align:center;border: 1px yellow solid;" id="nav">
+			<div class="grid_3" style="margin-top:20px;" id="nav">
 				<tiles:insertAttribute name="nav" />
 			</div>
-			<div class="grid_9" style="text-align:center;border: 1px yellow solid;" id="body">
-				<tiles:insertAttribute name="body" />
+			<div class="grid_9">
+				<div id="main_content">
+					<tiles:insertAttribute name="body" />
+				</div>
 			</div>
 			<div class="clear"></div>
 			
-			<div class="grid_12" style="text-align:center;border: 1px yellow solid;" id="footer">
-				<tiles:insertAttribute name="footer" />
-			</div>
-			<div class="clear"></div>
 		</div>
+		
+		<div id="footer">
+			<div class="container_12">
+				copyright&copy; 2010
+			</div>
+		</div>
+		
 	</body>
 
 </html>
