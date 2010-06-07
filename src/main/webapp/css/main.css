@@ -61,3 +61,52 @@
 {
 	margin: 20px 0 0 20px;
 }
+
+table
+{
+    border-spacing: 0px;
+    border-collapse: collapse;
+    border-top: 4px solid #C39C4E;
+    border-bottom: 1px solid #C39C4E;
+}
+
+table th
+{
+    text-align: left;
+    font-weight: normal;
+    padding: 0.2em 0.5em;
+    border-top: 1px dotted #C39C4E;
+}
+
+table td
+{
+    text-align: right;
+    border-top: 1px dotted #C39C4E;
+    padding: 0.2em 0.5em;
+}
+
+table thead th
+{
+	font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #C39C4E;
+}
+
+table th.Corner
+{
+    text-align: left;
+}
+
+div#action a
+{
+	text-decoration: none;
+	color: #EA9A1C;
+	background-color: #F0E68C;
+}
+
+div#action a:hover
+{
+	color: #C39C4E;
+	background-color: #F5F5F5;
+}
+

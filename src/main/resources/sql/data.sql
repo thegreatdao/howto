@@ -6,8 +6,16 @@ INSERT INTO INSURANCE_POLICY (ISSURER, POLICY_NUMBER, VALID, EMPLOYEE_ID) VALUES
 INSERT INTO INSURANCE_POLICY (ISSURER, POLICY_NUMBER, VALID, EMPLOYEE_ID) VALUES ('MANULIFE', 'MANULIFE-1234567890', '1', 1);
 INSERT INTO ROLE (NAME) VALUES ('ADMIN_ROLE');
 INSERT INTO ROLE (NAME) VALUES ('USER_ROLE');
-INSERT INTO USER (FIRST_NAME, LAST_NAME, GENDER, AGE, BIO, HOBBIES, HOME_PAGE) VALUES ('John', 'Smith', '0', 20, 'No bio yet', 'Music, Traveling, Party', 'www.jsmith.com');
-INSERT INTO USER (FIRST_NAME, LAST_NAME, GENDER, AGE, BIO, HOBBIES, HOME_PAGE) VALUES ('Jone', 'Smith', '1', 20, 'No bio yet', 'Music, Traveling, Party', 'www.jones.com');
+INSERT INTO USER (FIRST_NAME, LAST_NAME, GENDER, AGE, BIO, HOBBIES, HOME_PAGE) VALUES ('John', 'Smith', '1', 20, 'No bio yet', 'Music, Traveling, Party', 'www.jsmith.com');
+INSERT INTO USER (FIRST_NAME, LAST_NAME, GENDER, AGE, BIO, HOBBIES, HOME_PAGE) VALUES ('Jone', 'Smith', '0', 20, 'No bio yet', 'Dancing', 'www.jones.com');
+INSERT INTO USER (FIRST_NAME, LAST_NAME, GENDER, AGE, BIO, HOBBIES, HOME_PAGE) VALUES ('Jack', 'Williams', '1', 30, 'born in 1980', 'Singing', 'www.jwilliams.com');
+INSERT INTO USER (FIRST_NAME, LAST_NAME, GENDER, AGE, BIO, HOBBIES, HOME_PAGE) VALUES ('Joe', 'Lee', '1', 40, 'born in 1970', 'Hiking', 'www.jlee.com');
+INSERT INTO USER (FIRST_NAME, LAST_NAME, GENDER, AGE, BIO, HOBBIES, HOME_PAGE) VALUES ('Dan', 'Black', '1', 50, 'born in 1960', 'Reading', 'www.dblack.com');
+INSERT INTO USER (FIRST_NAME, LAST_NAME, GENDER, AGE, BIO, HOBBIES, HOME_PAGE) VALUES ('Peter', 'Johnson', '1', 60, 'born in 1950', 'Cooking', 'www.pjohnson.com');
+INSERT INTO USER (FIRST_NAME, LAST_NAME, GENDER, AGE, BIO, HOBBIES, HOME_PAGE) VALUES ('Mike', 'Clinton', '1', 70, 'No bio yet', 'Sleeping', 'www.mclinton.com');
+INSERT INTO USER (FIRST_NAME, LAST_NAME, GENDER, AGE, BIO, HOBBIES, HOME_PAGE) VALUES ('Tim', 'Bush', '1', 80, 'No bio yet', 'Programming', 'www.tbush.com');
+INSERT INTO USER (FIRST_NAME, LAST_NAME, GENDER, AGE, BIO, HOBBIES, HOME_PAGE) VALUES ('Donnie', 'Jackson', '1', 90, 'No bio yet', 'Gambling', 'www.djackson.com');
+INSERT INTO USER (FIRST_NAME, LAST_NAME, GENDER, AGE, BIO, HOBBIES, HOME_PAGE) VALUES ('Kate', 'Churchil', '0', 100, 'No bio yet', 'Eating', 'www.kchurchil.com');
 INSERT INTO CATEGORY (NAME, USER_ID) VALUES ('JAVA', 1);
 INSERT INTO CATEGORY (NAME, USER_ID) VALUES ('.NET', 1);
 INSERT INTO USER_ROLE (USER_ID, ROLE_ID) VALUES (1, 1);

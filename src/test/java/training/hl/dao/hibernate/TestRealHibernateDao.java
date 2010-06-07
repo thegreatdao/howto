@@ -62,7 +62,7 @@ public class TestRealHibernateDao
 		baseHibernateDao.save(post);
 		Collection<Category> categories = baseHibernateDao.findAll(Category.class);
 		assertEquals(3, categories.size());
-		User foundUser = baseHibernateDao.findById(User.class, 2l);
+		User foundUser = baseHibernateDao.findById(User.class, 10l);
 		assertEquals(foundUser, user);
 		User secondUser = baseHibernateDao.findById(User.class, 1l);
 		assertEquals(1, secondUser.getPosts().size());
