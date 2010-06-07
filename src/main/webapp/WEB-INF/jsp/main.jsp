@@ -8,10 +8,23 @@
 	</head>
 	<body>
 		<div class="container_12">
-			<tiles:insertAttribute name="header" />
-			<tiles:insertAttribute name="nav" />
-			<tiles:insertAttribute name="body" />
-			<tiles:insertAttribute name="footer" />
+			<div class="grid_12" style="text-align:center;border: 1px yellow solid;" id="header">
+				<tiles:insertAttribute name="header" />
+			</div>
+			<div class="clear"></div>
+			
+			<div class="grid_3" style="text-align:center;border: 1px yellow solid;" id="nav">
+				<tiles:insertAttribute name="nav" />
+			</div>
+			<div class="grid_9" style="text-align:center;border: 1px yellow solid;" id="body">
+				<tiles:insertAttribute name="body" />
+			</div>
+			<div class="clear"></div>
+			
+			<div class="grid_12" style="text-align:center;border: 1px yellow solid;" id="footer">
+				<tiles:insertAttribute name="footer" />
+			</div>
+			<div class="clear"></div>
 		</div>
 	</body>
 

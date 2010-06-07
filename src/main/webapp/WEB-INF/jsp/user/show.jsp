@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="grid_9" style="text-align:center;">
 	<p>
 		<c:forEach items="${users}" var="user">

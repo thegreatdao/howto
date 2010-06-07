@@ -23,4 +23,10 @@ public class UserController
 	{
 		return baseHibernateDao.findAll(User.class);
 	}
+    
+    @RequestMapping("/ok.html")
+    public String ok()
+    {
+    	return "user/ok";
+    }
 }
