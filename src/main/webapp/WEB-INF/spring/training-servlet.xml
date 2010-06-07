@@ -13,15 +13,19 @@
 	<mvc:annotation-driven />
 
     <mvc:view-controller path="/index.html" />
+    <mvc:view-controller path="/user/show.html" />
 
 	<mvc:interceptors>
-		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="locale"/>
 	</mvc:interceptors>
-
-	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
 
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" p:definitions="/WEB-INF/tiles-defs/templates.xml" />
 
-	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:viewClass="org.springframework.web.servlet.view.tiles2.TilesView" />
-
+	<bean id="tilesViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver"
+		p:viewClass="org.springframework.web.servlet.view.tiles2.TilesView"
+		/>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basenames="messages" />
+          
 </beans>
