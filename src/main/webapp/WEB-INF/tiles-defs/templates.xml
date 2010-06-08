@@ -20,4 +20,9 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/user/show.jsp" />
 	</definition>
 	
+	<definition name="user/form" extends="baseLayout">
+		<put-attribute name="title" value="edit/create user" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/user/form.jsp" />
+	</definition>
+	
 </tiles-definitions>
