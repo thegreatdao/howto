@@ -25,4 +25,29 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/user/form.jsp" />
 	</definition>
 	
+	<definition name="404" extends="baseLayout">
+		<put-attribute name="title" value="resource doesn't exist" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/error/404.jsp" />
+	</definition>
+	
+	<definition name="400" extends="baseLayout">
+		<put-attribute name="title" value="resource doesn't exist" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/error/400.jsp" />
+	</definition>
+	
+	<definition name="500" extends="baseLayout">
+		<put-attribute name="title" value="resource doesn't exist" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/error/500.jsp" />
+	</definition>
+	
+	<definition name="503" extends="baseLayout">
+		<put-attribute name="title" value="resource doesn't exist" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/error/503.jsp" />
+	</definition>
+	
+	<definition name="408" extends="baseLayout">
+		<put-attribute name="title" value="resource doesn't exist" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/error/408.jsp" />
+	</definition>
+	
 </tiles-definitions>
