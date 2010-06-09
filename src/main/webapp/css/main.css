@@ -174,3 +174,14 @@ div#action a:hover
 	font-weight: bold;
 	padding: 4px 6px;
 }
+
+h2 a
+{
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+h2 a:hover
+{
+	color: #C39C4E;
+}

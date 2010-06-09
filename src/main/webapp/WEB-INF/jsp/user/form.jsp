@@ -1,29 +1,25 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div id="basic" class="myform">
-	<form id="form1" name="form1" method="post" action="">
-	    <h1>Sign-up form</h1>
-	
-	    <p>This is the basic look of my form without table</p>
-	    <label>Name
-	        <span class="small">Add your name</span>
+	<form:form  method="post" modelAttribute="user">
+	    <h1>User form</h1>
+		<p>User basic information form</p>
+	    <label>First Name
+	        <span class="small">Add your first name</span>
 	    </label>
-	    <input type="text" name="textfield" id="textfield" />
+	    <form:input path="firstName"/>
 	    
-	    <label>Email
-	    <span class="small">Add a valid address</span>
+
+	    <label>Last Name:
+   	        <span class="small">Add your last name</span>
 	    </label>
 	
-	    <input type="text" name="textfield" id="textfield" />
+	    <form:input path="lastName"/>
 	    
-	    <label>Password
-	        <span class="small">Min. size 6 chars</span>
-	    </label>
+	    <label>Password</label>
 	    <input type="text" name="textfield" id="textfield" />
 	    <button  type="submit">Sign-up</button>
-	    <div class="spacer"></div>
-	
-	
-	  </form>
+	    <div class="clear"></div>
+	  </form:form>
 
 </div><!--
 	<form:form modelAttribute="user">

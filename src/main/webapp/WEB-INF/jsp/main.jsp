@@ -3,16 +3,16 @@
 	<head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title><tiles:getAsString name="title"/></title>
-	<link rel="stylesheet" href="${contextPath}/css/reset.css" />
-	<link rel="stylesheet" href="${contextPath}/css/text.css" />
-	<link rel="stylesheet" href="${contextPath}/css/960.css" />
-	<link rel="stylesheet" href="${contextPath}/css/main.css" />
+	<link rel="stylesheet" href="<c:url value="/css/reset.css" />" />
+	<link rel="stylesheet" href="<c:url value="/css/text.css" />" />
+	<link rel="stylesheet" href="<c:url value="/css/960.css" />" />
+	<link rel="stylesheet" href="<c:url value="/css/main.css" />" />
 	</head>
 	<body>
 		<div id="header">
 			<div class="container_12">
 				<div>
-					<h2>self knowledge</h2>
+					<h2><a href="<c:url value="/" />">Self Knowledge</a></h2>
 				</div>
 			</div>
 		</div>

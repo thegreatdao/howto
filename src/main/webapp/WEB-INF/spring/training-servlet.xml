@@ -12,13 +12,14 @@
 	<mvc:annotation-driven />
 
 	<mvc:view-controller path="/index.html" />
-	<mvc:view-controller path="/user/show.html" />
 
 	<mvc:interceptors>
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
 			p:paramName="locale" />
 	</mvc:interceptors>
 
+	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+	
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"
 		p:definitions="/WEB-INF/tiles-defs/templates.xml" />
@@ -26,19 +27,23 @@
 	<bean id="tilesViewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver"
 		p:viewClass="org.springframework.web.servlet.view.tiles2.TilesView"
-		p:order="1"
-		/>
+		p:order="1" />
 
 	<bean id="jspViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		p:prefix="/WEB-INF/jsp/"
-		p:suffix=".jsp"
-		p:viewClass="org.springframework.web.servlet.view.JstlView"
-		p:order="2"
-		/>
-	
+		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"
+		p:viewClass="org.springframework.web.servlet.view.JstlView" p:order="2" />
+
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource"
 		p:basenames="messages" />
 
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<map>
+				<entry key="java.lang.Throwable" value="general-error" />
+			</map>
+		</property>
+	</bean>
 </beans>

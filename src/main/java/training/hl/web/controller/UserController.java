@@ -10,33 +10,50 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import training.hl.bean.hibernate.User;
+import training.hl.bean.hibernate.enums.Gender;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
+import training.hl.exception.TrainingRootException;
 
 @Controller
-@RequestMapping("/user")
 public class UserController
 {
 	@Autowired
 	private BaseHibernateDao baseHibernateDao;
 	
-    @RequestMapping(value="/show", method=RequestMethod.GET)
+    @RequestMapping(method=RequestMethod.GET)
 	public @ModelAttribute("users") Collection<User> show()
 	{
 		return baseHibernateDao.findAll(User.class);
 	}
     
-    @RequestMapping(value="/form.html", method=RequestMethod.GET)
-    public @ModelAttribute("user") User showUser(@RequestParam(value = "id") long id)
+    @RequestMapping(value="/form", method=RequestMethod.GET)
+    public @ModelAttribute("user") User showUser(@RequestParam(value = "id", required = false) Long id)
     {
-    	return baseHibernateDao.findById(User.class, id);
+    	User user = new User();
+    	if(id == null)
+    	{
+    		return user;
+    	}
+    	
+    	user = baseHibernateDao.findById(User.class, id);
+    	if(user == null)
+    	{
+    		throw new TrainingRootException("no user with id " + id + " exists");
+    	}
+    	return user;
     }
     
     /*
      * jspViewResolver
      */
-    @RequestMapping("/ok.html")
-    public String ok()
+    @RequestMapping("/ok")
+    public @ModelAttribute("user") User ok()
     {
-    	return "user/ok";
+    	User user = new User();
+    	user.setAge(10);
+    	user.setFirstName("Jim");
+    	user.setLastName("Timmins");
+    	user.setGender(Gender.MALE);
+    	return user;
     }
 }
