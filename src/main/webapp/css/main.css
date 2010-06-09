@@ -59,7 +59,7 @@
 
 #main_content
 {
-	margin: 20px 0 0 20px;
+	margin: 10px 0 0 20px;
 }
 
 table
@@ -110,25 +110,35 @@ div#action a:hover
 	background-color: #F5F5F5;
 }
 
-.myform{
-	margin: 0 auto;
-	width: 400px;
-	padding: 14px;
-}
-
-#basic
+fieldset
 {
-	border: solid 2px #DEDEDE;
+	border: 1px solid #666666;
+	padding: 1em;
 }
 
-#basic h1
+legend
+{
+	color: #FFFFFF;
+	background: #686868;
+	border: 1px solid #666666;
+	padding: 2px 6px;
+	font-weight: bold;
+}
+
+#user_form
+{
+	width: 500px;
+	padding: 16px;
+}
+
+#user_form h1
 {
 	font-size: 14px;
 	font-weight: bold;
 	margin-bottom: 8px;
 }
 
-#basic p
+#user_form p
 {
 	font-size: 11px;
 	color: #666666;
@@ -137,7 +147,7 @@ div#action a:hover
 	padding-bottom: 10px;
 }
 
-#basic label
+#user_form label
 {
 	display: block;
 	font-weight: bold;
@@ -146,7 +156,7 @@ div#action a:hover
 	float: left;
 }
 
-#basic .small
+#user_form .small
 {
 	color: #666666;
 	display: block;
@@ -156,18 +166,20 @@ div#action a:hover
 	width: 140px;
 }
 
-#basic input
+#user_form input, #user_form textarea
 {
 	float: left;
-	width: 200px;
+	width: 300px;
 	margin: 2px 0 30px 10px;
+	padding-left: 20px;
+	border: 1px solid #686868;
 }
 
-#basic button
+#user_form button
 { 
 	clear: both;
 	margin-left: 150px;
-	background: #888888;
+	background: #686868;
 	color: #FFFFFF;
 	border: solid 1px #666666;
 	font-size: 11px;
@@ -184,4 +196,46 @@ h2 a
 h2 a:hover
 {
 	color: #C39C4E;
+}
+
+#first_name, #last_name
+{
+	background: url("../images/user.png") no-repeat scroll 1px 50% #FFFFFF;	
+}
+
+#age
+{
+	background: url("../images/age.png") no-repeat scroll 1px 50% #FFFFFF;	
+}
+
+#home_page
+{
+	background: url("../images/link.png") no-repeat scroll 1px 50% #FFFFFF;	
+}
+
+#hobbies
+{
+	background: url("../images/sport_soccer.png") no-repeat scroll 1px 50% #FFFFFF;	
+}
+
+#bio
+{
+	background: url("../images/user_comment.png") no-repeat scroll 1px 2px #FFFFFF;	
+}
+
+#user_form textarea
+{
+	height: 120px;
+}
+
+#gender1
+{
+	float: left;
+	margin: 2px 0 30px 10px;
+	padding-left: 20px;
+}
+
+#gender2
+{
+	
 }

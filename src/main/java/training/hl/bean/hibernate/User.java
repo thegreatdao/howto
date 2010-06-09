@@ -37,7 +37,7 @@ public class User extends RootEntity
 	private Long id;
 	private String firstName;
 	private String lastName;
-	private int age;
+	private Integer age;
 	@Enumerated(EnumType.ORDINAL)
 	private Gender gender;
 	@Column(insertable = false, updatable = false)

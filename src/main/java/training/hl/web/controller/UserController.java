@@ -26,22 +26,27 @@ public class UserController
 		return baseHibernateDao.findAll(User.class);
 	}
     
-    @RequestMapping(value="/form", method=RequestMethod.GET)
-    public @ModelAttribute("user") User showUser(@RequestParam(value = "id", required = false) Long id)
+    @ModelAttribute("user")
+    public User setUpUser(@RequestParam(value = "id", required = false) Long id)
     {
     	User user = new User();
-    	if(id == null)
+    	if(id != null)
     	{
-    		return user;
+    		user = baseHibernateDao.findById(User.class, id);
     	}
-    	
-    	user = baseHibernateDao.findById(User.class, id);
     	if(user == null)
     	{
-    		throw new TrainingRootException("no user with id " + id + " exists");
+    		throw new TrainingRootException("User doesn't exist");
     	}
     	return user;
     }
+    
+    @RequestMapping(value="/form", method={RequestMethod.GET, RequestMethod.POST})
+    public @ModelAttribute("user") User showUser(User user)
+    {
+    	return user;
+    }
+    
     
     /*
      * jspViewResolver

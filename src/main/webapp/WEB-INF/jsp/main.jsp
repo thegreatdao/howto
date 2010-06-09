@@ -12,7 +12,7 @@
 		<div id="header">
 			<div class="container_12">
 				<div>
-					<h2><a href="<c:url value="/" />">Self Knowledge</a></h2>
+					<h2><a href="<c:url value="/" />">How To</a></h2>
 				</div>
 			</div>
 		</div>

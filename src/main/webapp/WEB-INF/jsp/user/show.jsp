@@ -1,3 +1,4 @@
+<div style="margin-bottom: 10px; text-align: center; font-weight: bold;">User list</div>
 <table>
 	<thead>
 		<tr>
