@@ -1,17 +1,19 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title><tiles:getAsString name="title"/></title>
 	<link rel="stylesheet" href="<c:url value="/css/reset.css" />" />
 	<link rel="stylesheet" href="<c:url value="/css/text.css" />" />
 	<link rel="stylesheet" href="<c:url value="/css/960.css" />" />
 	<link rel="stylesheet" href="<c:url value="/css/main.css" />" />
+	<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js" />"></script>
 	</head>
 	<body>
 		<div id="header">
 			<div class="container_12">
-				<div>
+				<div class="grid_12">
 					<h2><a href="<c:url value="/" />">How To</a></h2>
 				</div>
 			</div>
@@ -33,9 +35,19 @@
 		
 		<div id="footer">
 			<div class="container_12">
-				copyright&copy; 2010
+				<div class="grid_12">
+					copyright&copy; 2010
+				</div>
 			</div>
 		</div>
+		<script type="text/javascript">
+			$(
+					function()
+					{
+						
+					}
+			)
+		</script>
 		
 	</body>
 
