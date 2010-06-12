@@ -11,36 +11,37 @@
 	<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js" />"></script>
 	</head>
 	<body>
-		<div id="header">
-			<div class="container_12">
-				<div class="grid_12">
-					<img src="<c:url value="/images/logo.png" />" alt="How To"/>
+		<div style="margin: 0 auto; width: 960px; text-align: center; background-color: green;">
+			<div id="header">
+				<div class="container_12">
+					<div class="grid_12">
+						<h2><a href="/howto/">How To</a></h2>
+					</div>
 				</div>
 			</div>
-		</div>
-		
-		<div class="container_12">
 			
-			<div class="grid_3" style="margin-top:20px;" id="nav">
-				<tiles:insertAttribute name="nav" />
-			</div>
-			<div class="grid_9" style="min-height: 520px;">
-				<div id="main_content">
-					<tiles:insertAttribute name="body" />
-				</div>
-			</div>
-			<div class="clear"></div>
-			
-		</div>
-		
-		<div id="footer">
 			<div class="container_12">
-				<div class="grid_12">
-					copyright&copy; 2010
+				
+				<div class="grid_3" style="margin-top:20px;" id="nav">
+					<tiles:insertAttribute name="nav" />
+				</div>
+				<div class="grid_9" style="min-height: 520px;">
+					<div id="main_content">
+						<tiles:insertAttribute name="body" />
+					</div>
+				</div>
+				<div class="clear"></div>
+				
+			</div>
+			
+			<div id="footer">
+				<div class="container_12">
+					<div class="grid_12">
+						copyright&copy; 2010
+					</div>
 				</div>
 			</div>
-		</div>
-		
+		</div>	
 		<script type="text/javascript">
 			$(
 					function()

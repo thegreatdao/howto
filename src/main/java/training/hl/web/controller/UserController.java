@@ -2,8 +2,11 @@ package training.hl.web.controller;
 
 import java.util.Collection;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,6 +50,16 @@ public class UserController
     	return user;
     }
     
+    @RequestMapping(value="/save", method={RequestMethod.POST})
+    public String saveUser(@Valid User user, BindingResult result)
+    {
+    	if (result.hasErrors())
+    	{
+			return "user/form";
+		}
+    	baseHibernateDao.save(user);
+    	return "redirect:user/form?id=" + user.getId();
+    }
     
     /*
      * jspViewResolver

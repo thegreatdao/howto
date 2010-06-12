@@ -18,6 +18,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -35,9 +39,17 @@ public class User extends RootEntity
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotNull
+	@Size(min=2, max=20)
 	private String firstName;
+	@NotNull
+	@Size(min=2, max=20)
 	private String lastName;
+	@NotNull
+	@Min(10)
+	@Max(80)
 	private Integer age;
+	@NotNull
 	@Enumerated(EnumType.ORDINAL)
 	private Gender gender;
 	@Column(insertable = false, updatable = false)
