@@ -1,6 +1,6 @@
 #header, #footer
 {
-	height: 60px;
+	height: 200px;
 	background-color: #686868;
 	width: 100%;
 	color: #FFFFFF;
@@ -9,8 +9,6 @@
 #footer
 {
 	height: 20px;
-	position:absolute;
-	bottom:0;
 	background:#686868;
 }
 	

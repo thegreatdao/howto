@@ -14,7 +14,7 @@
 		<div id="header">
 			<div class="container_12">
 				<div class="grid_12">
-					<h2><a href="<c:url value="/" />">How To</a></h2>
+					<img src="<c:url value="/images/logo.png" />" alt="How To"/>
 				</div>
 			</div>
 		</div>
@@ -24,7 +24,7 @@
 			<div class="grid_3" style="margin-top:20px;" id="nav">
 				<tiles:insertAttribute name="nav" />
 			</div>
-			<div class="grid_9">
+			<div class="grid_9" style="min-height: 520px;">
 				<div id="main_content">
 					<tiles:insertAttribute name="body" />
 				</div>
@@ -40,6 +40,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<script type="text/javascript">
 			$(
 					function()
