@@ -2,19 +2,26 @@
 <div id="user_form">
 	<fieldset>
 		<legend>User form</legend>
-		<form:form method="post" modelAttribute="user">
+		<form:form method="post" modelAttribute="user" action="save.html">
 
 			<label>First Name <span class="small">Add your first name</span></label>
 		
-			<form:input path="firstName" id="first_name" />
+			<form:input path="firstName" id="first_name" /><form:errors path="firstName" />	
 		
 			<label>Last Name: <span class="small">Add your last name</span></label>
 		
-			<form:input path="lastName" id="last_name" />
+			<form:input path="lastName" id="last_name" /><form:errors path="lastName" />
 		
 			<label>Age: <span class="small">Add your age</span></label>
 		
-			<form:input path="age" id="age" />
+			<form:input path="age" id="age" /><form:errors path="age" />
+			
+			<label>Gender: <span class="small">Select your gender</span></label>
+		
+			<input type="radio" name="gender" value="FEMALE"/>
+			<input type="radio" name="gender" value="MALE"/>
+			<form:errors path="gender" />
+			
 		
 			<label>Home page: <span class="small">Add your home page</span></label>
 		

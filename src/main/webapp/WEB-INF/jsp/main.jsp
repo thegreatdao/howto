@@ -14,7 +14,7 @@
 		<div id="header">
 			<div class="container_12">
 				<div class="grid_12">
-					<img src="<c:url value="/images/logo.png" />" alt="How To"/>
+					<h2><a href="/howto/">How To</a></h2>
 				</div>
 			</div>
 		</div>

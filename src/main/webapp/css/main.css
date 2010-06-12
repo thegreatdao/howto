@@ -1,6 +1,10 @@
+body
+{
+}
+	
 #header, #footer
 {
-	height: 200px;
+	height: 60px;
 	background-color: #686868;
 	width: 100%;
 	color: #FFFFFF;
