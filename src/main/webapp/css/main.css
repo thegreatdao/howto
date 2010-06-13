@@ -152,14 +152,14 @@ div#action a:hover
 
 fieldset
 {
-	border: 1px solid #666666;
+	border: 1px solid #DFDFDF;
 	padding: 1em;
 }
 
 legend
 {
 	color: #FFFFFF;
-	background: #686868;
+	background: #6F605A;
 	border: 1px solid #666666;
 	padding: 2px 6px;
 	font-weight: bold;
@@ -208,11 +208,11 @@ legend
 
 #user_form input, #user_form textarea
 {
-	float: left;
-	width: 300px;
+	height: 20px;
+	width: 280px;
 	margin: 2px 0 30px 10px;
 	padding-left: 20px;
-	border: 1px solid #686868;
+	border: 1px solid #DFDFDF;
 }
 
 #user_form button
@@ -257,14 +257,37 @@ legend
 	height: 120px;
 }
 
-#gender1
+#user_form input[type="radio"]
 {
+	height: auto;
+	width: auto;
+	border: none;
 	float: left;
-	margin: 2px 0 30px 10px;
-	padding-left: 20px;
 }
 
-#gender2
+#user_form div div span label
 {
-	
+	float: none;
+	margin-left: -30px;
+}
+
+form div div span
+{
+	float: left;
+	height: 20px;
+}
+
+.radio_error
+{
+	color: #FF0000;
+	margin-left: 150px;
+	margin-bottom: 10px;	
+}
+
+.form_error
+{
+	margin-top: -20px;
+	color:red;
+	margin-left:150px;
+	margin-bottom:10px;
 }
