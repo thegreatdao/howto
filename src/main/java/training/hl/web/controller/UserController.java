@@ -58,7 +58,7 @@ public class UserController
 			return "user/form";
 		}
     	baseHibernateDao.save(user);
-    	return "redirect:user/form?id=" + user.getId();
+    	return "redirect:/user/form.html?id=" + user.getId();
     }
     
     /*

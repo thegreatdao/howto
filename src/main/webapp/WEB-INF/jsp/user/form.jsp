@@ -7,6 +7,7 @@
 			<div>
 				<label>First Name <span class="small">Add your first name</span></label>
 				<form:input path="firstName" id="first_name" />
+				<form:hidden path="id"/>
 			</div>
 			
 			<div class="form_error">

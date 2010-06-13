@@ -19,7 +19,7 @@ public class BaseHibernateDao
 	
 	public <T extends RootEntity> void save(T entity)
 	{
-		hibernateTemplate.save(entity);
+		hibernateTemplate.saveOrUpdate(entity);
 	}
 	
 	public <T extends RootEntity> void delete(T entity)
