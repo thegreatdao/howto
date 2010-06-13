@@ -11,18 +11,18 @@
 	<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js" />"></script>
 	</head>
 	<body>
-		<div style="margin: 0 auto; width: 960px; text-align: center; background-color: green;">
+		<div id="wrapper">
 			<div id="header">
 				<div class="container_12">
-					<div class="grid_12">
-						<h2><a href="/howto/">How To</a></h2>
+					<div class="grid_12" id="logo">
+						<a href="/howto/"><img src="<c:url value="/images/howto.png" />" /></a>
 					</div>
 				</div>
 			</div>
 			
-			<div class="container_12">
+			<div class="container_12" id="main_body">
 				
-				<div class="grid_3" style="margin-top:20px;" id="nav">
+				<div class="grid_3" id="nav">
 					<tiles:insertAttribute name="nav" />
 				</div>
 				<div class="grid_9" style="min-height: 520px;">
@@ -36,8 +36,10 @@
 			
 			<div id="footer">
 				<div class="container_12">
-					<div class="grid_12">
-						copyright&copy; 2010
+					<div class="grid_12" id="footer_texts">
+						<div>copyright&copy; 2010</div>
+					</div>
+					<div class="grid_12" id="footer_bottom">
 					</div>
 				</div>
 			</div>

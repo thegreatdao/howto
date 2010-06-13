@@ -1,33 +1,69 @@
 body
 {
-	background-color: #6F605A;	
+	background-color: #6F605A;
 }
 	
+#wrapper
+{
+	margin: 6px auto;
+	width: 960px;
+	background-color: #FFFFFF;	
+}
+
 #header, #footer
 {
-	height: 60px;
-	background-color: #686868;
-	width: 100%;
 	color: #FFFFFF;
+}
+
+#header
+{
+	background:url("../images/header.png") no-repeat scroll center transparent;
+	height:160px;
+	width:960px;
+}
+	
+#logo
+{
+	padding-left: 120px;
+	padding-top: 60px;
 }
 
 #footer
 {
-	height: 20px;
-	background:#686868;
-}
-	
-#header div
-{
-	padding-top: 10px;
-	padding-left: 10px;	
+	border-top: 1px dashed #B2B2B2;
 }
 
+#footer_bottom
+{
+	background: url("../images/footer_bg.png");
+	height: 10px;
+	margin:0;width:960px;
+}
+
+#footer_texts
+{
+	height: 50px;
+	color: #666666;
+	background-color: #FFFFFF;
+	margin: 0;
+	width: 960px;
+}
+
+#footer_texts div
+{
+	margin-top: 10px;
+	margin-left: 30px;
+}
+
+#main_body
+{
+	background:url("../images/body_bg.png");
+}
+	
 #nav
 {
 	font-size: 100%;
-	padding: 0px;
-	margin: 0px;
+	margin-top:20px;
 }
 
 #nav ul
@@ -40,15 +76,16 @@ body
 
 #nav ul li
 {
+	background:url("../images/left_menu_bullet.gif") no-repeat scroll left center transparent;
 	margin: 0px;
-	padding: 0px;
+	padding: 0 0 0 16px;
 	font-weight: bold;
+	border-bottom: 1px dashed #C39C4E;
 }
 
 #nav ul li a
 {
 	display: block;
-	border-bottom: 1px dashed #C39C4E;
 	padding: 5px 0px 2px 4px;
 	text-decoration: none;
 	color: #666666;
@@ -57,7 +94,7 @@ body
 #nav ul li a:hover, #nav ul li a:focus
 {
 	color: #000000;
-	background-color: #F5F5F5;
+	background-color: #C39C4E;
 }
 
 #main_content
@@ -188,17 +225,6 @@ legend
 	font-size: 11px;
 	font-weight: bold;
 	padding: 4px 6px;
-}
-
-h2 a
-{
-	text-decoration: none;
-	color: #FFFFFF;
-}
-
-h2 a:hover
-{
-	color: #C39C4E;
 }
 
 #first_name, #last_name
