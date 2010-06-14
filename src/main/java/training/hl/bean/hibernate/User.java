@@ -40,10 +40,10 @@ public class User extends RootEntity
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
-	@Size(min=2, max=20)
+	@Size(min=1, max=20)
 	private String firstName;
 	@NotNull
-	@Size(min=2, max=20)
+	@Size(min=1, max=20)
 	private String lastName;
 	@NotNull
 	@Min(10)
