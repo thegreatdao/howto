@@ -28,6 +28,12 @@ body
 	padding-top: 60px;
 }
 
+#language
+{
+	float: right;
+	margin-top: 40px;
+}
+
 #footer
 {
 	border-top: 1px dashed #B2B2B2;
@@ -108,6 +114,7 @@ table
     border-collapse: collapse;
     border-top: 4px solid #C39C4E;
     border-bottom: 1px solid #C39C4E;
+    width: 680px;
 }
 
 table th

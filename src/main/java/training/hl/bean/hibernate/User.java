@@ -41,6 +41,12 @@ public class User extends RootEntity
 	private Long id;
 	@NotNull
 	@Size(min=1, max=20)
+	private String userName;
+	@NotNull
+	@Size(min=6, max=20)
+	private String password;
+	@NotNull
+	@Size(min=1, max=20)
 	private String firstName;
 	@NotNull
 	@Size(min=1, max=20)

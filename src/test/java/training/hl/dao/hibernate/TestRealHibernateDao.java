@@ -48,6 +48,8 @@ public class TestRealHibernateDao
 		Category category = new Category();
 		category.setName("Groovy");
 		User user = new User();
+		user.setUserName("First_User");
+		user.setPassword("First_User_PASSWORD");
 		user.setAge(20);
 		user.setFirstName("Peter");
 		user.setLastName("Johnson");

@@ -2,7 +2,7 @@
 <table>
 	<thead>
 		<tr>
-			<th>id</th>
+			<th>user name</th>
 			<th>first name</th>
 			<th>last name</th>
 			<th>age</th>
@@ -15,10 +15,10 @@
 	
 	<c:forEach items="${users}" var="user">
 		<tr>
-			<td>${user.id}</td>	
+			<td>${user.userName}</td>	
 			<td>${user.firstName}</td>	
-			<td>${user.lastName}</td>	
-			<td>${user.age}</td>	
+			<td>${user.lastName}</td>
+			<td>${user.age}</td>
 			<td>${user.gender}</td>
 			<td>${user.profile.bio}</td>
 			<td>${user.profile.hobbies}</td>

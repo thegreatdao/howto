@@ -20,9 +20,9 @@
 						<div id="logo">
 							<a href="/howto/"><img src="<c:url value="/images/howto.png" />" alt="How To"/></a>
 						</div>
-						<div>
-							<img src="<c:url value="/images/us.png" />" title="<fmt:message key="lang.en"/>" />
-							<img src="<c:url value="/images/cn.png" />" title="<fmt:message key="lang.cn"/>" />
+						<div id="language">
+							<a href="?locale=en_us"><img src="<c:url value="/images/us.png" />" title="<fmt:message key="lang.en"/>" /></a>
+							<a href="?locale=zh_CN"><img src="<c:url value="/images/cn.png" />" title="<fmt:message key="lang.cn"/>" /></a>
 						</div>
 					</div>
 				</div>

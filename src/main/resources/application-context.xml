@@ -50,4 +50,7 @@
 		<jdbc:script location="classpath:sql/data.sql"/>
 	</jdbc:embedded-database>
 	
+	<bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+		<constructor-arg value="256"/>
+ 	</bean>
 </beans>

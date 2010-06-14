@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,6 +23,8 @@ public class UserController
 {
 	@Autowired
 	private BaseHibernateDao baseHibernateDao;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
     @RequestMapping(method=RequestMethod.GET)
 	public @ModelAttribute("users") Collection<User> show()
@@ -57,6 +60,7 @@ public class UserController
     	{
 			return "user/form";
 		}
+    	user.setPassword(passwordEncoder.encodePassword(user.getPassword(), null));
     	baseHibernateDao.save(user);
     	return "redirect:/user/form.html?id=" + user.getId();
     }
