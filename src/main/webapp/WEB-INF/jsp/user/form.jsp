@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div id="user_form">
 	<fieldset>
-		<legend>User form</legend>
+		<legend><fmt:message key="user.form"/></legend>
 		<form:form method="post" modelAttribute="user" action="save.html">
 
 			<div>
@@ -60,7 +60,7 @@
 			</div>
 			
 			<div>									
-				<button type="submit">Sign-up</button>
+				<button type="submit"><fmt:message key="user.signUp"/></button>
 			</div>
 			
 		</form:form>
