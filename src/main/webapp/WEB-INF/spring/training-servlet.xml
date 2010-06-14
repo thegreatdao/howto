@@ -21,7 +21,7 @@
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
 
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-		p:basename="classpath:locales/messages" p:cacheSeconds="0"
+		p:basename="classpath:i18n/messages" p:cacheSeconds="0"
 	/>
 	
 	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>

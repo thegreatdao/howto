@@ -412,6 +412,9 @@
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
+				<excludes>
+					<exclude>**/messages_zh_CN.properties</exclude>
+				</excludes>
 			</resource>
 		</resources>
 
@@ -430,7 +433,7 @@
 				<artifactId>maven-jetty-plugin</artifactId>
 				<version>6.1.24</version>
 				<configuration>
-		          	<webDefaultXml>src/main/resources/webdefault.xml</webDefaultXml>
+					<webDefaultXml>src/main/resources/webdefault.xml</webDefaultXml>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
 					<contextPath>/howto</contextPath>
 					<stopPort>9966</stopPort>
@@ -442,6 +445,26 @@
 						</connector>
 					</connectors>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>native2ascii-maven-plugin</artifactId>
+				<configuration>
+					<src>src/main/resources/i18n</src>
+					<dest>target/classes/i18n</dest>
+				</configuration>
+				<executions>
+					<execution>
+						<id>native2ascii-utf8</id>
+						<goals>
+							<goal>native2ascii</goal>
+						</goals>
+						<configuration>
+							<encoding>UTF8</encoding>
+							<includes>messages_zh_CN.properties</includes>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
