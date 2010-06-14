@@ -414,6 +414,7 @@
 				<filtering>true</filtering>
 				<excludes>
 					<exclude>**/messages_zh_CN.properties</exclude>
+					<exclude>**/messages.properties</exclude>
 				</excludes>
 			</resource>
 		</resources>
@@ -461,7 +462,7 @@
 						</goals>
 						<configuration>
 							<encoding>UTF8</encoding>
-							<includes>messages_zh_CN.properties</includes>
+							<includes>messages_zh_CN.properties,messages.properties</includes>
 						</configuration>
 					</execution>
 				</executions>

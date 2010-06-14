@@ -16,8 +16,14 @@
 		<div id="wrapper">
 			<div id="header">
 				<div class="container_12">
-					<div class="grid_12" id="logo">
-						<a href="/howto/"><img src="<c:url value="/images/howto.png" />" /></a>
+					<div class="grid_12">
+						<div id="logo">
+							<a href="/howto/"><img src="<c:url value="/images/howto.png" />" alt="How To"/></a>
+						</div>
+						<div>
+							<img src="<c:url value="/images/us.png" />" title="<fmt:message key="lang.en"/>" />
+							<img src="<c:url value="/images/cn.png" />" title="<fmt:message key="lang.cn"/>" />
+						</div>
 					</div>
 				</div>
 			</div>
