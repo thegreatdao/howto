@@ -5,9 +5,18 @@
 		<form:form method="post" modelAttribute="user" action="save.html">
 
 			<div>
+				<label><fmt:message key="user.userName"/>: <span class="small"><fmt:message key="user.userName.add"/></span></label>
+				<form:input path="userName" id="user_name" />
+				<form:hidden path="id"/>
+			</div>
+			
+			<div class="form_error">
+				<form:errors path="userName"/>
+			</div>
+			
+			<div>
 				<label><fmt:message key="user.firstName"/>: <span class="small"><fmt:message key="user.firstName.add"/></span></label>
 				<form:input path="firstName" id="first_name" />
-				<form:hidden path="id"/>
 			</div>
 			
 			<div class="form_error">

@@ -27,6 +27,12 @@ public class BaseHibernateDao
 		hibernateTemplate.delete(entity);
 	}
 	
+	public <T extends RootEntity, PK extends Serializable> void delete(Class<T> entityClass, PK id)
+	{
+		T entity = hibernateTemplate.load(entityClass, id);
+		hibernateTemplate.delete(entity);
+	}
+	
 	public <T extends RootEntity, PK extends Serializable> T findById(Class<T> entityClass, PK id)
 	{
 		return hibernateTemplate.get(entityClass, id);

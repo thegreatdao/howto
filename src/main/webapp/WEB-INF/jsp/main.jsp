@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="<c:url value="/css/960.css" />" />
 	<link rel="stylesheet" href="<c:url value="/css/main.css" />" />
 	<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/js/jquery.tools.min.js" />"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -54,7 +55,7 @@
 			$(
 					function()
 					{
-						
+						$(".user_action").tooltip({ effect: 'slide'});
 					}
 			)
 		</script>

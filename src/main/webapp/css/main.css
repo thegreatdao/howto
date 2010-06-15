@@ -236,7 +236,7 @@ legend
 	padding: 4px 6px;
 }
 
-#first_name, #last_name
+#first_name, #last_name, #user_name
 {
 	background: url("../images/user.png") no-repeat scroll 1px 50% #FFFFFF;	
 }
@@ -300,3 +300,37 @@ form div div span
 	margin-left:150px;
 	margin-bottom:10px;
 }
+
+
+/* tooltip styling */
+.user_action
+{
+	cursor: pointer;	
+}
+	
+.tooltip
+{
+	display:none;
+	background:url(http://static.flowplayer.org/tools/img/tooltip/black_arrow_big.png);
+	padding:40px 30px 10px 30px;
+	height:163px;
+	padding:40px 30px 10px 30px;
+	width:310px;
+	font-size:11px;
+	color:#fff;
+}
+
+/* a .label element inside tooltip */
+.tooltip .label
+{
+	color:yellow;
+	width:35px;
+}
+
+.tooltip a
+{
+	color:#ad4;
+	font-size:11px;
+	font-weight:bold;
+}
+

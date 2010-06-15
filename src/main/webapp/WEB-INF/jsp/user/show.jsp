@@ -15,7 +15,12 @@
 	
 	<c:forEach items="${users}" var="user">
 		<tr>
-			<td>${user.userName}</td>	
+			<td>
+				<span class="user_action">${user.userName}</span>
+				<div class="tooltip">
+					<a href="<c:url value="/user/form.html?id=${user.id}" />">edit</a><a href="">delete</a>
+				</div>
+			</td>	
 			<td>${user.firstName}</td>	
 			<td>${user.lastName}</td>
 			<td>${user.age}</td>
