@@ -1,15 +1,15 @@
-<div style="margin-bottom: 10px; text-align: center; font-weight: bold;">User list</div>
+<div style="margin-bottom: 10px; text-align: center; font-weight: bold;"><fmt:message key="user.userList"/></div>
 <table>
 	<thead>
 		<tr>
-			<th>user name</th>
-			<th>first name</th>
-			<th>last name</th>
-			<th>age</th>
-			<th>gender</th>
-			<th>bio</th>
-			<th>hobbies</th>
-			<th>home page</th>
+			<th><fmt:message key="user.userName"/></th>
+			<th><fmt:message key="user.firstName"/></th>
+			<th><fmt:message key="user.lastName"/></th>
+			<th><fmt:message key="user.age"/></th>
+			<th><fmt:message key="user.gender"/></th>
+			<th><fmt:message key="user.profile.bio"/></th>
+			<th><fmt:message key="user.profile.hobbies"/></th>
+			<th><fmt:message key="user.profile.homePage"/></th>
 		</tr>
 	</thead>
 	
