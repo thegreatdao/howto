@@ -55,7 +55,7 @@
 			$(
 					function()
 					{
-						$(".user_action").tooltip({ effect: 'slide'});
+						$(".user_action").tooltip({  position: "center left", opacity: 0.6, effect: 'slide'});
 					}
 			)
 		</script>

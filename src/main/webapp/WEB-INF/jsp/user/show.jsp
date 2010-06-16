@@ -18,7 +18,7 @@
 			<td>
 				<span class="user_action">${user.userName}</span>
 				<div class="tooltip">
-					<a href="<c:url value="/user/form.html?id=${user.id}" />">edit</a><a href="">delete</a>
+					<a href="<c:url value="/user/form.html?id=${user.id}" />"><fmt:message key="edit"/></a><a href=""><fmt:message key="delete"/></a>
 				</div>
 			</td>	
 			<td>${user.firstName}</td>	
