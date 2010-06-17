@@ -148,13 +148,16 @@ div#action a
 {
 	text-decoration: none;
 	color: #EA9A1C;
-	background-color: #F0E68C;
+	background-color: #6F605A;
+	padding: 4px 8px;
+	border: 1px solid #EA9A1C;
 }
 
 div#action a:hover
 {
 	color: #C39C4E;
 	background-color: #F5F5F5;
+	border: 1px solid #EA9A1C;
 }
 
 fieldset

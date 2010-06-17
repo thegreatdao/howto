@@ -33,5 +33,5 @@
 </table>
 
 <div id="action">
-	<a href="<c:url value="/user/form.html" />">add user</a>
+	<a href="<c:url value="/user/form.html" />"><img src="<c:url value="/images/user_add.png" />" style="vertical-align: middle; margin-right: 6px;"/><fmt:message key="user.add.user"/></a>
 </div>
