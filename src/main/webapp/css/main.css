@@ -241,6 +241,11 @@ legend
 	background: url("../images/user.png") no-repeat scroll 1px 50% #FFFFFF;	
 }
 
+#password
+{
+	background: url("../images/key.png") no-repeat scroll 1px 50% #FFFFFF;	
+}
+
 #age
 {
 	background: url("../images/age.png") no-repeat scroll 1px 50% #FFFFFF;	
@@ -311,20 +316,21 @@ form div div span
 .tooltip
 {
 	display:none;
-	/*background:url(../images/edit_delete.png);*/
+	background:url(../images/edit_delete.png) no-repeat scroll 0 0;
+	height:40px;
+	width:140px;
+	text-align: center;
+	padding-top: 10px;
+	padding-left: 6px;
+	/*
 	background-color: #000000;
 	border: 1px solid #FFFFFF;
-	height:26px;
-	width:136px;
-	font-size:11px;
-	color:#fff;
-	text-align: center;
 	-moz-border-radius:2px;
     -webkit-border-radius:2px;
     -opera-border-radius:2px;
     -khtml-border-radius:2px;
-    border-radius:2px;
-	padding-top: 10px;
+    border-radius:2px;	
+	*/
 }
 
 /* a .label element inside tooltip */

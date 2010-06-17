@@ -15,6 +15,15 @@
 			</div>
 			
 			<div>
+				<label><fmt:message key="user.password"/>: <span class="small"><fmt:message key="user.password.add"/></span></label>
+				<form:password path="password" id="password" />
+			</div>
+			
+			<div class="form_error">
+				<form:errors path="password"/>
+			</div>
+			
+			<div>
 				<label><fmt:message key="user.firstName"/>: <span class="small"><fmt:message key="user.firstName.add"/></span></label>
 				<form:input path="firstName" id="first_name" />
 			</div>

@@ -21,7 +21,7 @@
 					<a href="<c:url value="/user/form.html?id=${user.id}" />"><fmt:message key="edit"/></a><a href=""><fmt:message key="delete"/></a>
 				</div>
 			</td>	
-			<td>${user.firstName}</td>	
+			<td>${user.firstName}</td>
 			<td>${user.lastName}</td>
 			<td>${user.age}</td>
 			<td>${user.gender}</td>
@@ -33,5 +33,5 @@
 </table>
 
 <div id="action">
-	<a href="#">add user</a>
+	<a href="<c:url value="/user/form.html" />">add user</a>
 </div>
