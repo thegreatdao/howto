@@ -455,7 +455,7 @@
 				<configuration>
 					<webDefaultXml>src/main/resources/webdefault.xml</webDefaultXml>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
-					<contextPath>/howto</contextPath>
+					<contextPath>/</contextPath>
 					<stopPort>9966</stopPort>
 					<stopKey>foo</stopKey>
 					<connectors>

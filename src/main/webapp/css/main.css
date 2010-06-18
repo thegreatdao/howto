@@ -228,6 +228,62 @@ legend
 	width: 140px;
 }
 
+#login
+{
+	padding-top: 20px;	
+}
+
+#login input[type="checkbox"]
+{
+	width: 12px;
+	height: 12px;
+	display: block;
+	margin-left: 0;
+	padding: 0;
+	border-style: none;
+}
+
+#login input[type="submit"]
+{
+	margin-top: 5px;
+	width: 100px;
+	background: #686868;
+	color: #FFFFFF;
+	border: solid 1px #666666;
+	font-size: 12px;
+	font-weight: bold;
+	height: 26px;
+}
+	
+#login span
+{
+	display: block;
+	margin-top: -22px;
+	margin-left: 30px;
+}
+
+#login input
+{
+	border-color:#7C7C7C #C3C3C3 #DDDDDD;
+	border-style:solid;
+	border-width:1px;
+	-moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -opera-border-radius:3px;
+    -khtml-border-radius:3px;
+    border-radius:3px;
+    height: 20px;
+	width: 200px;
+	margin-bottom: 6px;
+}
+
+#login label
+{
+	margin-right: 10px;
+	margin-bottom: 5px;
+	display: block;
+}
+
 #app_form input, #app_form textarea
 {
 	height: 20px;
@@ -244,7 +300,7 @@ legend
     border-radius:3px;
 }
 
-#app_form input:focus, #app_form textarea:focus
+#app_form input:focus, #app_form textarea:focus, #login input:focus
 {
 	border-color: #D2691E #D2691E #FF8C00 ;
 }

@@ -17,7 +17,7 @@
 				<div class="container_12">
 					<div class="grid_12">
 						<div id="logo">
-							<a href="/howto/"><img src="<c:url value="/images/howto.png" />" alt="How To"/></a>
+							<a href="/"><img src="<c:url value="/images/howto.png" />" alt="How To"/></a>
 						</div>
 						<div id="language">
 							<a href="?locale=en_us"><img src="<c:url value="/images/us.png" />" title="<fmt:message key="lang.en"/>" /></a>

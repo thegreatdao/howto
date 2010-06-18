@@ -2,13 +2,56 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:sec="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/mvc
 		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.0.xsd
 		">
 
+	<sec:global-method-security pre-post-annotations="enabled">
+        <!-- AspectJ pointcut expression that locates our "post" method and applies security that way
+        <protect-pointcut expression="execution(* bigbank.*Service.post*(..))" access="ROLE_TELLER"/>
+        -->
+    </sec:global-method-security>
+
+    <sec:http use-expressions="true">
+        <sec:intercept-url pattern="/**/form.html" access="hasRole('ROLE_SUPERVISOR')"/>
+        <sec:intercept-url pattern="/secure/**" access="isAuthenticated()" />
+        <!-- Disable web URI authorization, as we're using <global-method-security> and have @Secured the services layer instead
+        <intercept-url pattern="/listAccounts.html" access="isRememberMe()" />
+        <intercept-url pattern="/post.html" access="hasRole('ROLE_TELLER')" />
+        -->
+        <sec:intercept-url pattern="/**" access="permitAll" />
+        <sec:form-login login-page="/index.html"/>
+        <sec:logout />
+        <sec:remember-me />
+<!--
+    Uncomment to enable X509 client authentication support
+        <x509 />
+-->
+        <!-- Uncomment to limit the number of sessions a user can have --><!--
+        <sec:session-management invalid-session-url="/index.html">
+            <sec:concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
+        </sec:session-management>
+
+    --></sec:http>
+    
+     <sec:authentication-manager>
+        <sec:authentication-provider>
+            <sec:password-encoder hash="md5"/>
+            <sec:user-service>
+                <sec:user name="rod" password="a564de63c2d0da68cf47586ee05984d7" authorities="ROLE_SUPERVISOR, ROLE_USER, ROLE_TELLER" />
+                <sec:user name="dianne" password="65d15fe9156f9c4bbffd98085992a44e" authorities="ROLE_USER,ROLE_TELLER" />
+                <sec:user name="scott" password="2b58af6dddbd072ed27ffc86725d7d3a" authorities="ROLE_USER" />
+                <sec:user name="peter" password="22b5c9accc6e1ba628cedc63a72d57f8" authorities="ROLE_USER" />
+            </sec:user-service>
+        </sec:authentication-provider>
+    </sec:authentication-manager>
+    
 	<mvc:annotation-driven />
 
 	<mvc:view-controller path="/index.html" />
