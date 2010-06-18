@@ -158,6 +158,11 @@ div#action a
 	background-color: #6F605A;
 	padding: 4px 8px;
 	border: 1px solid #EA9A1C;
+	-moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -opera-border-radius:3px;
+    -khtml-border-radius:3px;
+    border-radius:3px;
 }
 
 div#action a:hover
@@ -332,15 +337,6 @@ form div div span
 	text-align: center;
 	padding-top: 10px;
 	padding-left: 6px;
-	/*
-	background-color: #000000;
-	border: 1px solid #FFFFFF;
-	-moz-border-radius:2px;
-    -webkit-border-radius:2px;
-    -opera-border-radius:2px;
-    -khtml-border-radius:2px;
-    border-radius:2px;	
-	*/
 }
 
 /* a .label element inside tooltip */
