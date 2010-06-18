@@ -24,6 +24,16 @@
 		<put-attribute name="title" value="edit/create user" type="string" />
 		<put-attribute name="body" value="/WEB-INF/jsp/user/form.jsp" />
 	</definition>
+
+	<definition name="category/show" extends="baseLayout">
+		<put-attribute name="title" value="show all categories" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/category/show.jsp" />
+	</definition>
+	
+	<definition name="role/show" extends="baseLayout">
+		<put-attribute name="title" value="show all roles" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/role/show.jsp" />
+	</definition>
 	
 	<definition name="404" extends="baseLayout">
 		<put-attribute name="title" value="resource doesn't exist" type="string" />

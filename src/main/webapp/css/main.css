@@ -3,6 +3,13 @@ body
 	background-color: #6F605A;
 }
 	
+#tabular_data
+{
+	margin-bottom: 10px;
+	text-align: center;
+	font-weight: bold;	
+}
+	
 #wrapper
 {
 	margin: 6px auto;
@@ -135,7 +142,7 @@ table td
 table thead th
 {
 	font-weight: bold;
-    text-align: center;
+    text-align: right;
     border-bottom: 1px solid #C39C4E;
 }
 
@@ -352,3 +359,8 @@ form div div span
 	text-decoration: none;
 }
 
+#action_img
+{
+	vertical-align: middle;
+	margin-right: 6px;
+}

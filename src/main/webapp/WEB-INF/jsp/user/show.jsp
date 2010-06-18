@@ -1,4 +1,4 @@
-<div style="margin-bottom: 10px; text-align: center; font-weight: bold;"><fmt:message key="user.userList"/></div>
+<div id="tabular_data"><fmt:message key="user.userList"/></div>
 <table>
 	<thead>
 		<tr>
@@ -33,5 +33,5 @@
 </table>
 
 <div id="action">
-	<a href="<c:url value="/user/form.html" />"><img src="<c:url value="/images/user_add.png" />" style="vertical-align: middle; margin-right: 6px;"/><fmt:message key="user.add.user"/></a>
+	<a href="<c:url value="/user/form.html" />"><img src="<c:url value="/images/user_add.png" />" id="action_img"/><fmt:message key="user.add.user"/></a>
 </div>
