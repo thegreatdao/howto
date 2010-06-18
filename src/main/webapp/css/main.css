@@ -187,20 +187,20 @@ legend
 	font-weight: bold;
 }
 
-#user_form
+#app_form
 {
 	width: 500px;
 	padding: 16px;
 }
 
-#user_form h1
+#app_form h1
 {
 	font-size: 14px;
 	font-weight: bold;
 	margin-bottom: 8px;
 }
 
-#user_form p
+#app_form p
 {
 	font-size: 11px;
 	color: #666666;
@@ -209,7 +209,7 @@ legend
 	padding-bottom: 10px;
 }
 
-#user_form label
+#app_form label
 {
 	display: block;
 	font-weight: bold;
@@ -218,7 +218,7 @@ legend
 	float: left;
 }
 
-#user_form .small
+#app_form .small
 {
 	color: #666666;
 	display: block;
@@ -228,7 +228,7 @@ legend
 	width: 140px;
 }
 
-#user_form input, #user_form textarea
+#app_form input, #app_form textarea
 {
 	height: 20px;
 	width: 280px;
@@ -237,9 +237,19 @@ legend
 	border-color:#7C7C7C #C3C3C3 #DDDDDD;
 	border-style:solid;
 	border-width:1px;
+	-moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -opera-border-radius:3px;
+    -khtml-border-radius:3px;
+    border-radius:3px;
 }
 
-#user_form button
+#app_form input:focus, #app_form textarea:focus
+{
+	border-color: #D2691E #D2691E #FF8C00 ;
+}
+	
+#app_form button
 { 
 	clear: both;
 	margin-left: 150px;
@@ -281,12 +291,12 @@ legend
 	background: url("../images/user_comment.png") no-repeat scroll 1px 2px #FFFFFF;	
 }
 
-#user_form textarea
+#app_form textarea
 {
 	height: 120px;
 }
 
-#user_form input[type="radio"]
+#app_form input[type="radio"]
 {
 	height: auto;
 	width: auto;
@@ -294,7 +304,7 @@ legend
 	float: left;
 }
 
-#user_form div div span label
+#app_form div div span label
 {
 	float: none;
 	margin-left: -30px;

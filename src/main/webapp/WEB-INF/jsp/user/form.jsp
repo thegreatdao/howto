@@ -1,5 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<div id="user_form">
+<div id="app_form">
 	<fieldset>
 		<legend><fmt:message key="user.form"/></legend>
 		<form:form method="post" modelAttribute="user" action="save.html">

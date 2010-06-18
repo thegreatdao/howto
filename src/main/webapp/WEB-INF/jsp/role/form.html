@@ -1,0 +1,30 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<div id="user_form">
+	<fieldset>
+		<legend><fmt:message key="user.form"/></legend>
+		<form:form method="post" modelAttribute="category" action="save.html">
+
+			<div>
+				<label><fmt:message key="user.userName"/>: <span class="small"><fmt:message key="user.userName.add"/></span></label>
+				<form:input path="userName" id="user_name" />
+				<form:hidden path="id"/>
+			</div>
+			
+			<div class="form_error">
+				<form:errors path="userName"/>
+			</div>
+			
+			<div>
+				<label><fmt:message key="user.password"/>: <span class="small"><fmt:message key="user.password.add"/></span></label>
+				<form:password path="password" id="password" />
+			</div>			
+			
+			<div>									
+				<button type="submit"><fmt:message key="user.signUp"/></button>
+			</div>
+			
+		</form:form>
+	</fieldset>
+
+</div>
+<div class="clear"></div>
