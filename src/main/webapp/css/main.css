@@ -260,11 +260,14 @@ legend
 	display: block;
 	margin-top: -22px;
 	margin-left: 30px;
+	color: #666666;
+	font-weight: bold;
 }
 
 #login input
 {
 	border-color:#7C7C7C #C3C3C3 #DDDDDD;
+	background: transparent;
 	border-style:solid;
 	border-width:1px;
 	-moz-border-radius:3px;
@@ -282,6 +285,8 @@ legend
 	margin-right: 10px;
 	margin-bottom: 5px;
 	display: block;
+	color: #666666;
+	font-weight: bold;
 }
 
 #app_form input, #app_form textarea
