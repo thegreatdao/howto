@@ -1,6 +1,7 @@
 body
 {
 	background-color: #6F605A;
+	/*background: url("../images/bg.png") repeat-x scroll center bottom #6F605A;*/
 }
 	
 #tabular_data
@@ -14,7 +15,7 @@ body
 {
 	margin: 6px auto;
 	width: 960px;
-	background-color: #FFFFFF;	
+	background-color: #FFFFFF;
 }
 
 #header, #footer
@@ -55,11 +56,13 @@ body
 
 #footer_texts
 {
-	height: 50px;
+	height: 30px;
 	color: #666666;
 	background-color: #FFFFFF;
 	margin: 0;
 	width: 960px;
+	font-size: 10px;
+	font-weight: bold;
 }
 
 #footer_texts div
@@ -70,13 +73,13 @@ body
 
 #main_body
 {
-	background:url("../images/body_bg.png");
+	background: url("../images/body_bg.png");
 }
 	
 #nav
 {
 	font-size: 100%;
-	margin-top:20px;
+	margin-top: 20px;
 }
 
 #nav ul
@@ -430,4 +433,9 @@ form div div span
 {
 	vertical-align: middle;
 	margin-right: 6px;
+}
+
+#login_panel
+{
+	backgrou
 }
