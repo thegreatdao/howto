@@ -231,6 +231,22 @@ legend
 	width: 140px;
 }
 
+#app_form label.gender
+{
+	margin: 0 30px;
+	width: 20px;
+}
+
+#male
+{
+	background: url("../images/user.png") no-repeat scroll 0 0;
+}
+
+#female
+{
+	background: url("../images/user_female.png") no-repeat scroll 0 0;
+}
+	
 #login
 {
 	padding-top: 20px;	
@@ -269,8 +285,9 @@ legend
 
 #login input
 {
-	border-color:#7C7C7C #C3C3C3 #DDDDDD;
 	background: transparent;
+	color: #800000;
+	border-color:#7C7C7C #C3C3C3 #DDDDDD;
 	border-style:solid;
 	border-width:1px;
 	-moz-border-radius:3px;
@@ -281,6 +298,19 @@ legend
     height: 20px;
 	width: 200px;
 	margin-bottom: 6px;
+}
+
+#login a
+{
+	text-decoration: none;
+	font-weight: bold;
+	margin-left: 10px;
+	color: #666666;
+}
+
+#login a:hover
+{
+	color: #EA9A1C;
 }
 
 #login label
@@ -298,6 +328,7 @@ legend
 	width: 280px;
 	margin: 2px 0 30px 10px;
 	padding-left: 26px;
+	color: #800000;
 	border-color:#7C7C7C #C3C3C3 #DDDDDD;
 	border-style:solid;
 	border-width:1px;
@@ -394,7 +425,6 @@ form div div span
 	margin-left:150px;
 	margin-bottom:10px;
 }
-
 
 /* tooltip styling */
 .user_action

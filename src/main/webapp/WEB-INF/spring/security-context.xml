@@ -18,9 +18,9 @@
 	</global-method-security>
 
 	<http use-expressions="true">
-		<intercept-url pattern="/**/form.html" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/secure/**" access="isAuthenticated()" />
+		<intercept-url pattern="/**/form.html" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"/>
 		<!--
+			<intercept-url pattern="/secure/**" access="isAuthenticated()" />
 			Disable web URI authorization, as we're using
 			<global-method-security> and have @Secured the services layer instead
 			<intercept-url pattern="/listAccounts.html" access="isRememberMe()"
@@ -28,6 +28,7 @@
 			access="hasRole('ROLE_TELLER')" />
 		-->
 		<intercept-url pattern="/**" access="permitAll" />
+		<!-- <intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" /> -->
 		<form-login login-page="/index.html" />
 		<logout />
 		<remember-me />
@@ -39,8 +40,9 @@
 			<concurrency-control max-sessions="1"
 				error-if-maximum-exceeded="true" />
 		</session-management>
+		-->
 
-	--></http>
+	</http>
 
 	<authentication-manager>
 		<authentication-provider>
