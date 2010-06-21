@@ -411,6 +411,11 @@ legend
 	background: url("../images/shape_square.png") no-repeat scroll 1px 2px #FFFFFF;
 }
 
+#category_name
+{
+	background: url("../images/folder.png") no-repeat scroll 1px 2px #FFFFFF;
+}
+
 #app_form textarea
 {
 	height: 120px;

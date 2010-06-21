@@ -1,4 +1,3 @@
-<div id="tabular_data"><fmt:message key="category.categoryList"/></div>
 <table>
 	<thead>
 		<tr>
@@ -13,7 +12,7 @@
 			<td>
 				<span class="user_action">${category.name}</span>
 				<div class="tooltip">
-					<a href="<c:url value="/category/form.html?id=${user.id}" />"><fmt:message key="edit"/></a><a href=""><fmt:message key="delete"/></a>
+					<a href="<c:url value="/category/form.html?id=${category.id}" />"><fmt:message key="edit"/></a><a href=""><fmt:message key="delete"/></a>
 				</div>
 			</td>	
 			<td><fmt:formatDate value="${category.createdDate}" pattern="yyyy-dd-MM"/></td>

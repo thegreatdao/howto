@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -53,6 +54,7 @@ public class UserController
     	return user;
     }
     
+    @PreAuthorize("#user.userName == principal.username  or hasRole('ROLE_ADMIN')")
     @RequestMapping(value="/save", method={RequestMethod.POST})
     public String save(@Valid User user, BindingResult result)
     {

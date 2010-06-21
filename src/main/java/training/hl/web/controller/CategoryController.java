@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -51,6 +52,7 @@ public class CategoryController
     	return category;
     }
 	
+	@PreAuthorize("#category.user.userName == principal.username  or hasRole('ROLE_ADMIN')")
 	@RequestMapping(value="/category/save", method={RequestMethod.POST})
     public String save(@Valid Category category, BindingResult result)
     {
@@ -60,6 +62,6 @@ public class CategoryController
 		}
     	category.setUser(baseHibernateDao.findById(User.class, 0l));
     	baseHibernateDao.save(category);
-    	return "redirect:/role/form.html?id=" + category.getId();
+    	return "redirect:/category/form.html?id=" + category.getId();
     }
 }

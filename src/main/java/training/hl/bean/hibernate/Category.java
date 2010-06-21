@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import training.hl.bean.RootEntity;
 
@@ -29,6 +31,8 @@ public class Category extends RootEntity
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@NotNull
+	@Size(min=2, max=20)
 	private String name;
 	@Column(insertable=false, updatable=false)
 	private Date createdDate;
