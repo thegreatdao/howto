@@ -2,8 +2,11 @@ package training.hl.web.controller;
 
 import java.util.Collection;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -14,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import training.hl.bean.hibernate.Category;
-import training.hl.bean.hibernate.Role;
 import training.hl.bean.hibernate.User;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
 import training.hl.exception.TrainingRootException;
@@ -46,21 +48,23 @@ public class CategoryController
 		return category;
 	}
 	
-	@RequestMapping(value="/category/form", method={RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(method={RequestMethod.GET, RequestMethod.POST})
     public @ModelAttribute("category") Category show(Category category)
     {
     	return category;
     }
 	
-	@PreAuthorize("#category.user.userName == principal.username  or hasRole('ROLE_ADMIN')")
-	@RequestMapping(value="/category/save", method={RequestMethod.POST})
-    public String save(@Valid Category category, BindingResult result)
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(method={RequestMethod.POST})
+    public String save(@Valid Category category, BindingResult result, HttpServletRequest request)
     {
     	if (result.hasErrors())
     	{
 			return "category/form";
 		}
-    	category.setUser(baseHibernateDao.findById(User.class, 0l));
+    	Criterion criterion = Restrictions.eq("userName", request.getRemoteUser());
+    	User user = baseHibernateDao.findOneByCriteria(User.class, criterion);
+    	category.setUser(user);
     	baseHibernateDao.save(category);
     	return "redirect:/category/form.html?id=" + category.getId();
     }

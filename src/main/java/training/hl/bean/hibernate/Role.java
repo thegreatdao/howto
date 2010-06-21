@@ -12,16 +12,13 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import training.hl.bean.RootEntity;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import training.hl.bean.RootEntity;
 
 @Data
 @Entity
 @EqualsAndHashCode(callSuper = false, exclude = { "users"})
-@ToString(callSuper = false, exclude = { "users"})
 public class Role extends RootEntity
 {
 	private static final long serialVersionUID = -4366181788207274076L;
@@ -37,4 +34,10 @@ public class Role extends RootEntity
 	private String description;
 	@ManyToMany(mappedBy = "roles")
 	private Set<User> users = new HashSet<User>();
+	
+	@Override
+	public String toString()
+	{
+		return name;
+	}
 }

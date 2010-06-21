@@ -17,7 +17,6 @@
 		    <input type='password' name='j_password'/>
 		    <input type='checkbox' name='_spring_security_remember_me'/><span><fmt:message key="user.remember.me" /></span>
 		    <input name="submit" type="submit" value="<fmt:message key="user.login" />"/>
-		   
 		  </div>
 		</form>
 	</sec:authorize>

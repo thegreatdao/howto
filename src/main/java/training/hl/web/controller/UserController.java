@@ -48,14 +48,14 @@ public class UserController
     	return user;
     }
     
-    @RequestMapping(value="/user/form", method={RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(method={RequestMethod.GET, RequestMethod.POST})
     public @ModelAttribute("user") User show(User user)
     {
     	return user;
     }
     
-    @PreAuthorize("#user.userName == principal.username  or hasRole('ROLE_ADMIN')")
-    @RequestMapping(value="/save", method={RequestMethod.POST})
+    @PreAuthorize("#user.userName == principal.username or hasRole('ROLE_ADMIN')")
+    @RequestMapping(method={RequestMethod.POST})
     public String save(@Valid User user, BindingResult result)
     {
     	if (result.hasErrors())

@@ -18,7 +18,7 @@
 	</global-method-security>
 
 	<http use-expressions="true">
-		<intercept-url pattern="/**/form.html" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"/>
+		<!-- <intercept-url pattern="/**/form.html" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"/> -->
 		<!--
 			<intercept-url pattern="/secure/**" access="isAuthenticated()" />
 			Disable web URI authorization, as we're using

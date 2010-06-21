@@ -44,14 +44,14 @@ public class RoleController
 		return role;
 	}
 	
-	@RequestMapping(value="/role/form", method={RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(method={RequestMethod.GET, RequestMethod.POST})
     public @ModelAttribute("role") Role show(Role role)
     {
     	return role;
     }
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(value="/role/save", method={RequestMethod.POST})
+	@RequestMapping(method={RequestMethod.POST})
     public String save(@Valid Role role, BindingResult result)
     {
     	if (result.hasErrors())
