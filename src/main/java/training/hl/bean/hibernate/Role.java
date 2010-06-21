@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import training.hl.bean.RootEntity;
 
@@ -25,7 +28,12 @@ public class Role extends RootEntity
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@NotNull
+	@Size(min=6, max=20)
+	@Pattern(regexp="ROLE_\\S+")
 	private String name;
+	@NotNull
+	@Size(min=10, max=100)
 	private String description;
 	@ManyToMany(mappedBy = "roles")
 	private Set<User> users = new HashSet<User>();

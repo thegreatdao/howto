@@ -79,7 +79,16 @@
 			</div>
 			
 			<div>									
-				<button type="submit"><fmt:message key="user.signUp"/></button>
+				<button type="submit">
+					<c:choose>
+						<c:when test="${empty user.id}">
+							<fmt:message key="user.signUp"/>
+						</c:when>
+						<c:otherwise>
+							<fmt:message key="user.update"/>
+						</c:otherwise>
+					</c:choose>
+				</button>
 			</div>
 			
 		</form:form>

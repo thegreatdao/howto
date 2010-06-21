@@ -13,7 +13,7 @@
 			<td>
 				<span class="user_action">${category.name}</span>
 				<div class="tooltip">
-					<a href="<c:url value="/user/form.html?id=${user.id}" />"><fmt:message key="edit"/></a><a href=""><fmt:message key="delete"/></a>
+					<a href="<c:url value="/category/form.html?id=${user.id}" />"><fmt:message key="edit"/></a><a href=""><fmt:message key="delete"/></a>
 				</div>
 			</td>	
 			<td><fmt:formatDate value="${category.createdDate}" pattern="yyyy-dd-MM"/></td>
@@ -23,5 +23,5 @@
 </table>
 
 <div id="action">
-	<a href="<c:url value="/user/form.html" />"><img src="<c:url value="/images/application_add.png" />" id="action_img"/><fmt:message key="category.add.category"/></a>
+	<a href="<c:url value="/category/form.html" />"><img src="<c:url value="/images/application_add.png" />" id="action_img"/><fmt:message key="category.add.category"/></a>
 </div>

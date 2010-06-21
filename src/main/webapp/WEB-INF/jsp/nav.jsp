@@ -1,10 +1,10 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <ul>
-	<li><a href="<c:url value="/" />">Home</a></li>
-	<li><a href="<c:url value="/user/show.html" />">User</a></li>
-	<li><a href="<c:url value="/role/show.html" />">Role</a></li>
-	<li><a href="javascript:void(0);">Post</a></li>
-	<li><a href="<c:url value="/category/show.html" />">Category</a></li>
+	<li><a href="<c:url value="/" />"><fmt:message key="home"/></a></li>
+	<li><a href="<c:url value="/user/show.html" />"><fmt:message key="user"/></a></li>
+	<li><a href="<c:url value="/role/show.html" />"><fmt:message key="role"/></a></li>
+	<li><a href="javascript:void(0);"><fmt:message key="post"/></a></li>
+	<li><a href="<c:url value="/category/show.html" />"><fmt:message key="category"/></a></li>
 </ul>
 
 <div id="login">

@@ -1,0 +1,1 @@
+you don't have appropriate privilege/s to access the resource

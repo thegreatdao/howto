@@ -185,9 +185,17 @@ legend
 {
 	color: #FFFFFF;
 	background: #6F605A;
-	border: 1px solid #666666;
-	padding: 2px 6px;
+	border: solid 1px #008080;
+	padding-top: 2px;
+	padding-bottom: 2px;
 	font-weight: bold;
+	width: 100px;
+	text-align: center;
+	-moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -opera-border-radius:3px;
+    -khtml-border-radius:3px;
+    border-radius:3px;
 }
 
 #app_form
@@ -268,6 +276,7 @@ legend
 	width: 100px;
 	background: #686868;
 	color: #FFFFFF;
+	border:1px solid #EA9A1C;
 	border: solid 1px #666666;
 	font-size: 12px;
 	font-weight: bold;
@@ -341,7 +350,7 @@ legend
 
 #app_form input:focus, #app_form textarea:focus, #login input:focus
 {
-	border-color: #D2691E #D2691E #FF8C00 ;
+	border-color: #D2691E #D2691E #FF8C00;
 }
 	
 #app_form button
@@ -350,40 +359,56 @@ legend
 	margin-left: 150px;
 	background: #686868;
 	color: #FFFFFF;
-	border: solid 1px #666666;
+	border: solid 1px #008080;
 	font-size: 11px;
 	font-weight: bold;
 	padding: 4px 6px;
+	width: 80px;
+	-moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -opera-border-radius:3px;
+    -khtml-border-radius:3px;
+    border-radius:3px;
 }
 
 #first_name, #last_name, #user_name
 {
-	background: url("../images/user.png") no-repeat scroll 1px 50% #FFFFFF;	
+	background: url("../images/user.png") no-repeat scroll 1px 50% #FFFFFF;
 }
 
 #password
 {
-	background: url("../images/key.png") no-repeat scroll 1px 50% #FFFFFF;	
+	background: url("../images/key.png") no-repeat scroll 1px 50% #FFFFFF;
 }
 
 #age
 {
-	background: url("../images/age.png") no-repeat scroll 1px 50% #FFFFFF;	
+	background: url("../images/age.png") no-repeat scroll 1px 50% #FFFFFF;
 }
 
 #home_page
 {
-	background: url("../images/link.png") no-repeat scroll 1px 50% #FFFFFF;	
+	background: url("../images/link.png") no-repeat scroll 1px 50% #FFFFFF;
 }
 
 #hobbies
 {
-	background: url("../images/sport_soccer.png") no-repeat scroll 1px 50% #FFFFFF;	
+	background: url("../images/sport_soccer.png") no-repeat scroll 1px 50% #FFFFFF;
 }
 
 #bio
 {
-	background: url("../images/user_comment.png") no-repeat scroll 1px 2px #FFFFFF;	
+	background: url("../images/user_comment.png") no-repeat scroll 1px 2px #FFFFFF;
+}
+
+#role_name
+{
+	background: url("../images/shield.png") no-repeat scroll 1px 2px #FFFFFF;
+}
+
+#role_description
+{
+	background: url("../images/shape_square.png") no-repeat scroll 1px 2px #FFFFFF;
 }
 
 #app_form textarea

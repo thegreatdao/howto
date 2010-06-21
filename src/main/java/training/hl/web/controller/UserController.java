@@ -33,7 +33,7 @@ public class UserController
 	}
     
     @ModelAttribute("user")
-    public User setUpUser(@RequestParam(value = "id", required = false) Long id)
+    public User setUp(@RequestParam(value = "id", required = false) Long id)
     {
     	User user = new User();
     	if(id != null)
@@ -47,14 +47,14 @@ public class UserController
     	return user;
     }
     
-    @RequestMapping(value="/form", method={RequestMethod.GET, RequestMethod.POST})
-    public @ModelAttribute("user") User showUser(User user)
+    @RequestMapping(value="/user/form", method={RequestMethod.GET, RequestMethod.POST})
+    public @ModelAttribute("user") User show(User user)
     {
     	return user;
     }
     
     @RequestMapping(value="/save", method={RequestMethod.POST})
-    public String saveUser(@Valid User user, BindingResult result)
+    public String save(@Valid User user, BindingResult result)
     {
     	if (result.hasErrors())
     	{

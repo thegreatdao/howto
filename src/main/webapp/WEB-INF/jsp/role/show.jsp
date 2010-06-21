@@ -12,7 +12,7 @@
 			<td>
 				<span class="user_action">${role.name}</span>
 				<div class="tooltip">
-					<a href="<c:url value="/user/form.html?id=${user.id}" />"><fmt:message key="edit"/></a><a href=""><fmt:message key="delete"/></a>
+					<a href="<c:url value="/role/form.html?id=${role.id}" />"><fmt:message key="edit"/></a><a href=""><fmt:message key="delete"/></a>
 				</div>
 			</td>	
 			<td>
@@ -23,5 +23,5 @@
 </table>
 
 <div id="action">
-	<a href="<c:url value="/user/form.html" />"><img src="<c:url value="/images/group_add.png" />" id="action_img"/><fmt:message key="role.add.role"/></a>
+	<a href="<c:url value="/role/form.html" />"><img src="<c:url value="/images/group_add.png" />" id="action_img"/><fmt:message key="role.add.role"/></a>
 </div>
