@@ -3,10 +3,13 @@ package training.hl.bean.hibernate;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -32,7 +35,8 @@ public class Role extends RootEntity
 	@NotNull
 	@Size(min=10, max=100)
 	private String description;
-	@ManyToMany(mappedBy = "roles")
+	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+	@JoinTable(name="user_role", joinColumns={@JoinColumn(name="role_id")}, inverseJoinColumns={@JoinColumn(name = "user_id")})
 	private Set<User> users = new HashSet<User>();
 	
 	@Override
