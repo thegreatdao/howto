@@ -10,7 +10,6 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -58,16 +57,16 @@ public class User extends RootEntity
 	@NotNull
 	@Enumerated(EnumType.ORDINAL)
 	private Gender gender;
-	@Column(insertable = false, updatable = false)
+	@Column(insertable=false, updatable=false)
 	private Date createdDate;
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="user", cascade={CascadeType.ALL, CascadeType.REMOVE})
 	private Set<Post> posts = new HashSet<Post>();
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	private Set<Category> categories = new HashSet<Category>();
 	@Embedded
 	private Profile profile;
 	@ManyToMany
-	@JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "role_id") })
+	@JoinTable(name="user_role", joinColumns={@JoinColumn(name="user_id")}, inverseJoinColumns={@JoinColumn(name = "role_id")})
 	private Set<Role> roles = new HashSet<Role>();
 	
 	public void addCategory(Category category)

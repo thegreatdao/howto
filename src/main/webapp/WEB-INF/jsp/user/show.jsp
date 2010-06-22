@@ -18,7 +18,14 @@
 			<td>
 				<span class="user_action">${user.userName}</span>
 				<div class="tooltip">
-					<a href="<c:url value="/user/form.html?id=${user.id}" />"><fmt:message key="edit"/></a><a href=""><fmt:message key="delete"/></a>
+					<div>
+						<a href="<c:url value="/user/form.html?id=${user.id}" />"><fmt:message key="edit"/></a>
+						<a href="javascript:void(0);" class="delete"><fmt:message key="delete"/></a>
+					</div>
+					<div class="confirm_dialog">
+						<a href="<c:url value="/user/delete.html?id=${user.id}" />" class="confirm"><fmt:message key="confirm"/></a>
+						<a href="javascript:void(0);" class="cancel"><fmt:message key="cancel"/></a>
+					</div>
 				</div>
 			</td>	
 			<td>${user.firstName}</td>

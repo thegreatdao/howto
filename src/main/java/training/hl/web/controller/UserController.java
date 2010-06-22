@@ -67,6 +67,14 @@ public class UserController
     	return "redirect:/user/form.html?id=" + user.getId();
     }
     
+    @PreAuthorize("#user.userName != principal.username and hasRole('ROLE_ADMIN')")
+    @RequestMapping(method={RequestMethod.GET})
+    public String delete(User user)
+    {
+    	baseHibernateDao.delete(user);
+    	return "redirect:/user/show.html";
+    }
+    
     /*
      * jspViewResolver
      */

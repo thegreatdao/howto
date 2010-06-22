@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Category extends RootEntity
 	private String name;
 	@Column(insertable=false, updatable=false)
 	private Date createdDate;
-	@OneToMany(mappedBy="category")
+	@OneToMany(mappedBy="category", cascade=CascadeType.ALL)
 	private Set<Post> posts = new HashSet<Post>();
 	@ManyToOne
 	@JoinColumn(name="user_id")

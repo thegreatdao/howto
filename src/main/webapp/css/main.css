@@ -499,3 +499,8 @@ form div div span
 {
 	backgrou
 }
+
+.confirm_dialog a.confirm
+{
+	color: #FF4500;
+}

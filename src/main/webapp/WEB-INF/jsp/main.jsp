@@ -56,6 +56,21 @@
 					function()
 					{
 						$(".user_action").tooltip({  position: "center left", opacity: 0.6, effect: 'slide'});
+						$('.confirm_dialog').hide();
+						$('.delete').click(
+							function()
+							{
+								$(this).parent().hide();
+								$(this).parent().next().show();
+							}
+						);
+						$('.cancel').click(
+							function()
+							{
+								$(this).parent().hide();
+								$(this).parent().prev().show();
+							}
+						);
 					}
 			)
 		</script>

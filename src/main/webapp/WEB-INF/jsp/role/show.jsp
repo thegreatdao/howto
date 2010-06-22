@@ -12,7 +12,14 @@
 			<td>
 				<span class="user_action">${role.name}</span>
 				<div class="tooltip">
-					<a href="<c:url value="/role/form.html?id=${role.id}" />"><fmt:message key="edit"/></a><a href=""><fmt:message key="delete"/></a>
+					<div>
+						<a href="<c:url value="/role/form.html?id=${role.id}" />"><fmt:message key="edit"/></a>
+						<a href="javascript:void(0);" class="delete"><fmt:message key="delete"/></a>
+					</div>
+					<div class="confirm_dialog">
+						<a href="<c:url value="/role/delete.html?id=${role.id}" />" class="confirm"><fmt:message key="confirm"/></a>
+						<a href="javascript:void(0);" class="cancel"><fmt:message key="cancel"/></a>
+					</div>
 				</div>
 			</td>	
 			<td>

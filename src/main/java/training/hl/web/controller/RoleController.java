@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import training.hl.bean.hibernate.Role;
+import training.hl.bean.hibernate.User;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
 import training.hl.exception.TrainingRootException;
 
@@ -62,6 +63,14 @@ public class RoleController
     	return "redirect:/role/form.html?id=" + role.getId();
     }
     
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @RequestMapping(method={RequestMethod.GET})
+    public String delete(Role role)
+    {
+    	baseHibernateDao.delete(role);
+    	return "redirect:/role/show.html";
+    }
+	  
 	/*
 	@RequestMapping(value="/role/save", method={RequestMethod.POST})
     public ModelAndView saveRole(@Valid Role role, BindingResult result)

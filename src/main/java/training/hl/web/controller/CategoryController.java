@@ -68,4 +68,12 @@ public class CategoryController
     	baseHibernateDao.save(category);
     	return "redirect:/category/form.html?id=" + category.getId();
     }
+	
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @RequestMapping(method={RequestMethod.GET})
+    public String delete(Category category)
+    {
+    	baseHibernateDao.delete(category);
+    	return "redirect:/category/show.html";
+    }
 }
