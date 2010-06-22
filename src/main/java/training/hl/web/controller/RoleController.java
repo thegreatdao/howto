@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import training.hl.bean.hibernate.Role;
-import training.hl.bean.hibernate.User;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
 import training.hl.exception.TrainingRootException;
 
@@ -38,9 +37,9 @@ public class RoleController
 		{
 			role = baseHibernateDao.findById(Role.class, id);
 		}
-		if (role == null)
+		if(role == null)
 		{
-			throw new TrainingRootException("Role doesn't exist");
+			throw new TrainingRootException("Role with id " + id + " doesn't exists!");
 		}
 		return role;
 	}

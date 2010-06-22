@@ -42,9 +42,9 @@ public class UserController
     		user = baseHibernateDao.findById(User.class, id);
     	}
     	if(user == null)
-    	{
-    		throw new TrainingRootException("User doesn't exist");
-    	}
+		{
+			throw new TrainingRootException("User with id " + id + " doesn't exists!");
+		}
     	return user;
     }
     

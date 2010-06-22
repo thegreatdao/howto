@@ -41,9 +41,9 @@ public class CategoryController
 		{
 			category = baseHibernateDao.findById(Category.class, id);
 		}
-		if (category == null)
+		if(category == null)
 		{
-			throw new TrainingRootException("Role doesn't exist");
+			throw new TrainingRootException("Category with id " + id + " doesn't exists!");
 		}
 		return category;
 	}

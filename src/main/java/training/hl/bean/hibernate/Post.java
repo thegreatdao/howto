@@ -1,5 +1,8 @@
 package training.hl.bean.hibernate;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,6 +41,8 @@ public class Post extends RootEntity
 	@NotNull
 	@Size(min=10, max=1000)
 	private String body;
+	@Column(insertable=false, updatable=false)
+	private Date createdDate;
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
