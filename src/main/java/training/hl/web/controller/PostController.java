@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import training.hl.bean.hibernate.Category;
 import training.hl.bean.hibernate.Post;
 import training.hl.bean.hibernate.User;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
@@ -34,7 +35,7 @@ public class PostController
 	}
 	
 	@ModelAttribute("post")
-	public Post setUp(@RequestParam(value = "id", required = false) Long id)
+	public Post setUpPost(@RequestParam(value = "id", required = false) Long id)
 	{
 		Post post = new Post();
 		if (id != null)
@@ -46,6 +47,13 @@ public class PostController
 			throw new TrainingRootException("Post with id " + id + " doesn't exists!");
 		}
 		return post;
+	}
+	
+	@ModelAttribute("categories")
+	public Collection<Category> setUpCategory()
+	{
+		Collection<Category> categories = baseHibernateDao.findAll(Category.class);
+		return categories;
 	}
 	
     @RequestMapping(method={RequestMethod.GET, RequestMethod.POST})

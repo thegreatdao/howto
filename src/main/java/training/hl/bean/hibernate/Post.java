@@ -12,16 +12,16 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 
 import training.hl.bean.RootEntity;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 @Data
 @Entity
@@ -46,7 +46,10 @@ public class Post extends RootEntity
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
+	@NotNull
+	@Column(name="category_id")
+	private Long categoryId;
 	@ManyToOne
-	@JoinColumn(name="category_id")
+	@JoinColumn(name="category_id",insertable=false, updatable=false)
 	private Category category;
 }

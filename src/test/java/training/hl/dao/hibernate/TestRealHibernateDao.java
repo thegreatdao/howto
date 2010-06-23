@@ -59,7 +59,7 @@ public class TestRealHibernateDao
 		post.setTitle("What is Spring's subproject Groovy?");
 		user.addCategory(category);
 		baseHibernateDao.save(user);
-		post.setCategory(category);
+		post.setCategoryId(category.getId());
 		post.setUser(user);
 		baseHibernateDao.save(post);
 		Collection<Category> categories = baseHibernateDao.findAll(Category.class);

@@ -331,7 +331,7 @@ legend
 	font-weight: bold;
 }
 
-#app_form input, #app_form textarea
+#app_form input, #app_form textarea, #app_form select
 {
 	height: 20px;
 	width: 280px;
@@ -348,6 +348,11 @@ legend
     border-radius:3px;
 }
 
+#app_form select
+{
+	width: 200px;	
+}
+	
 #app_form input:focus, #app_form textarea:focus, #login input:focus
 {
 	border-color: #D2691E #D2691E #FF8C00;
@@ -414,6 +419,16 @@ legend
 #category_name
 {
 	background: url("../images/folder.png") no-repeat scroll 1px 2px #FFFFFF;
+}
+
+#post_body
+{
+	background: url("../images/application_form.png") no-repeat scroll 1px 2px #FFFFFF;
+}
+
+#post_title
+{
+	background: url("../images/asterisk_orange.png") no-repeat scroll 1px 2px #FFFFFF;
 }
 
 #app_form textarea
