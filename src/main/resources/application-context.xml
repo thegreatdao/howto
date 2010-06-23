@@ -39,7 +39,6 @@
 				hibernate.dialect=org.hibernate.dialect.HSQLDialect
 				hibernate.search.default.directory_provider=org.hibernate.search.store.FSDirectoryProvider
 				hibernate.search.default.indexBase=${lucene.indexex.folder}
-				hibernate.search.worker.batch_size=100
             </value>
 		</property>
 	</bean>

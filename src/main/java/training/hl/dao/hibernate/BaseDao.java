@@ -17,6 +17,7 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import training.hl.bean.RootEntity;
+import training.hl.exception.TrainingRootException;
 
 @Repository
 public class BaseDao
@@ -63,7 +64,7 @@ public class BaseDao
 		}
 		catch (ParseException e)
 		{
-			throw new RuntimeException(e);
+			throw new TrainingRootException(e);
 		}
 		
 	}
