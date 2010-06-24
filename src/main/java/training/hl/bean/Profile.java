@@ -1,4 +1,4 @@
-package training.hl.bean.hibernate;
+package training.hl.bean;
 
 import javax.persistence.Embeddable;
 

@@ -1,4 +1,4 @@
-package training.hl.bean.hibernate;
+package training.hl.bean;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -22,11 +22,11 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import training.hl.bean.enums.Gender;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import training.hl.bean.RootEntity;
-import training.hl.bean.hibernate.enums.Gender;
 
 @Data
 @Entity

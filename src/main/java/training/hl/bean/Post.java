@@ -1,4 +1,4 @@
-package training.hl.bean.hibernate;
+package training.hl.bean;
 
 import java.util.Date;
 
@@ -22,7 +22,6 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 
-import training.hl.bean.RootEntity;
 
 @Data
 @Entity

@@ -16,10 +16,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import training.hl.bean.hibernate.Category;
-import training.hl.bean.hibernate.Post;
-import training.hl.bean.hibernate.User;
-import training.hl.bean.hibernate.enums.Gender;
+import training.hl.bean.Category;
+import training.hl.bean.Post;
+import training.hl.bean.User;
+import training.hl.bean.enums.Gender;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
 import training.hl.dao.hibernate.search.LucenceIndexesHelper;
 
@@ -27,7 +27,7 @@ import training.hl.dao.hibernate.search.LucenceIndexesHelper;
 @ContextConfiguration(locations = "/application-context.xml")
 @Transactional
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
-public class TestRealHibernateDao
+public class TestDedicatedHibernateDao
 {
 	@Autowired
 	private BaseHibernateDao baseHibernateDao;

@@ -1,6 +1,5 @@
-package training.hl.bean.hibernate;
+package training.hl.bean;
 
-import training.hl.bean.RootEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

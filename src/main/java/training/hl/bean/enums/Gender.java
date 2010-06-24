@@ -1,4 +1,4 @@
-package training.hl.bean.hibernate.enums;
+package training.hl.bean.enums;
 
 public enum Gender
 {

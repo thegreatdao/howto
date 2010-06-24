@@ -1,4 +1,4 @@
-package training.hl.bean.hibernate;
+package training.hl.bean;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +17,6 @@ import javax.validation.constraints.Size;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import training.hl.bean.RootEntity;
 
 @Data
 @Entity
