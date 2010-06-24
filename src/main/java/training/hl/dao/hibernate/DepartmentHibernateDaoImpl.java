@@ -9,7 +9,7 @@ import training.hl.bean.Department;
 import training.hl.dao.DepartMentDao;
 
 @Repository("departmentHibernateDao")
-@Transactional(readOnly=false)
+@Transactional
 public class DepartmentHibernateDaoImpl extends BaseDao implements DepartMentDao
 {
 
@@ -30,7 +30,7 @@ public class DepartmentHibernateDaoImpl extends BaseDao implements DepartMentDao
 	@Transactional(readOnly=true)
 	public Department findById(long id)
 	{
-		return findById(id, Department.class);
+		return findById(Department.class, id);
 	}
 
 	@Override

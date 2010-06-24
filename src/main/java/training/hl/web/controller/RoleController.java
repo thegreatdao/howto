@@ -44,8 +44,8 @@ public class RoleController
 		return role;
 	}
 	
-	@RequestMapping(method={RequestMethod.GET, RequestMethod.POST})
-    public @ModelAttribute("role") Role show(Role role)
+	@RequestMapping(method=RequestMethod.GET)
+    public @ModelAttribute("role") Role form(Role role)
     {
     	return role;
     }

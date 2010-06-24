@@ -45,6 +45,11 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/post/form.jsp" />
 	</definition>
 	
+	<definition name="post/search" extends="baseLayout">
+		<put-attribute name="title" value="search results for post" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/post/search.jsp" />
+	</definition>
+	
 	<definition name="category/show" extends="baseLayout">
 		<put-attribute name="title" value="show all categories" type="string" />
 		<put-attribute name="body" value="/WEB-INF/jsp/category/show.jsp" />

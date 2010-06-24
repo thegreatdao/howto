@@ -7,7 +7,6 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.queryParser.MultiFieldQueryParser;
 import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.util.Version;
-import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
 import org.hibernate.search.FullTextQuery;
 import org.hibernate.search.FullTextSession;
@@ -15,19 +14,21 @@ import org.hibernate.search.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import training.hl.bean.RootEntity;
 import training.hl.exception.TrainingRootException;
 
 @Repository
+@Transactional
 public class BaseDao
 {
 	@Autowired
-	private HibernateTemplate hibernateTemplate;
+	protected HibernateTemplate hibernateTemplate;
 
 	public <T extends RootEntity> void save(T entity)
 	{
-		hibernateTemplate.save(entity);
+		hibernateTemplate.saveOrUpdate(entity);
 	}
 
 	public <T extends RootEntity> void delete(T entity)
@@ -35,32 +36,31 @@ public class BaseDao
 		hibernateTemplate.delete(entity);
 	}
 
-	public <PK extends Serializable, T extends RootEntity> T findById(PK id,
-			Class<T> entityClass)
+	@Transactional(readOnly=true)
+	public <PK extends Serializable, T extends RootEntity> T findById(Class<T> entityClass, PK id)
 	{
 		return hibernateTemplate.get(entityClass, id);
 	}
 
+	@Transactional(readOnly=true)
 	public <T extends RootEntity> List<T> findAll(Class<T> entityClass)
 	{
 		return hibernateTemplate.loadAll(entityClass);
 	}
 
+	@Transactional(readOnly=true)
 	@SuppressWarnings("unchecked")
 	public <T extends RootEntity> List<T> findBySearch(String[] fields, Class<T> entityClass, String searchTerm)
 	{
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
 		FullTextSession fullTextSession = Search.getFullTextSession(session);
-		Transaction tx = fullTextSession.beginTransaction();
 		MultiFieldQueryParser parser = new MultiFieldQueryParser(Version.LUCENE_29, fields, new StandardAnalyzer(Version.LUCENE_29));
 
 		try
 		{
 			org.apache.lucene.search.Query query = parser.parse(searchTerm);
 			FullTextQuery hibQuery = fullTextSession.createFullTextQuery(query,entityClass);
-			tx.commit();
 			return hibQuery.list();
-
 		}
 		catch (ParseException e)
 		{

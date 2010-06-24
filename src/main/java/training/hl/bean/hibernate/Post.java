@@ -16,6 +16,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
@@ -32,6 +33,7 @@ public class Post extends RootEntity
 {
 	private static final long serialVersionUID = -731165606859766533L;
 	@Id
+	@DocumentId
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	@Field(index=Index.TOKENIZED, store=Store.NO)

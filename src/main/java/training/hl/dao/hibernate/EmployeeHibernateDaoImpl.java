@@ -9,7 +9,7 @@ import training.hl.bean.Employee;
 import training.hl.dao.EmployeeDao;
 
 @Repository("employeeHibernateDao")
-@Transactional(readOnly=false)
+@Transactional
 public class EmployeeHibernateDaoImpl extends BaseDao implements EmployeeDao
 {
 
@@ -30,7 +30,7 @@ public class EmployeeHibernateDaoImpl extends BaseDao implements EmployeeDao
 	@Transactional(readOnly=true)
 	public Employee findById(long id)
 	{
-		return findById(id, Employee.class);
+		return findById(Employee.class, id);
 	}
 
 	@Override

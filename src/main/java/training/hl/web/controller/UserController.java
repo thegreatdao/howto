@@ -48,8 +48,8 @@ public class UserController
     	return user;
     }
     
-    @RequestMapping(method={RequestMethod.GET, RequestMethod.POST})
-    public @ModelAttribute("user") User show(User user)
+    @RequestMapping(method=RequestMethod.GET)
+    public @ModelAttribute("user") User form(User user)
     {
     	return user;
     }

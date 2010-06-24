@@ -48,8 +48,8 @@ public class CategoryController
 		return category;
 	}
 	
-	@RequestMapping(method={RequestMethod.GET, RequestMethod.POST})
-    public @ModelAttribute("category") Category show(Category category)
+	@RequestMapping(method=RequestMethod.GET)
+    public @ModelAttribute("category") Category form(Category category)
     {
     	return category;
     }

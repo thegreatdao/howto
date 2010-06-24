@@ -20,10 +20,7 @@
 	
 	<tx:annotation-driven/>
 	
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource"/>
-	</bean>
-	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager" p:sessionFactory-ref="sessionFactory"/>
 	
 	<bean id="simpleJdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
 		<constructor-arg ref="dataSource"/>
@@ -38,7 +35,8 @@
 				hibernate.format_sql=true
 				hibernate.dialect=org.hibernate.dialect.HSQLDialect
 				hibernate.search.default.directory_provider=org.hibernate.search.store.FSDirectoryProvider
-				hibernate.search.default.indexBase=${lucene.indexex.folder}
+				hibernate.search.default.indexBase=${lucene.index.folder}
+				javax.persistence.validation.mode=NONE
             </value>
 		</property>
 	</bean>

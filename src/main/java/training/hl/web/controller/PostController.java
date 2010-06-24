@@ -1,6 +1,7 @@
 package training.hl.web.controller;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -56,8 +57,8 @@ public class PostController
 		return categories;
 	}
 	
-    @RequestMapping(method={RequestMethod.GET, RequestMethod.POST})
-    public @ModelAttribute("post") Post show(Post post)
+    @RequestMapping(method={RequestMethod.GET})
+    public @ModelAttribute("post") Post form(Post post)
     {
     	return post;
     }
@@ -77,12 +78,17 @@ public class PostController
     	return "redirect:/post/form.html?id=" + post.getId();
     }
 	
-	
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(method={RequestMethod.GET})
     public String delete(Post post)
     {
     	baseHibernateDao.delete(post);
     	return "redirect:/post/show.html";
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/post/search")
+    public @ModelAttribute("posts") List<Post> findPostsByTitle(@RequestParam("title") String title)
+    {
+    	return baseHibernateDao.findBySearch(new String[]{"title"}, Post.class, title);
     }
 }

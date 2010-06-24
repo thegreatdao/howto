@@ -1,7 +1,6 @@
 package training.hl.dao.hibernate.dedicated;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -12,23 +11,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import training.hl.bean.RootEntity;
+import training.hl.dao.hibernate.BaseDao;
 
 @Repository
-@Transactional
-public class BaseHibernateDao
+public class BaseHibernateDao extends BaseDao
 {
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
-	
-	public <T extends RootEntity> void save(T entity)
-	{
-		hibernateTemplate.saveOrUpdate(entity);
-	}
-	
-	public <T extends RootEntity> void delete(T entity)
-	{
-		hibernateTemplate.delete(entity);
-	}
 	
 	public <T extends RootEntity, PK extends Serializable> void delete(Class<T> entityClass, PK id)
 	{
@@ -36,16 +25,7 @@ public class BaseHibernateDao
 		hibernateTemplate.delete(entity);
 	}
 	
-	public <T extends RootEntity, PK extends Serializable> T findById(Class<T> entityClass, PK id)
-	{
-		return hibernateTemplate.get(entityClass, id);
-	}
-	
-	public <T extends RootEntity> Collection<T> findAll(Class<T> entityClass)
-	{
-		return hibernateTemplate.loadAll(entityClass);
-	}
-	
+	@Transactional(readOnly=true)
     @SuppressWarnings("unchecked")
 	public <T extends RootEntity> T findOneByCriteria(Class<T> entityClass, Criterion... criterions)
 	{
@@ -53,13 +33,14 @@ public class BaseHibernateDao
 		return (T)criteria.uniqueResult();
 	}
     
+	@Transactional(readOnly=true)
     @SuppressWarnings("unchecked")
     public <T extends RootEntity> List<T> findByCriteria(Class<T> entityClass, Criterion... criterions)
     {
     	Criteria criteria = prepareCriteria(entityClass, criterions);
 		return criteria.list();
     }
-    
+	
     private <T extends RootEntity> Criteria prepareCriteria(Class<T> entityClass, Criterion... criterions)
     {
     	Criteria criteria = hibernateTemplate.getSessionFactory().getCurrentSession().createCriteria(entityClass);

@@ -9,7 +9,7 @@ import training.hl.bean.InsurancePolicy;
 import training.hl.dao.InsurancePolicyDao;
 
 @Repository("insurancePolicyHibernateDao")
-@Transactional(readOnly=false)
+@Transactional
 public class InsurancePolicyHibernateDaoImpl extends BaseDao implements InsurancePolicyDao
 {
 
@@ -30,7 +30,7 @@ public class InsurancePolicyHibernateDaoImpl extends BaseDao implements Insuranc
 	@Transactional(readOnly=true)
 	public InsurancePolicy findById(long id)
 	{
-		return findById(id, InsurancePolicy.class);
+		return findById(InsurancePolicy.class, id);
 	}
 
 	@Override
