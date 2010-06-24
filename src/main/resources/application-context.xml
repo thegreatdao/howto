@@ -16,7 +16,7 @@
 
 	<context:annotation-config/>
 	<context:property-placeholder location="classpath:app.properties"/>
-	<context:component-scan base-package="training.hl.bean.hibernate.dao,training.hl.dao.springjdbc,training.hl.dao.hibernate"/>
+	<context:component-scan base-package="training.hl.dao.springjdbc"/>
 	
 	<tx:annotation-driven/>
 	
@@ -28,22 +28,6 @@
 	<bean id="simpleJdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
 		<constructor-arg ref="dataSource"/>
 	</bean>
-	
-	<bean id="namingStrategy" class="org.hibernate.cfg.ImprovedNamingStrategy"/>
-	
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" 
-		p:dataSource-ref="dataSource" p:namingStrategy-ref="namingStrategy" p:packagesToScan="training.hl.bean,training.hl.bean.hibernate">
-		<property name="hibernateProperties">
-			<value>
-				hibernate.format_sql=true
-				hibernate.dialect=org.hibernate.dialect.HSQLDialect
-				hibernate.search.default.directory_provider=org.hibernate.search.store.FSDirectoryProvider
-				hibernate.search.default.indexBase=${lucene.indexex.folder}
-            </value>
-		</property>
-	</bean>
-	
-	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate" p:sessionFactory-ref="sessionFactory"/>
 	
 	<jdbc:embedded-database id="dataSource" type="HSQL">
 		<jdbc:script location="classpath:sql/schemas.sql"/>
