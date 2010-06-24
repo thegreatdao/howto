@@ -13,6 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 import training.hl.bean.RootEntity;
 import training.hl.dao.hibernate.BaseDao;
 
+/*
+ * inherited transaction from BaseDao
+ */
 @Repository
 public class BaseHibernateDao extends BaseDao
 {
