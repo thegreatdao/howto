@@ -25,6 +25,12 @@
 						</div>
 					</div>
 				</div>
+				<div id="search_form">
+					<form action="/post/search.html" method="get" id="searchForm">
+						<input type='text' name="title" value="${param.title}"/>
+						<a href="javascript:void(0);" id="searchButton"><fmt:message key="search"/></a>						
+					</form>
+				</div>
 			</div>
 			
 			<div class="container_12" id="main_body">
@@ -55,7 +61,9 @@
 			$(
 					function()
 					{
+						<sec:authorize	ifAnyGranted="ROLE_ADMIN">
 						$(".user_action").tooltip({  position: "center left", opacity: 0.6, effect: 'slide'});
+						</sec:authorize>
 						$('.confirm_dialog').hide();
 						$('.delete').click(
 							function()
@@ -69,6 +77,12 @@
 							{
 								$(this).parent().hide();
 								$(this).parent().prev().show();
+							}
+						);
+						$('#searchButton').click(
+							function()
+							{
+								$('#searchForm').submit();
 							}
 						);
 					}

@@ -29,6 +29,8 @@
 	</c:forEach>
 </table>
 
+<sec:authorize	ifAnyGranted="ROLE_ADMIN">
 <div id="action">
 	<a href="<c:url value="/role/form.html" />"><img src="<c:url value="/images/group_add.png" />" id="action_img"/><fmt:message key="role.add.role"/></a>
 </div>
+</sec:authorize>

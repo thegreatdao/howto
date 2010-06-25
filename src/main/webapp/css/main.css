@@ -18,6 +18,13 @@ body
 	background-color: #FFFFFF;
 }
 
+#search_form
+{
+	float:left;
+	margin-left:5px;
+	margin-top:-140px;
+}
+	
 #header, #footer
 {
 	color: #FFFFFF;
@@ -154,7 +161,7 @@ table th.Corner
     text-align: left;
 }
 
-div#action a
+div#action a, #search_form a
 {
 	text-decoration: none;
 	color: #EA9A1C;
@@ -166,6 +173,18 @@ div#action a
     -opera-border-radius:3px;
     -khtml-border-radius:3px;
     border-radius:3px;
+}
+
+#search_form a
+{
+	padding: 0;
+	background: transparent;
+	width: 50px;
+	display: block;
+	float: left;
+	height: 20px;
+	text-align: center;
+	margin-right: 20px;
 }
 
 div#action a:hover
@@ -282,7 +301,7 @@ legend
 	font-weight: bold;
 	height: 26px;
 }
-	
+
 #login span
 {
 	display: block;
@@ -292,7 +311,7 @@ legend
 	font-weight: bold;
 }
 
-#login input
+#login input, #search_form input
 {
 	background: transparent;
 	color: #800000;
@@ -307,6 +326,16 @@ legend
     height: 20px;
 	width: 200px;
 	margin-bottom: 6px;
+}
+
+#search_form input[type="text"]
+{
+	color: #EA9A1C;	
+	border-color: #FFFFFF;
+	width: 160px;
+    height: 20px;
+    margin-right: 20px;
+    padding-left: 10px;
 }
 
 #login a

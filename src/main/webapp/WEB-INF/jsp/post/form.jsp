@@ -27,7 +27,7 @@
 			</div>
 			
 			<div class="form_error">
-				<form:errors path="category"/>
+				<form:errors path="categoryId"/>
 			</div>
 
 			<div>

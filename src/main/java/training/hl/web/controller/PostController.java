@@ -1,16 +1,17 @@
 package training.hl.web.controller;
 
 import java.util.Collection;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -87,8 +88,16 @@ public class PostController
     }
     
     @RequestMapping(method=RequestMethod.GET, value="/post/search")
-    public @ModelAttribute("posts") List<Post> findPostsByTitle(@RequestParam("title") String title)
+    public String findPostsByTitle(@RequestParam(value = "title", required = false) String title, Model model)
     {
-    	return baseHibernateDao.findBySearch(new String[]{"title"}, Post.class, title);
+    	if(StringUtils.isBlank(title))
+    	{
+    		model.addAttribute("posts", baseHibernateDao.findAll(Post.class));
+    	}
+    	else
+    	{
+    		model.addAttribute("posts", baseHibernateDao.findBySearch(new String[]{"title"}, Post.class, title));
+    	}
+    	return "post/show";
     }
 }

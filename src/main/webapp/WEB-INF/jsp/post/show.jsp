@@ -1,3 +1,4 @@
+<div id="tabular_data"><fmt:message key="post.postList"/></div>
 <table>
 	<thead>
 		<tr>
@@ -28,6 +29,8 @@
 	</c:forEach>
 </table>
 
-<div id="action">
-	<a href="<c:url value="/post/form.html" />"><img src="<c:url value="/images/application_add.png" />" id="action_img"/><fmt:message key="post.add.post"/></a>
-</div>
+<sec:authorize	ifAnyGranted="ROLE_ADMIN">
+	<div id="action">
+		<a href="<c:url value="/post/form.html" />"><img src="<c:url value="/images/application_add.png" />" id="action_img"/><fmt:message key="post.add.post"/></a>
+	</div>
+</sec:authorize>
