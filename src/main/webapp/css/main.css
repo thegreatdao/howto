@@ -175,6 +175,11 @@ div#action a, #search_form a
     border-radius:3px;
 }
 
+div#action
+{
+	margin-bottom: 20px;
+}
+
 #search_form a
 {
 	padding: 0;
@@ -503,7 +508,7 @@ form div div span
 /* tooltip styling */
 .user_action
 {
-	cursor: pointer;	
+	cursor: pointer;
 }
 	
 .tooltip
