@@ -9,15 +9,19 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import training.hl.bean.Role;
 import training.hl.bean.User;
 import training.hl.bean.enums.Gender;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
 import training.hl.exception.TrainingRootException;
+import training.hl.web.util.propertyeditor.RolePropertyEditor;
 
 @Controller
 public class UserController
@@ -26,6 +30,14 @@ public class UserController
 	private BaseHibernateDao baseHibernateDao;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	@Autowired
+	private RolePropertyEditor propertyEditor;
+	
+	@InitBinder  
+	public void initBinder(WebDataBinder binder)
+	{         
+	    binder.registerCustomEditor(Role.class, propertyEditor);
+	}
 	
     @RequestMapping(method=RequestMethod.GET)
 	public @ModelAttribute("users") Collection<User> show()
@@ -48,13 +60,19 @@ public class UserController
     	return user;
     }
     
+    @ModelAttribute("roles")
+    public Collection<Role> setUpRoles()
+    {
+    	return baseHibernateDao.findAll(Role.class);
+    }
+    
     @RequestMapping(method=RequestMethod.GET)
     public @ModelAttribute("user") User form(User user)
     {
     	return user;
     }
     
-    @PreAuthorize("#user.userName == principal.username or hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(method={RequestMethod.POST})
     public String save(@Valid User user, BindingResult result)
     {
@@ -67,7 +85,7 @@ public class UserController
     	return "redirect:/user/form.html?id=" + user.getId();
     }
     
-    @PreAuthorize("#user.userName != principal.username and hasRole('ROLE_ADMIN')")
+    @PreAuthorize("user.userName != principal.username and hasRole('ROLE_ADMIN')")
     @RequestMapping(method={RequestMethod.GET})
     public String delete(User user)
     {

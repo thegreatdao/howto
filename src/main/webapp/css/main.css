@@ -490,7 +490,7 @@ form div div span
 	height: 20px;
 }
 
-.radio_error
+#radio_error
 {
 	color: #FF0000;
 	margin-left: 150px;

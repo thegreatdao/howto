@@ -16,7 +16,7 @@
 
 	<context:annotation-config/>
 	<context:property-placeholder location="classpath:app.properties"/>
-	<context:component-scan base-package="training.hl.dao.hibernate,training.hl.web.controller"/>
+	<context:component-scan base-package="training.hl.dao.hibernate,training.hl.web.controller,training.hl.web.util.propertyeditor"/>
 	
 	<tx:annotation-driven/>
 	

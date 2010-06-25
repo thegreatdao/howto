@@ -66,14 +66,13 @@
 			<div>
 				<label><fmt:message key="user.gender"/>: <span class="small"><fmt:message key="user.gender.select"/></span></label>
 				<div>
-					<form:radiobutton path="gender" value="MALE" /><label class="gender" id="male">&nbsp;<!--<fmt:message key="user.MALE" />--></label>
-					<form:radiobutton path="gender" value="FEMALE" /><label class="gender" id="female">&nbsp;<!--<fmt:message key="user.FEMALE" />--></label>
+	                  <form:checkboxes path="roles" items="${roles}" itemLabel="name" itemValue="id"/>
 				</div>
 			</div>
 			
 			<div class="clear"></div>
-			<div class="radio_error">
-				<form:errors path="gender"/>
+			<div class="checkbox_error">
+				<form:errors path="roles"/>
 			</div>
 
 			<div>
@@ -108,4 +107,4 @@
 	</fieldset>
 
 </div>
-	<div class="clear"></div>
+<div class="clear"></div>
