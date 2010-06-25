@@ -95,4 +95,9 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/error/exception.jsp" />
 	</definition>
 	
+	<definition name="db-error" extends="baseLayout">
+		<put-attribute name="title" value="error page" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/error/db-error.jsp" />
+	</definition>
+	
 </tiles-definitions>

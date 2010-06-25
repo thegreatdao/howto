@@ -35,7 +35,7 @@ public class UserController
 	
 	@InitBinder  
 	public void initBinder(WebDataBinder binder)
-	{         
+	{
 	    binder.registerCustomEditor(Role.class, propertyEditor);
 	}
 	

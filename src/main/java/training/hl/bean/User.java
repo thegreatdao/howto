@@ -24,6 +24,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import training.hl.bean.enums.Gender;
+import training.hl.hibernate.annotation.Unique;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -41,6 +42,7 @@ public class User extends RootEntity
 	private Long id;
 	@NotNull
 	@Size(min=1, max=20)
+	@Unique(entity=User.class, field="userName")
 	private String userName;
 	@NotNull
 	@Size(min=6, max=65)
@@ -66,7 +68,7 @@ public class User extends RootEntity
 	private Set<Category> categories = new HashSet<Category>();
 	@Embedded
 	private Profile profile;
-	@Size(min=1)
+	@NotNull
 	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, fetch=FetchType.EAGER)
 	@JoinTable(name="user_role", joinColumns={@JoinColumn(name="user_id")}, inverseJoinColumns={@JoinColumn(name = "role_id")})
 	private Set<Role> roles = new HashSet<Role>();

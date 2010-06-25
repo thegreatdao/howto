@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import javax.validation.Valid;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -54,6 +55,14 @@ public class RoleController
 	@RequestMapping(method={RequestMethod.POST})
     public String save(@Valid Role role, BindingResult result)
     {
+		if(role.getId() != null)
+		{
+			Role roleUser = baseHibernateDao.findById(Role.class, role.getId());
+			if(StringUtils.equals(roleUser.getName(), "ROLE_USER"))
+			{
+				throw new TrainingRootException("ROLE_USER is a fixed role which is read-only");
+			}
+		}
     	if (result.hasErrors())
     	{
 			return "role/form";
@@ -66,6 +75,10 @@ public class RoleController
     @RequestMapping(method={RequestMethod.GET})
     public String delete(Role role)
     {
+		if(StringUtils.equals(role.getName(),"ROLE_USER"))
+		{
+			throw new TrainingRootException("ROLE_USER is a fixed role which is read-only");
+		}
     	baseHibernateDao.delete(role);
     	return "redirect:/role/show.html";
     }

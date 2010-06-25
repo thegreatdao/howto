@@ -284,7 +284,7 @@ legend
 	padding-top: 20px;	
 }
 
-#login input[type="checkbox"]
+#login input[type="checkbox"], #app_form input[type="checkbox"]
 {
 	width: 12px;
 	height: 12px;
@@ -292,6 +292,11 @@ legend
 	margin-left: 0;
 	padding: 0;
 	border-style: none;
+}
+
+#app_form input[type="checkbox"]
+{
+	float: left;
 }
 
 #login input[type="submit"]
@@ -341,6 +346,13 @@ legend
     height: 20px;
     margin-right: 20px;
     padding-left: 10px;
+}
+
+#roles
+{
+	width: 300px;
+	float: left;
+	padding-left: 20px;
 }
 
 #login a
@@ -480,8 +492,10 @@ legend
 
 #app_form div div span label
 {
-	float: none;
-	margin-left: -30px;
+	display: block;
+	float: left;
+	margin-left:30px;
+	color: #800000;
 }
 
 form div div span

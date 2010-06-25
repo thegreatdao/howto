@@ -15,6 +15,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import training.hl.hibernate.annotation.Unique;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -30,6 +32,7 @@ public class Role extends RootEntity
 	@NotNull
 	@Size(min=6, max=20)
 	@Pattern(regexp="ROLE_\\S+")
+	@Unique(entity=Role.class, field="name")
 	private String name;
 	@NotNull
 	@Size(min=10, max=100)

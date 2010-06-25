@@ -64,14 +64,14 @@
 			</div>
 			
 			<div>
-				<label><fmt:message key="user.gender"/>: <span class="small"><fmt:message key="user.gender.select"/></span></label>
-				<div>
+				<label><fmt:message key="user.roles"/>: <span class="small"><fmt:message key="user.roles.select"/></span></label>
+				<div id="roles">
 	                  <form:checkboxes path="roles" items="${roles}" itemLabel="name" itemValue="id"/>
 				</div>
 			</div>
 			
 			<div class="clear"></div>
-			<div class="checkbox_error">
+			<div class="form_error">
 				<form:errors path="roles"/>
 			</div>
 

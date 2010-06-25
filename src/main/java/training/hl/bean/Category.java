@@ -16,10 +16,10 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import training.hl.hibernate.annotation.Unique;
 
 @Data
 @Entity
@@ -33,6 +33,7 @@ public class Category extends RootEntity
 	private Long id;
 	@NotNull
 	@Size(min=2, max=20)
+	@Unique(entity = Category.class, field = "name")
 	private String name;
 	@Column(insertable=false, updatable=false)
 	private Date createdDate;
@@ -41,5 +42,4 @@ public class Category extends RootEntity
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
-
 }
