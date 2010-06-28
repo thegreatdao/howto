@@ -526,7 +526,13 @@ form div div span
 {
 	cursor: pointer;
 }
-	
+
+.user_action a
+{
+	text-decoration: none;
+	color: #EA9A1C;
+}
+
 .tooltip
 {
 	display:none;

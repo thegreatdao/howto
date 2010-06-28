@@ -1,7 +1,6 @@
 <ul class="tabs">
 	<li id="role_tab"><a href="javascript:void(0);"><fmt:message key="role.roleList"/></a></li>
-	<li id="user_tab"><a href="javascript:void(0);"><fmt:message key="user.userList"/></a></li>
-	<li id="post_tab"><a href="javascript:void(0);"><fmt:message key="post.postList"/></a><img src="http://www.sanbaldo.com/wordpress/wp-content/remembermilk_orange.gif" id="ajax_icon"/></li>
+	<li id="user_tab"><a href="javascript:void(0);"><fmt:message key="user.userList"/></a><img src="http://www.sanbaldo.com/wordpress/wp-content/remembermilk_orange.gif" id="ajax_icon"/></li>
 </ul>
 <div class="panes">	
 	<div id="role_list">
@@ -30,10 +29,10 @@
 						</div>
 					</td>
 					<td>
-						<span class="user_action">${role.description}</span>
+						<span class="user_action"><a href="javascript:void(0);" id="role_${role.id}">${role.description}</a></span>
 						<div class="tooltip">
 							<div>
-								<a href="javascript:void(0);" id="role_${role.id}"><fmt:message key="role.users"/></a>
+								<a href="javascript:void(0);"><fmt:message key="role.users"/></a>
 							</div>
 						</div>
 					</td>
@@ -107,12 +106,12 @@
 									userTable += '<td>' + data[index].gender + '</td></tr>';
 								}
 								userTable += "</table>";
+								$('#user_list').hide();
 								$('#user_list').html(userTable);
-								$('#ajax_icon').fadeOut();
+								$('#ajax_icon').fadeOut("slow");
 								$('#user_tab a').addClass("current");
 								$('#role_tab a').removeClass("current");
-								$('#role_list').hide();
-								$('#user_list').fadeIn();
+								$('#role_list').fadeOut("slow", function(){$('#user_list').fadeIn("slow");});
 							}
 					);
 				}
