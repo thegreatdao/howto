@@ -85,7 +85,7 @@ public class UserController
     	return "redirect:/user/form.html?id=" + user.getId();
     }
     
-    @PreAuthorize("user.userName != principal.username and hasRole('ROLE_ADMIN')")
+    @PreAuthorize("#user.userName != principal.username and hasRole('ROLE_ADMIN')")
     @RequestMapping(method={RequestMethod.GET})
     public String delete(User user)
     {
@@ -96,7 +96,6 @@ public class UserController
     /*
      * jspViewResolver
      */
-    @RequestMapping("/ok")
     public @ModelAttribute("user") User ok()
     {
     	User user = new User();

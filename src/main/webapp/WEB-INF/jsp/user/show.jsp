@@ -1,4 +1,4 @@
-<div id="tabular_data"><fmt:message key="user.userList"/></div>
+<div class="tabular_data"><fmt:message key="user.userList"/></div>
 <table>
 	<thead>
 		<tr>

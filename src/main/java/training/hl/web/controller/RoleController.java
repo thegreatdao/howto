@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import training.hl.bean.Role;
+import training.hl.bean.User;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
 import training.hl.exception.TrainingRootException;
 
@@ -72,7 +74,6 @@ public class RoleController
     }
     
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-    @RequestMapping(method={RequestMethod.GET})
     public String delete(Role role)
     {
 		if(StringUtils.equals(role.getName(),"ROLE_USER"))
@@ -82,29 +83,10 @@ public class RoleController
     	baseHibernateDao.delete(role);
     	return "redirect:/role/show.html";
     }
-	  
-	/*
-	@RequestMapping(value="/role/save", method={RequestMethod.POST})
-    public ModelAndView saveRole(@Valid Role role, BindingResult result)
-    {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("role", role);
-    	if (result.hasErrors())
-    	{
-    		modelAndView.setViewName("role/form");
-			return modelAndView;
-		}
-    	if(role.getId() == null)
-    	{
-    		modelAndView.addObject("key", "role.successfully.created");
-    	}
-    	else
-    	{
-    		modelAndView.addObject("key", "role.successfully.updated");
-    	}
-    	baseHibernateDao.save(role);
-    	modelAndView.setViewName("redirect:/role/form.html?id=" + role.getId());
-    	return modelAndView;
-    }
-    */
+	
+	@RequestMapping(method={RequestMethod.GET})
+	public @ResponseBody Collection<User> getAllUsersByRole(Long roleId)
+	{
+		return baseHibernateDao.findById(Role.class, roleId).getUsers();
+	}
 }

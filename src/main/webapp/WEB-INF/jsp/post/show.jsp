@@ -1,9 +1,10 @@
-<div id="tabular_data"><fmt:message key="post.postList"/></div>
+<div class="tabular_data"><fmt:message key="post.postList"/></div>
 <table>
 	<thead>
 		<tr>
 			<th><fmt:message key="post.title"/></th>
 			<th><fmt:message key="post.created.date"/></th>
+			<th><fmt:message key="post.category.name"/></th>
 			<th><fmt:message key="post.creator"/></th>
 		</tr>
 	</thead>
@@ -24,6 +25,7 @@
 				</div>
 			</td>
 			<td><fmt:formatDate value="${post.createdDate}" pattern="yyyy-dd-MM"/></td>
+			<td>${post.category.name}</td>
 			<td>${post.user.userName}</td>
 		</tr>
 	</c:forEach>

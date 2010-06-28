@@ -344,6 +344,12 @@
 			<version>${spring.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.5.3</version>
+		</dependency>
+		
 		<!--  for jdk 1.6 only -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>

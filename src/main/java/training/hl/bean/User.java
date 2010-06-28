@@ -10,7 +10,6 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,17 +22,19 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import training.hl.bean.enums.Gender;
-import training.hl.hibernate.annotation.Unique;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+import training.hl.bean.enums.Gender;
+
 @Data
 @Entity
-@EqualsAndHashCode(callSuper = false, exclude = { "posts", "categories", "roles" })
-@ToString(callSuper = false, exclude = { "posts", "categories", "roles" })
+@EqualsAndHashCode(callSuper = false, exclude = { "posts", "categories", "roles"})
+@ToString(callSuper = false, exclude = { "posts", "categories", "roles"})
+@JsonIgnoreProperties(value={"categories", "roles", "posts", "password", "profile"})
 public class User extends RootEntity
 {
 	private static final long serialVersionUID = 5840474281304089091L;
@@ -42,7 +43,7 @@ public class User extends RootEntity
 	private Long id;
 	@NotNull
 	@Size(min=1, max=20)
-	@Unique(entity=User.class, field="userName")
+//	@Unique(entity=User.class, field="userName")
 	private String userName;
 	@NotNull
 	@Size(min=6, max=65)
@@ -69,7 +70,7 @@ public class User extends RootEntity
 	@Embedded
 	private Profile profile;
 	@NotNull
-	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, fetch=FetchType.EAGER)
+	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	@JoinTable(name="user_role", joinColumns={@JoinColumn(name="user_id")}, inverseJoinColumns={@JoinColumn(name = "role_id")})
 	private Set<Role> roles = new HashSet<Role>();
 	

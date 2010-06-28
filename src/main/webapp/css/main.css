@@ -3,8 +3,8 @@ body
 	background-color: #6F605A;
 	/*background: url("../images/bg.png") repeat-x scroll center bottom #6F605A;*/
 }
-	
-#tabular_data
+
+.tabular_data
 {
 	margin-bottom: 10px;
 	text-align: center;
@@ -353,6 +353,7 @@ legend
 	width: 300px;
 	float: left;
 	padding-left: 20px;
+	margin-bottom: 10px;
 }
 
 #login a
@@ -496,6 +497,7 @@ legend
 	float: left;
 	margin-left:30px;
 	color: #800000;
+	cursor: pointer;
 }
 
 form div div span
@@ -566,4 +568,39 @@ form div div span
 .confirm_dialog a.confirm
 {
 	color: #FF4500;
+}
+
+ul.tabs
+{
+	list-style-type:none;	
+}
+
+ul.tabs li
+{
+	display: inline;
+	margin: 0;	
+}
+
+.tabs a
+{
+	-moz-border-radius-topleft:6px;
+	-moz-border-radius-topright:6px;
+    color: #EA9A1C;
+	padding: 4px 8px;
+	border-style: solid;
+	border-color: #EA9A1C;
+	border-width: 1px 1px 0;
+	text-decoration: none;
+}
+.tabs a:hover, .tabs a.current
+{
+	color: #666666;
+}
+
+#ajax_icon
+{
+	vertical-align: middle;
+	float: right;
+	margin-right: 10px;
+	display: none;
 }
