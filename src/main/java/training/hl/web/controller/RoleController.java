@@ -74,6 +74,7 @@ public class RoleController
     }
     
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(method=RequestMethod.GET)
     public String delete(Role role)
     {
 		if(StringUtils.equals(role.getName(),"ROLE_USER"))

@@ -96,6 +96,7 @@ public class UserController
     /*
      * jspViewResolver
      */
+    @RequestMapping(method={RequestMethod.GET})
     public @ModelAttribute("user") User ok()
     {
     	User user = new User();
