@@ -21,6 +21,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -35,6 +36,7 @@ import training.hl.bean.enums.Gender;
 @EqualsAndHashCode(callSuper = false, exclude = { "posts", "categories", "roles"})
 @ToString(callSuper = false, exclude = { "posts", "categories", "roles"})
 @JsonIgnoreProperties(value={"categories", "roles", "posts", "password", "profile"})
+@XmlRootElement
 public class User extends RootEntity
 {
 	private static final long serialVersionUID = 5840474281304089091L;

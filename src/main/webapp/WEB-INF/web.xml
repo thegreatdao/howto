@@ -10,17 +10,23 @@
 		</jsp-property-group>
 	</jsp-config>
 	
-	<!-- don't need to define this listener if we don't use open session in the view filter -->
-	 <listener>
-        <listener-class>
-            org.springframework.web.context.ContextLoaderListener
-        </listener-class>
-    </listener>
+	<listener>
+		<listener-class>
+			org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap
+		</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>
+			org.jboss.resteasy.plugins.spring.SpringContextLoaderListener
+		</listener-class>
+	</listener>
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:application-context.xml
+            classpath:aop-context.xml
 			/WEB-INF/spring/training-servlet.xml
 			/WEB-INF/spring/security-context.xml
         </param-value>
@@ -101,6 +107,16 @@
 		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+	  <servlet-name>Resteasy</servlet-name>
+	  <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+	  <servlet-name>Resteasy</servlet-name>
+	  <url-pattern>/ws/*</url-pattern>
+	</servlet-mapping>
+  
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

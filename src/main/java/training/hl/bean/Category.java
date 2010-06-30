@@ -15,6 +15,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,6 +28,8 @@ import lombok.ToString;
 @Entity
 @EqualsAndHashCode(callSuper=false, exclude={"posts"})
 @ToString(callSuper=false, exclude="posts")
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Category extends RootEntity
 {
 	private static final long serialVersionUID = 2495573965088461445L;
@@ -36,9 +42,11 @@ public class Category extends RootEntity
 	private String name;
 	@Column(insertable=false, updatable=false)
 	private Date createdDate;
+	@XmlTransient
 	@OneToMany(mappedBy="category", cascade=CascadeType.ALL)
 	private Set<Post> posts = new HashSet<Post>();
 	@ManyToOne
+	@XmlTransient
 	@JoinColumn(name="user_id")
 	private User user;
 }

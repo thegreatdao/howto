@@ -10,7 +10,6 @@
 		">
     
 	<mvc:annotation-driven />
-
 	<mvc:view-controller path="/index.html" />
 
 	<mvc:interceptors>

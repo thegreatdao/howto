@@ -35,6 +35,7 @@
 		<slf4j.version>1.5.10</slf4j.version>
 		<hibernate.version>3.5.1-Final</hibernate.version>
 		<tiles.version>2.1.3</tiles.version>
+		<restEasy.version>2.0-beta-4</restEasy.version>
 	</properties>
 
 	<repositories>

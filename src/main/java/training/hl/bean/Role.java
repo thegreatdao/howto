@@ -14,6 +14,10 @@ import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,6 +25,8 @@ import lombok.EqualsAndHashCode;
 @Data
 @Entity
 @EqualsAndHashCode(callSuper = false, exclude = {"users"})
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 public class Role extends RootEntity
 {
 	private static final long serialVersionUID = -4366181788207274076L;
@@ -37,6 +43,7 @@ public class Role extends RootEntity
 	private String description;
 	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	@JoinTable(name="user_role", joinColumns={@JoinColumn(name="role_id")}, inverseJoinColumns={@JoinColumn(name = "user_id")})
+	@XmlTransient
 	private Set<User> users = new HashSet<User>();
 	
 	@Override
