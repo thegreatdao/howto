@@ -77,12 +77,12 @@
 			<id>projectlombok.org</id>
 			<url>http://projectlombok.org/mavenrepo</url>
 		</repository>
-		<!--
-			<repository> <id>sakai-maven</id> <name>Sakai Maven Repo</name>
-			<layout>default</layout>
-			<url>http://source.sakaiproject.org/maven2</url> <snapshots>
-			<enabled>false</enabled> </snapshots> </repository>
-		-->
+		<repository>
+            <id>flex-mojos-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
+            <releases> <enabled>true</enabled> </releases>
+            <snapshots> <enabled>false</enabled> </snapshots>
+        </repository>
 		<repository>
 			<id>local</id>
 			<url>http://localhost:8081/artifactory/repo/</url>
@@ -421,6 +421,21 @@
 			<artifactId>joda-time</artifactId>
 			<version>1.6</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>flex-framework</artifactId>
+			<version>3.2.0.3958</version>
+			<type>pom</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.sonatype.flexmojos</groupId>
+			<artifactId>flexmojos-unittest-support</artifactId>
+			<version>3.2.0</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 
@@ -452,6 +467,10 @@
 		</resources>
 
 		<plugins>
+			<plugin>
+	          <groupId>org.sonatype.flexmojos</groupId>
+	          <artifactId>flexmojos-maven-plugin</artifactId>
+	        </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
