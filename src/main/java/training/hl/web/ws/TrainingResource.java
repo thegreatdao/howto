@@ -10,9 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import training.hl.bean.Category;
+import training.hl.bean.Post;
 import training.hl.bean.Role;
 import training.hl.bean.User;
 import training.hl.bean.ws.Categories;
+import training.hl.bean.ws.Posts;
 import training.hl.bean.ws.Roles;
 import training.hl.bean.ws.Users;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
@@ -76,5 +78,34 @@ public class TrainingResource
 	public User getUser(@PathParam("id") long id)
 	{
 		return baseHibernateDao.findById(User.class, id);
+	}
+	
+	@GET
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Path("data/posts/category/{categoryId}")
+	public Posts getPostsByCategory(@PathParam("categoryId") long categoryId)
+	{
+		Category category = baseHibernateDao.findById(Category.class, categoryId);
+		Posts posts = new Posts();
+		posts.setPosts(category.getPosts());
+		return posts;
+	}
+	
+	@GET
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Path("data/posts")
+	public Posts getPosts()
+	{
+		Posts posts = new Posts();
+		posts.setPosts(baseHibernateDao.findAll(Post.class));
+		return posts;
+	}
+	
+	@GET
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Path("data/posts/{id}")
+	public Post getPost(@PathParam("id") long id)
+	{
+		return baseHibernateDao.findById(Post.class, id);
 	}
 }

@@ -11,6 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,6 +32,8 @@ import org.hibernate.search.annotations.Store;
 @EqualsAndHashCode(callSuper=false)
 @ToString(callSuper=false)
 @Indexed
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Post extends RootEntity
 {
 	private static final long serialVersionUID = -731165606859766533L;
@@ -46,10 +52,12 @@ public class Post extends RootEntity
 	private Date createdDate;
 	@ManyToOne
 	@JoinColumn(name="user_id")
+	@XmlTransient
 	private User user;
 	@NotNull
 	@Column(name="category_id")
 	private Long categoryId;
+	@XmlTransient
 	@ManyToOne
 	@JoinColumn(name="category_id",insertable=false, updatable=false)
 	private Category category;
