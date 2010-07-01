@@ -3,10 +3,8 @@ package training.hl.aop.logging;
 import java.util.Date;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -20,14 +18,14 @@ public class TrainingLogAspect
 {
 	private final Logger LOGGER = LoggerFactory.getLogger(TrainingLogAspect.class);
 	
-	@Around("execution(* training.hl.web.ws.*.*(..))")
+	/*@Around("execution(* training.hl.web.ws.*.*(..))")
 	public void logWsResources(ProceedingJoinPoint proceedingJoinPoint) throws Throwable
 	{
 		Signature signature = proceedingJoinPoint.getSignature();
 		LOGGER.info(signature + " invoked at --" + new Date());
 		proceedingJoinPoint.proceed();
 		LOGGER.info(signature + " ended at --" + new Date());
-	}
+	}*/
 	
 	@Before("execution(* training.hl.web.controller.*.*(..))")
 	public void logControllers(JoinPoint joinPoint) throws Throwable

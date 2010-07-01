@@ -11,8 +11,10 @@ import org.springframework.stereotype.Controller;
 
 import training.hl.bean.Category;
 import training.hl.bean.Role;
+import training.hl.bean.User;
 import training.hl.bean.ws.Categories;
 import training.hl.bean.ws.Roles;
+import training.hl.bean.ws.Users;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
 
 @Controller
@@ -58,4 +60,21 @@ public class TrainingResource
 		return baseHibernateDao.findById(Category.class, id);
 	}
 	
+	@GET
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Path("data/users")
+	public Users getUsers()
+	{
+		Users users = new Users();
+		users.setUsers(baseHibernateDao.findAll(User.class));
+		return users;
+	}
+	
+	@GET
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Path("data/users/{id}")
+	public User getUser(@PathParam("id") long id)
+	{
+		return baseHibernateDao.findById(User.class, id);
+	}
 }

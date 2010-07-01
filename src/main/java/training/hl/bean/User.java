@@ -21,7 +21,10 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -37,6 +40,7 @@ import training.hl.bean.enums.Gender;
 @ToString(callSuper = false, exclude = { "posts", "categories", "roles"})
 @JsonIgnoreProperties(value={"categories", "roles", "posts", "password", "profile"})
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class User extends RootEntity
 {
 	private static final long serialVersionUID = 5840474281304089091L;
@@ -49,6 +53,7 @@ public class User extends RootEntity
 	private String userName;
 	@NotNull
 	@Size(min=6, max=65)
+	@XmlTransient
 	private String password;
 	@NotNull
 	@Size(min=1, max=20)
@@ -66,14 +71,17 @@ public class User extends RootEntity
 	@Column(insertable=false, updatable=false)
 	private Date createdDate;
 	@OneToMany(mappedBy="user", cascade={CascadeType.ALL, CascadeType.REMOVE})
+	@XmlTransient
 	private Set<Post> posts = new HashSet<Post>();
 	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
+	@XmlTransient
 	private Set<Category> categories = new HashSet<Category>();
 	@Embedded
 	private Profile profile;
 	@NotNull
 	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	@JoinTable(name="user_role", joinColumns={@JoinColumn(name="user_id")}, inverseJoinColumns={@JoinColumn(name = "role_id")})
+	@XmlTransient
 	private Set<Role> roles = new HashSet<Role>();
 	
 	public void addCategory(Category category)
