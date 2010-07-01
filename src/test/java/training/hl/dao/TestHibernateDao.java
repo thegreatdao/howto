@@ -26,7 +26,7 @@ import training.hl.bean.InsurancePolicy;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/application-context.xml")
 @Transactional
-@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
+@TransactionConfiguration
 public class TestHibernateDao
 {
 	@SuppressWarnings("unused")
