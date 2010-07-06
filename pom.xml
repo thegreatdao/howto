@@ -1,5 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>training.hl</groupId>
 	<artifactId>howto</artifactId>
@@ -13,7 +13,7 @@
 			<id>1</id>
 			<name>Hongli Li</name>
 			<email>hongli.liatymail.com</email>
-			<organization></organization>
+			<organization/>
 			<organizationUrl>
 				
 			</organizationUrl>
@@ -23,13 +23,14 @@
 		</developer>
 	</developers>
 
-	<inceptionYear></inceptionYear>
+	<inceptionYear/>
 
 	<organization>
-		<name></name>
+		<name/>
 	</organization>
 	
 	<modules>
 		<module>java</module>
-	</modules>
+    <module>flex</module>
+  </modules>
 </project>

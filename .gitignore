@@ -7,3 +7,8 @@ lucene/
 Thumbs.db
 java.exe.stackdump
 .springBeans
+flex/bin-debug
+flex/target
+flex/.actionScriptProperties
+flex/.flexProperties
+flex/.project
