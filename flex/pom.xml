@@ -21,8 +21,17 @@
         <artifactId>flexmojos-maven-plugin</artifactId>
         <version>3.7.1</version>
         <extensions>true</extensions>
+		<dependencies>
+          <dependency>
+            <groupId>com.adobe.flex</groupId>
+            <artifactId>compiler</artifactId>
+            <version>4.0.0.14159</version>
+            <type>pom</type>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
+
   </build>
   <profiles>
     <profile>
@@ -70,7 +79,7 @@
     <dependency>
       <groupId>com.adobe.flex.framework</groupId>
       <artifactId>flex-framework</artifactId>
-      <version>3.2.0.3958</version>
+      <version>4.0.0.14159</version>
       <type>pom</type>
     </dependency>
     <dependency>
