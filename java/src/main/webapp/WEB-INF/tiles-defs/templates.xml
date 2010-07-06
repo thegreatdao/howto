@@ -60,6 +60,11 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/category/form.jsp" />
 	</definition>
 
+	<definition name="ria/index" extends="baseLayout">
+		<put-attribute name="title" value="rich client" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/ria/index.jsp" />
+	</definition>
+	
 	<definition name="400" extends="baseLayout">
 		<put-attribute name="title" value="Bad Request" type="string" />
 		<put-attribute name="body" value="/WEB-INF/jsp/error/400.jsp" />

@@ -12,6 +12,9 @@
   <version>1.0</version>
   <packaging>swf</packaging>
   <name>flex Flex</name>
+  <properties>		
+		<flex.version>4.1.0.16248</flex.version>
+	</properties>
   <build>
     <sourceDirectory>src/main/flex</sourceDirectory>
     <testSourceDirectory>src/test/flex</testSourceDirectory>
@@ -25,7 +28,7 @@
           <dependency>
             <groupId>com.adobe.flex</groupId>
             <artifactId>compiler</artifactId>
-            <version>4.0.0.14159</version>
+            <version>${flex.version}</version>
             <type>pom</type>
           </dependency>
         </dependencies>
@@ -79,7 +82,7 @@
     <dependency>
       <groupId>com.adobe.flex.framework</groupId>
       <artifactId>flex-framework</artifactId>
-      <version>4.0.0.14159</version>
+      <version>${flex.version}</version>
       <type>pom</type>
     </dependency>
     <dependency>

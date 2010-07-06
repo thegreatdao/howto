@@ -2,8 +2,9 @@
 	<li><a href="<c:url value="/" />"><fmt:message key="home"/></a></li>
 	<li><a href="<c:url value="/user/show.html" />"><fmt:message key="user"/></a></li>
 	<li><a href="<c:url value="/role/show.html" />"><fmt:message key="role"/></a></li>
-	<li><a href="/post/show.html"><fmt:message key="post"/></a></li>
+	<li><a href="<c:url value="/post/show.html" />"><fmt:message key="post"/></a></li>
 	<li><a href="<c:url value="/category/show.html" />"><fmt:message key="category"/></a></li>
+	<li><a href="<c:url value="/ria/index.html" />"><fmt:message key="ria"/></a></li>
 </ul>
 
 <div id="login">
