@@ -64,6 +64,7 @@
 						<sec:authorize	ifAnyGranted="ROLE_ADMIN">
 						$(".user_action").tooltip({  position: "center left", opacity: 0.6, effect: 'slide'});
 						</sec:authorize>
+						$('table tr:odd').addClass('odd'); 
 						$('.confirm_dialog').hide();
 						$('.delete').click(
 							function()

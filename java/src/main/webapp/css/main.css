@@ -161,6 +161,11 @@ table th.Corner
     text-align: left;
 }
 
+table tr.odd
+{
+	background-color: #EFEFEF;
+}
+
 div#action a, #search_form a
 {
 	text-decoration: none;
