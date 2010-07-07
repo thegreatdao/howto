@@ -422,6 +422,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>training.hl</groupId>
+			<artifactId>flex</artifactId>
+			<version>1.0</version>
+			<type>swf</type>
+		</dependency>
+
 	</dependencies>
 
 	<licenses>
@@ -499,6 +506,42 @@
 						<configuration>
 							<encoding>UTF8</encoding>
 							<includes>messages_zh_CN.properties,messages.properties</includes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.flexmojos</groupId>
+				<artifactId>flexmojos-maven-plugin</artifactId>
+				<executions>
+				  <execution>
+					<goals>
+					  <goal>copy-flex-resources</goal> <!-- Copy of Flex resource into WAR -->
+					</goals>
+				  </execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+								  <groupId>training.hl</groupId>
+								  <artifactId>flex</artifactId>
+								  <version>1.0</version>
+								  <type>swf</type>
+								  <overWrite>true</overWrite>
+								  <outputDirectory>${basedir}/src/main/webapp/swf</outputDirectory>
+								  <destFileName>flex.swf</destFileName>
+								</artifactItem>
+							</artifactItems>							
 						</configuration>
 					</execution>
 				</executions>

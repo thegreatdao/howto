@@ -67,7 +67,7 @@
                 <mojoExecution>org.apache.maven.plugins:maven-resources-plugin::</mojoExecution>
               </mojoExecutions>
             </configuration>
-          </plugin>
+          </plugin>			
         </plugins>
       </build>
     </profile>

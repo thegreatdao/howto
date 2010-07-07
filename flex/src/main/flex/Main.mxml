@@ -8,9 +8,13 @@
 		<s:HorizontalLayout horizontalAlign="center" paddingTop="20"/>
 	</s:layout>
 	<fx:Declarations>
+		<s:RadioButtonGroup id="radiogroup1"/>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	<s:Panel x="38" y="42" width="280" height="200" title="Needs medicine while having no decease">
 		<s:Label x="14" y="10" text="Mind is Buddha"/>
+		<s:CheckBox label="CheckBox" x="10" y="30"/>
+		<s:RadioButton label="Button 1" groupName="radiogroup1" x="90" y="30"/>
+		<s:RadioButton label="Button 2" groupName="radiogroup1" x="160" y="30"/>
 	</s:Panel>
 </s:Application>
