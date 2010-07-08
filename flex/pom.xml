@@ -77,6 +77,12 @@
       <id>flexmojos</id>
       <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
     </repository>
+     <repository>
+      <id>mate-repository</id>
+      <url>http://mate-framework.googlecode.com/svn/trunk/maven</url>
+      <releases><enabled>true</enabled></releases>
+      <snapshots><enabled>false</enabled></snapshots>
+   </repository>
   </repositories>
   <dependencies>
     <dependency>
@@ -92,5 +98,11 @@
       <type>swc</type>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.asfusion.mate</groupId>
+      <artifactId>mate-framework</artifactId>
+      <version>0.8.9</version>
+      <type>swc</type>
+   </dependency>
   </dependencies>
 </project>
