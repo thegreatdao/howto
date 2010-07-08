@@ -1,1 +1,2 @@
 Password checking max length enhancement
+FlexMojos goal flexmojos:flexbuilder doesn't work there is a bug with the current plugin
