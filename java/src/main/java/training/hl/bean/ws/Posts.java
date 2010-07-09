@@ -3,12 +3,11 @@ package training.hl.bean.ws;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.Data;
 import training.hl.bean.Post;
-
-import com.sun.xml.txw2.annotation.XmlElement;
 
 @Data
 @XmlRootElement
@@ -18,7 +17,7 @@ public class Posts implements Serializable
 	
 	private Collection<Post> posts;
 	
-	@XmlElement("post")
+	@XmlElement(name="post")
 	public Collection<Post> getPosts()
 	{
 		return posts;

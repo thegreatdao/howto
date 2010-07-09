@@ -3,9 +3,8 @@ package training.hl.bean.ws;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import com.sun.xml.txw2.annotation.XmlElement;
 
 import lombok.Data;
 
@@ -19,7 +18,7 @@ public class Categories implements Serializable
 	
 	private Collection<Category> categories;
 	
-	@XmlElement("category")
+	@XmlElement(name="category")
 	public Collection<Category> getCategories()
 	{
 		return categories;

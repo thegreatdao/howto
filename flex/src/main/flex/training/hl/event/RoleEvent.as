@@ -4,7 +4,7 @@ package training.hl.event
 	
 	public class RoleEvent extends Event
 	{
-		public static const GET_ALL : String = "getAllRoles";
+		public static const GET_ALL_ROLES : String = "getAllRoles";
 		public static const GET_ROLE_BY_ID : String = "getRoleById";
 		
 		public function RoleEvent(type:String, bubbles:Boolean=true, cancelable:Boolean=false)

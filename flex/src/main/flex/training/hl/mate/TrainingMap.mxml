@@ -2,5 +2,29 @@
 <EventMap
 	xmlns:mx="http://www.adobe.com/2006/mxml"
 	xmlns="http://mate.asfusion.com/">
+	<mx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			import training.hl.event.RoleEvent;
+			import training.hl.event.UserEvent;
+			import training.hl.model.manager.UserParser;
+		]]>
+	</mx:Script>
+
+	<EventHandlers type="{UserEvent.GET_ALL_USERS}">
 		
+	</EventHandlers>		
+	
+	<EventHandlers type="{FlexEvent.APPLICATION_COMPLETE}">
+		
+		<HTTPServiceInvoker instance="{userService}">
+			<resultHandlers>
+				<MethodInvoker generator="{UserParser}" method="parseUsers" arguments="{resultObject}" />
+			</resultHandlers>
+		</HTTPServiceInvoker>
+		
+	</EventHandlers>
+	
+	<mx:HTTPService id="userService" url="http://localhost:8888/ws/data/users" resultFormat="e4x" />
 </EventMap>

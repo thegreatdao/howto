@@ -15,6 +15,7 @@ import lombok.Data;
 public class Roles implements Serializable
 {
 	private static final long serialVersionUID = 6385732612925556230L;
+	
 	private Collection<Role> roles;
 	
 	@XmlElement(name="role")

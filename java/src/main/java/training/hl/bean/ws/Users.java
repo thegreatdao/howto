@@ -3,12 +3,11 @@ package training.hl.bean.ws;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.Data;
 import training.hl.bean.User;
-
-import com.sun.xml.txw2.annotation.XmlElement;
 
 @Data
 @XmlRootElement
@@ -18,7 +17,7 @@ public class Users implements Serializable
 	
 	private Collection<User> users;
 
-	@XmlElement("user")
+	@XmlElement(name="user")
 	public Collection<User> getUsers() {
 		return users;
 	}
