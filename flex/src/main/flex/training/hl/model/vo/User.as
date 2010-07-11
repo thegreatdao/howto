@@ -6,6 +6,9 @@ package training.hl.model.vo
 		private var _firstName : String;
 		private var _lastName : String;		
 		private var _age : int;
+		private var _bio : String;
+		private var _homePage : String;
+		private var _hobbies : String;
 		
 		public function User()
 		{
@@ -49,17 +52,38 @@ package training.hl.model.vo
 		public function set age(age:int) : void
 		{
 			_age = age;
-		}
-		
-		public function toString():String
+		}			
+
+		public function get hobbies():String
 		{
-			var s : String = "User[firstName=";
-			s +=firstName;
-			s += ", lastName=";
-			s += lastName;
-			s += ", userName=";
-			s += userName + "]";
-			return s;
+			return _hobbies;
 		}
+
+		public function set hobbies(value:String):void
+		{
+			_hobbies = value;
+		}
+
+		public function get homePage():String
+		{
+			return _homePage;
+		}
+
+		public function set homePage(value:String):void
+		{
+			_homePage = value;
+		}
+
+		public function get bio():String
+		{
+			return _bio;
+		}
+
+		public function set bio(value:String):void
+		{
+			_bio = value;
+		}
+
+
 	}
 }

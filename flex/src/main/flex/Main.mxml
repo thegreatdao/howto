@@ -3,15 +3,19 @@
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   width="680"
-			   height="480" xmlns:mate="training.hl.mate.*">
-	
+			   xmlns:map="training.hl.map.*" 
+			   xmlns:view="training.hl.ui.view.*">
 	
 	<s:layout>
 		<s:HorizontalLayout horizontalAlign="center" paddingTop="20" paddingBottom="20"/>
 	</s:layout>
+	
+	<fx:Style source="assets/css/Style.css"/>
+	
 	<fx:Declarations>
-		<mate:TrainingMap/>
+		<map:TrainingMap/>
 	</fx:Declarations>
-	<s:Panel title="RIA Client" width="100%" height="100%">
-	</s:Panel>
+	
+	<view:MainContainer/>
+	
 </s:Application>

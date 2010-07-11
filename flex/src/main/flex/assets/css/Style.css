@@ -1,0 +1,45 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+s|Application #titleDisplay
+{
+}
+
+s|Panel
+{
+}
+
+mx|FormItem
+{
+	font-weight: bold;
+	color: #333333;
+}
+
+.mainButton
+{
+	color: #FFFFFF;
+	background-color: #653F30;
+	border-weight: 3;
+	border-color: #FFFFFF;
+}
+
+.navButton
+{
+	skinClass: ClassReference('training.hl.skin.NavButtonSkin');
+	color: #333333;
+	border-color: #716F64;
+}
+
+.navContainer
+{
+	backgroundColor: #FFFFFF;
+	border-visible: false;
+}
+
+.navButton:over,
+.navButton:down
+{
+	border-color: #808080;
+	color: #808080;
+}

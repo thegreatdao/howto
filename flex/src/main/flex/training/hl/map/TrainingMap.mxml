@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EventMap
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns="http://mate.asfusion.com/">
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			import training.hl.event.RoleEvent;
+			import training.hl.event.UserEvent;
+			import training.hl.model.manager.UserManager;
+			import training.hl.model.manager.UserParser;
+			import training.hl.ui.presenter.UserListPresentationModel;
+			import training.hl.ui.view.user.UserDataGrid;
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		
+		<InjectorSettings eventType="{FlexEvent.PREINITIALIZE}"/>
+		
+		<EventHandlers type="{FlexEvent.PREINITIALIZE}">
+			<ObjectBuilder generator="{UserListPresentationModel}" constructorArguments="{scope.dispatcher}"/>
+		</EventHandlers>
+		
+		<EventHandlers type="{FlexEvent.APPLICATION_COMPLETE}">
+			<HTTPServiceInvoker instance="{userService}">
+				<resultHandlers>
+					<MethodInvoker generator="{UserParser}" method="parseUsers" arguments="{resultObject}" />
+					<MethodInvoker generator="{UserManager}" method="saveUserList" arguments="{lastReturn}" />	
+				</resultHandlers>
+			</HTTPServiceInvoker>
+		</EventHandlers>
+		
+		<Injectors target="{UserListPresentationModel}" >
+			<PropertyInjector targetKey="users" source="{UserManager}" sourceKey="users" />
+		</Injectors>
+		
+		<Injectors target="{UserDataGrid}">
+			<PropertyInjector targetKey="model" source="{UserListPresentationModel}"/>
+		</Injectors>
+		
+		<s:HTTPService id="userService" url="http://localhost:8888/ws/data/users" resultFormat="e4x" />
+	</fx:Declarations>
+	
+</EventMap>

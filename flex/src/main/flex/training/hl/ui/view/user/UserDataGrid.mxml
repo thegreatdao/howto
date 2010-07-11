@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:DataGrid xmlns:fx="http://ns.adobe.com/mxml/2009"
+			 xmlns:s="library://ns.adobe.com/flex/spark"
+			 xmlns:mx="library://ns.adobe.com/flex/mx"
+			 dataProvider="{model.users}"
+			 height="360"
+			 dropShadowVisible="true"
+			 left="20"
+			 right="20"
+			 top="60"
+			 >
+	<fx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			
+			import training.hl.ui.presenter.UserListPresentationModel;
+			
+			[Bindable]
+			public var model:UserListPresentationModel;
+			
+			private function formatUserName(item:Object, column:DataGridColumn):String
+			{
+				return item.firstName + " " + item.lastName;
+			}
+		]]>
+	</fx:Script>
+
+	<mx:columns>
+		<mx:DataGridColumn dataField="age" headerText="Age" width="30"/>
+		<mx:DataGridColumn dataField="userName" headerText="Account Name"/>
+		<mx:DataGridColumn labelFunction="formatUserName" headerText="User Name"/>
+		<mx:DataGridColumn dataField="bio" headerText="Bio"/>
+		<mx:DataGridColumn dataField="homePage" headerText="Homepage"/>
+		<mx:DataGridColumn dataField="hobbies" headerText="Hobbies"/>
+	</mx:columns>
+</mx:DataGrid>

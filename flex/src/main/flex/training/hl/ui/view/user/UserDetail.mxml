@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Form xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 top="60"
+		 width="100%"
+		 verticalGap="10"
+		 horizontalCenter="68">
+	<fx:Declarations>
+	</fx:Declarations>
+	
+	<mx:FormItem label="User Name" required="true">
+		<s:TextInput width="300"/>
+	</mx:FormItem>
+	
+	<mx:FormItem label="First Name" required="true">
+		<s:TextInput width="300"/>
+	</mx:FormItem>
+	
+	<mx:FormItem label="Last Name" required="true">
+		<s:TextInput width="300"/>
+	</mx:FormItem>
+	
+	<mx:FormItem label="Age" required="true">
+		<s:NumericStepper minimum="20" maximum="80"/>
+	</mx:FormItem>
+	
+	<mx:FormItem label="Homepage">
+		<s:TextInput width="300"/>
+	</mx:FormItem>
+	
+	<mx:FormItem label="Bio">
+		<s:TextArea width="300"/>
+	</mx:FormItem>
+	
+	<mx:FormItem label="Hobbies">
+		<s:TextInput width="300"/>
+	</mx:FormItem>
+	
+	<mx:FormItem direction="horizontal" paddingTop="10">
+		<s:Button label="Submit" styleName="navButton"/>
+		<s:Button label="Delete" styleName="navButton"/>
+	</mx:FormItem>
+</mx:Form>

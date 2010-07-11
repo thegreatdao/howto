@@ -10,13 +10,16 @@ package training.hl.model.manager
 		{
 			var userList:Array = new Array();
 			
-			for each( var user:XML in users..users)
+			for each( var user:XML in users..user)
 			{
 				var currentUser:User = new User();
 				currentUser.age = user.age;
 				currentUser.firstName = user.firstName;
 				currentUser.lastName = user.lastName;
 				currentUser.userName = user.userName;
+				currentUser.bio = user.profile.bio;
+				currentUser.hobbies = user.profile.hobbies;
+				currentUser.homePage = user.profile.homePage;
 				userList.push(currentUser);
 			}
 			
