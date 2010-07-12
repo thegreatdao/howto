@@ -13,7 +13,7 @@ package training.hl.ui.presenter
 		private var _users:ArrayCollection = null;
 		public static const USERS_CHANGED:String = "usersChanged";
 		
-		public function UserListPresentationModel(dispatcher:IEventDispatcher=null)
+		public function UserListPresentationModel(dispatcher:IEventDispatcher)
 		{
 			this.dispatcher = dispatcher;
 		}

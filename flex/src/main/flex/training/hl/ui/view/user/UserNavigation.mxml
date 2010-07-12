@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		 xmlns:s="library://ns.adobe.com/flex/spark" 
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark"
 		 xmlns:mx="library://ns.adobe.com/flex/mx"
 		 xmlns:user="training.hl.ui.view.user.*"
-		 width="100%" currentState="userList">
+		 width="100%"
+		 currentState="{model.viewState}" xmlns:common="training.hl.ui.view.common.*"
+		 >
+	
+	<fx:Script>
+		<![CDATA[
+			import training.hl.model.constant.EffectConstant;
+			import training.hl.model.vo.User;
+			import training.hl.ui.presenter.UserPresentationModel;
+			[Bindable]
+			public var model:UserPresentationModel;
+		]]>
+	</fx:Script>
+	
 	<s:states>
 		<s:State name="userList"/>
 		<s:State name="userDetail"/>
 	</s:states>
+	
+	<s:transitions>
+		<s:Transition autoReverse="true" fromState="*" toState="*" >
+			<s:Move3D 
+				targets="{[userList, userDetail]}" 
+				easer="{EffectConstant.EASE}" 
+				duration="{EffectConstant.LONGER_DURATION}" 
+				xBy="100" zBy="100" yBy="100"
+				repeatBehavior="reverse" />
+		</s:Transition>
+	</s:transitions>
+	
 	<fx:Declarations>
-		<s:DropShadowFilter id="shadow" alpha="0.40" angle="90" color="0" distance="3" quality="50"/>	
+		<s:DropShadowFilter id="shadow" alpha="0.40" angle="90" color="0" distance="3" quality="50"/>
 	</fx:Declarations>
 	
-	<user:UserListNavigation filters="{shadow}"/>
-	<user:UserDataGrid/>
-	<user:UserDetail includeIn="userDetail"/>
+	<common:Navigation filters="{shadow}"/>
+	<user:UserDataGrid id="userList" y.userList="60" y.userDetail="-600"/>
+	<user:UserDetail id="userDetail" filters="{shadow}" y.userList="-6000" y.userDetail="60"/>
 </s:Group>

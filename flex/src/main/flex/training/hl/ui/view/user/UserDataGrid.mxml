@@ -7,7 +7,6 @@
 			 dropShadowVisible="true"
 			 left="20"
 			 right="20"
-			 top="60"
 			 >
 	<fx:Script>
 		<![CDATA[

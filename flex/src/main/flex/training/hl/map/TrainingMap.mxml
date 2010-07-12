@@ -13,7 +13,10 @@
 			import training.hl.model.manager.UserManager;
 			import training.hl.model.manager.UserParser;
 			import training.hl.ui.presenter.UserListPresentationModel;
+			import training.hl.ui.presenter.UserPresentationModel;
 			import training.hl.ui.view.user.UserDataGrid;
+			import training.hl.ui.view.common.Navigation;
+			import training.hl.ui.view.user.UserNavigation;
 		]]>
 	</fx:Script>
 	
@@ -23,6 +26,7 @@
 		
 		<EventHandlers type="{FlexEvent.PREINITIALIZE}">
 			<ObjectBuilder generator="{UserListPresentationModel}" constructorArguments="{scope.dispatcher}"/>
+			<ObjectBuilder generator="{UserPresentationModel}" constructorArguments="{scope.dispatcher}"/>
 		</EventHandlers>
 		
 		<EventHandlers type="{FlexEvent.APPLICATION_COMPLETE}">
@@ -40,6 +44,14 @@
 		
 		<Injectors target="{UserDataGrid}">
 			<PropertyInjector targetKey="model" source="{UserListPresentationModel}"/>
+		</Injectors>
+		
+		<Injectors target="{Navigation}">
+			<PropertyInjector targetKey="model" source="{UserPresentationModel}"/>
+		</Injectors>
+		
+		<Injectors target="{UserNavigation}">
+			<PropertyInjector targetKey="model" source="{UserPresentationModel}"/>
 		</Injectors>
 		
 		<s:HTTPService id="userService" url="http://localhost:8888/ws/data/users" resultFormat="e4x" />
