@@ -13,6 +13,7 @@ package training.hl.model.manager
 		private var _users : ArrayCollection;
 		private var _user : User;
 		private static const SAVE_USER_LIST : String = "saveUserList";
+		private static const USER_CHANGED : String = "userChanged";
 		
 		[Bindable(event="saveUserList")]
 		public function get users():ArrayCollection
@@ -20,20 +21,22 @@ package training.hl.model.manager
 			return _users;
 		}
 
+		[Bindable(event="userChanged")]
 		public function get user():User
 		{
 			return _user;
-		}
-
-		public function set user(value:User):void
-		{
-			_user = value;
 		}
 		
 		public function saveUserList(users:Array):void
 		{
 			_users = new ArrayCollection(users);
 			dispatchEvent(new Event(SAVE_USER_LIST));
+		}
+		
+		public function selectUser(user:User):void
+		{
+			_user = user;
+			dispatchEvent(new Event(USER_CHANGED));
 		}
 	}
 }

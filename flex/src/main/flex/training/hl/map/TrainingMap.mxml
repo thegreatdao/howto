@@ -12,23 +12,24 @@
 			import training.hl.event.UserEvent;
 			import training.hl.model.manager.UserManager;
 			import training.hl.model.manager.UserParser;
+			import training.hl.ui.presenter.UserDetailPresentationModel;
 			import training.hl.ui.presenter.UserListPresentationModel;
 			import training.hl.ui.presenter.UserPresentationModel;
-			import training.hl.ui.view.user.UserDataGrid;
 			import training.hl.ui.view.common.Navigation;
+			import training.hl.ui.view.user.UserDataGrid;
+			import training.hl.ui.view.user.UserDetail;
 			import training.hl.ui.view.user.UserNavigation;
 		]]>
 	</fx:Script>
 	
 	<fx:Declarations>
 		
-		<InjectorSettings eventType="{FlexEvent.PREINITIALIZE}"/>
-		
 		<EventHandlers type="{FlexEvent.PREINITIALIZE}">
 			<ObjectBuilder generator="{UserListPresentationModel}" constructorArguments="{scope.dispatcher}"/>
 			<ObjectBuilder generator="{UserPresentationModel}" constructorArguments="{scope.dispatcher}"/>
 		</EventHandlers>
 		
+		<InjectorSettings eventType="{FlexEvent.PREINITIALIZE}"/>
 		<EventHandlers type="{FlexEvent.APPLICATION_COMPLETE}">
 			<HTTPServiceInvoker instance="{userService}">
 				<resultHandlers>
@@ -38,8 +39,21 @@
 			</HTTPServiceInvoker>
 		</EventHandlers>
 		
+		<EventHandlers type="{UserEvent.SELECT}">
+			<MethodInvoker generator="{UserManager}" method="selectUser" arguments="{event.user}"/>
+		</EventHandlers>
+		
+		<Injectors targets="{UserDetail}" >
+			<ObjectBuilder generator="{UserDetailPresentationModel}" constructorArguments="{scope.dispatcher}" />
+			<PropertyInjector targetKey="model" source="{lastReturn}" />
+		</Injectors>
+		
 		<Injectors target="{UserListPresentationModel}" >
 			<PropertyInjector targetKey="users" source="{UserManager}" sourceKey="users" />
+		</Injectors>
+		
+		<Injectors target="{UserDetailPresentationModel}" >
+			<PropertyInjector targetKey="selectedUser" source="{UserManager}" sourceKey="user" />
 		</Injectors>
 		
 		<Injectors target="{UserDataGrid}">

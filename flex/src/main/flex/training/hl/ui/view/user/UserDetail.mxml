@@ -8,32 +8,40 @@
 	<fx:Declarations>
 	</fx:Declarations>
 	
+	<fx:Script>
+		<![CDATA[
+			import training.hl.ui.presenter.UserDetailPresentationModel;
+			[Bindable]
+			public var model:UserDetailPresentationModel;
+		]]>
+	</fx:Script>
+	
 	<mx:FormItem label="User Name" required="true">
-		<s:TextInput width="300"/>
+		<s:TextInput width="300" text="{model.selectedUser.userName}"/>
 	</mx:FormItem>
 	
 	<mx:FormItem label="First Name" required="true">
-		<s:TextInput width="300"/>
+		<s:TextInput width="300" text="{model.selectedUser.firstName}"/>
 	</mx:FormItem>
 	
 	<mx:FormItem label="Last Name" required="true">
-		<s:TextInput width="300"/>
+		<s:TextInput width="300" text="{model.selectedUser.lastName}"/>
 	</mx:FormItem>
 	
 	<mx:FormItem label="Age" required="true">
-		<s:NumericStepper minimum="20" maximum="80"/>
+		<s:NumericStepper minimum="20" maximum="80" value="{model.selectedUser.age as Number}"/>
 	</mx:FormItem>
 	
 	<mx:FormItem label="Homepage">
-		<s:TextInput width="300"/>
+		<s:TextInput width="300" text="{model.selectedUser.homePage}"/>
 	</mx:FormItem>
 	
 	<mx:FormItem label="Bio">
-		<s:TextArea width="300"/>
+		<s:TextArea width="300" text="{model.selectedUser.bio}"/>
 	</mx:FormItem>
 	
 	<mx:FormItem label="Hobbies">
-		<s:TextInput width="300"/>
+		<s:TextInput width="300" text="{model.selectedUser.hobbies}"/>
 	</mx:FormItem>
 	
 	<mx:FormItem direction="horizontal" paddingTop="10">

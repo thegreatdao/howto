@@ -6,11 +6,14 @@ package training.hl.event
 	
 	public class UserEvent extends Event
 	{
-		public static const GET_ALL_USERS : String = "getAllUsers";
-		public static const GET_USER_BY_ID : String = "getUserById";
+		public static const SELECT:String = "selectUserEvent";
+		public static const EDIT:String = "editUserEvent";
+		public static const DELETE:String = "deleteUserEvent";
+		public static const ADD:String = "addUserEvent";
+		
 		private var _user:User;
 		
-		public function UserEvent(type:String, bubbles:Boolean=false, cancelable:Boolean=false)
+		public function UserEvent(type:String, bubbles:Boolean=true, cancelable:Boolean=false)
 		{
 			super(type, bubbles, cancelable);
 		}
@@ -22,7 +25,7 @@ package training.hl.event
 		
 		public function get user():User
 		{
-			return user;
+			return _user;
 		}
 	}
 }

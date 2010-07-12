@@ -3,7 +3,8 @@
 			 xmlns:s="library://ns.adobe.com/flex/spark"
 			 xmlns:mx="library://ns.adobe.com/flex/mx"
 			 dataProvider="{model.users}"
-			 height="360"
+			 change="selectUser()"
+			 height="400"
 			 left="20"
 			 right="20"
 			 >
@@ -11,6 +12,7 @@
 		<![CDATA[
 			import mx.controls.Alert;
 			
+			import training.hl.model.vo.User;
 			import training.hl.ui.presenter.UserListPresentationModel;
 			
 			[Bindable]
@@ -19,6 +21,11 @@
 			private function formatUserName(item:Object, column:DataGridColumn):String
 			{
 				return item.firstName + " " + item.lastName;
+			}
+			
+			private function selectUser():void
+			{
+				model.selectUser(this.selectedItem as User);
 			}
 		]]>
 	</fx:Script>
