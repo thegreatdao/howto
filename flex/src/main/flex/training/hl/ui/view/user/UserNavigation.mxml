@@ -38,7 +38,7 @@
 		<s:DropShadowFilter id="shadow" alpha="0.40" angle="90" color="0" distance="3" quality="50"/>
 	</fx:Declarations>
 	
-	<user:UserDataGrid id="userList" y.userList="60" y.userDetail="-600" filters="{shadow}"/>
+	<user:UserDataGrid id="userList" y.userList="60" y.userDetail="-600"/>
 	<user:UserDetail id="userDetail" filters="{shadow}" y.userList="-1400" y.userDetail="60"/>
 	<common:Navigation filters="{shadow}"/>
 
