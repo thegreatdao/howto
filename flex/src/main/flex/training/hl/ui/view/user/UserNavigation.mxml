@@ -4,7 +4,9 @@
 		 xmlns:mx="library://ns.adobe.com/flex/mx"
 		 xmlns:user="training.hl.ui.view.user.*"
 		 width="100%"
-		 currentState="{model.viewState}" xmlns:common="training.hl.ui.view.common.*"
+		 currentState="{model.viewState}"
+		 xmlns:common="training.hl.ui.view.common.*"
+		 clipAndEnableScrolling="true"
 		 >
 	
 	<fx:Script>
@@ -24,12 +26,11 @@
 	
 	<s:transitions>
 		<s:Transition autoReverse="true" fromState="*" toState="*" >
-			<s:Move3D 
-				targets="{[userList, userDetail]}" 
-				easer="{EffectConstant.EASE}" 
-				duration="{EffectConstant.LONGER_DURATION}" 
-				xBy="100" zBy="100" yBy="100"
-				repeatBehavior="reverse" />
+			<s:Move
+				targets="{[userList, userDetail]}"
+				easer="{EffectConstant.EASE}"
+				duration="{EffectConstant.LONGER_DURATION}"
+				/>
 		</s:Transition>
 	</s:transitions>
 	
@@ -37,7 +38,8 @@
 		<s:DropShadowFilter id="shadow" alpha="0.40" angle="90" color="0" distance="3" quality="50"/>
 	</fx:Declarations>
 	
+	<user:UserDataGrid id="userList" y.userList="60" y.userDetail="-600" filters="{shadow}"/>
+	<user:UserDetail id="userDetail" filters="{shadow}" y.userList="-1400" y.userDetail="60"/>
 	<common:Navigation filters="{shadow}"/>
-	<user:UserDataGrid id="userList" y.userList="60" y.userDetail="-600"/>
-	<user:UserDetail id="userDetail" filters="{shadow}" y.userList="-6000" y.userDetail="60"/>
+
 </s:Group>

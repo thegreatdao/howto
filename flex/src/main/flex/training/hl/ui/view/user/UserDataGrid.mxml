@@ -4,7 +4,6 @@
 			 xmlns:mx="library://ns.adobe.com/flex/mx"
 			 dataProvider="{model.users}"
 			 height="360"
-			 dropShadowVisible="true"
 			 left="20"
 			 right="20"
 			 >
