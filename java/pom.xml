@@ -20,7 +20,8 @@
 		<slf4j.version>1.5.10</slf4j.version>
 		<hibernate.version>3.5.1-Final</hibernate.version>
 		<tiles.version>2.1.3</tiles.version>
-		<restEasy.version>2.0-beta-4</restEasy.version>
+		<restEasy.version>2.0-RC1</restEasy.version>
+		<flex.version>1.0.0.RELEASE</flex.version>
 	</properties>
 
 	<repositories>
@@ -151,7 +152,7 @@
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-spring</artifactId>
-			<version>2.0-beta-2</version>
+			<version>${restEasy.version}</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>slf4j-simple</artifactId>
@@ -163,7 +164,7 @@
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxb-provider</artifactId>
-			<version>2.0-beta-2</version>
+			<version>${restEasy.version}</version>
 		</dependency>
 
 		<dependency>
@@ -184,12 +185,14 @@
 			<version>1.3.1</version>
 		</dependency>
 
+		<!-- 
 		<dependency>
 			<groupId>org.codehaus.jettison</groupId>
 			<artifactId>jettison</artifactId>
 			<version>1.2</version>
 		</dependency>
-
+ 		-->
+ 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-annotations</artifactId>
@@ -330,6 +333,14 @@
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!-- 
+		<dependency>
+            <groupId>org.springframework.flex</groupId>
+            <artifactId>org.springframework.flex</artifactId>
+            <version>${flex.version}</version>
+        </dependency>
+         -->
+         
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
@@ -368,21 +379,11 @@
 		</dependency>
 
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.12</version>
-		</dependency>
-
-		<dependency>
 			<groupId>hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
 			<version>1.8.0.7</version>
 		</dependency>
 
-		<!--
-			<dependency> <groupId>com.oracle</groupId>
-			<artifactId>oracle</artifactId> <version>1.0</version> </dependency>
-		-->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
@@ -405,29 +406,7 @@
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 			<version>1.6</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.adobe.flex.framework</groupId>
-			<artifactId>flex-framework</artifactId>
-			<version>3.2.0.3958</version>
-			<type>pom</type>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.sonatype.flexmojos</groupId>
-			<artifactId>flexmojos-unittest-support</artifactId>
-			<version>3.2.0</version>
-			<type>swc</type>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>training.hl</groupId>
-			<artifactId>flex</artifactId>
-			<version>1.0</version>
-			<type>swf</type>
-		</dependency>
+		</dependency>		
 
 	</dependencies>
 
