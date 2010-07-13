@@ -21,7 +21,7 @@
 		<hibernate.version>3.5.1-Final</hibernate.version>
 		<tiles.version>2.1.3</tiles.version>
 		<restEasy.version>2.0-RC1</restEasy.version>
-		<flex.version>1.0.0.RELEASE</flex.version>
+		<flex.version>1.0.3.RELEASE</flex.version>
 	</properties>
 
 	<repositories>
@@ -332,19 +332,23 @@
 			<artifactId>org.springframework.context.support</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
-		<!-- 
+		
 		<dependency>
             <groupId>org.springframework.flex</groupId>
             <artifactId>org.springframework.flex</artifactId>
             <version>${flex.version}</version>
         </dependency>
-         -->
-         
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.5.3</version>
+          
+        <dependency>  
+        	<groupId>org.codehaus.jackson</groupId>  
+        	<artifactId>com.springsource.org.codehaus.jackson.mapper</artifactId>  
+        	<version>1.4.2</version> 
+       	</dependency>
+       	
+       	<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>com.springsource.org.codehaus.jackson</artifactId>
+		    <version>1.4.2</version>
 		</dependency>
 		
 		<!--  for jdk 1.6 only -->
