@@ -105,6 +105,7 @@
 	<servlet-mapping>
 		<servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
 		<url-pattern>*.html</url-pattern>
+		<url-pattern>/flex/*</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

@@ -4,7 +4,8 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   width="680"
 			   xmlns:map="training.hl.map.*" 
-			   xmlns:view="training.hl.ui.view.*">
+			   xmlns:view="training.hl.ui.view.*"
+			   initialize="init()">
 	
 	<s:layout>
 		<s:HorizontalLayout horizontalAlign="center" paddingTop="20" paddingBottom="20"/>
@@ -12,8 +13,34 @@
 	
 	<fx:Style source="assets/css/Style.css"/>
 	
+	<fx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			private function init():void
+			{
+				userService.getAllUsers();
+			}
+
+			protected function userService_resultHandler(event:ResultEvent):void
+			{
+				Alert.show("OK");
+			}
+
+
+			protected function userService_faultHandler(event:FaultEvent):void
+			{
+				Alert.show(event.fault.toString());
+			}
+
+		]]>
+	</fx:Script>
 	<fx:Declarations>
 		<map:TrainingMap/>
+		<s:AMFChannel id="trainingAmf" uri="http://localhost:8888/flex/messagebroker/amf"/>
+		<s:ChannelSet id="channelSet" channels="{[trainingAmf]}"/>
+		<s:RemoteObject id="userService" destination="trainingFlexService" channelSet="{channelSet}" result="userService_resultHandler(event)" fault="userService_faultHandler(event)"/>
 	</fx:Declarations>
 	
 	<view:MainContainer/>
