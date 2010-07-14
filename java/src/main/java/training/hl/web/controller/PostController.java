@@ -36,10 +36,17 @@ public class PostController
 		return baseHibernateDao.findAll(Post.class);
 	}
 	
-	@ModelAttribute("post")
-	public Post setUpPost(@RequestParam(value = "id", required = false) Long id)
+	@ModelAttribute("categories")
+	public Collection<Category> setUpCategory()
 	{
-		Post post = new Post();
+		Collection<Category> categories = baseHibernateDao.findAll(Category.class);
+		return categories;
+	}
+	
+    @RequestMapping(method={RequestMethod.GET})
+    public @ModelAttribute("post") Post form(@RequestParam(value = "id", required = false) Long id)
+    {
+    	Post post = new Post();
 		if (id != null)
 		{
 			post = baseHibernateDao.findById(Post.class, id);
@@ -49,19 +56,6 @@ public class PostController
 			throw new TrainingRootException("Post with id " + id + " doesn't exists!");
 		}
 		return post;
-	}
-	
-	@ModelAttribute("categories")
-	public Collection<Category> setUpCategory()
-	{
-		Collection<Category> categories = baseHibernateDao.findAll(Category.class);
-		return categories;
-	}
-	
-    @RequestMapping(method={RequestMethod.GET})
-    public @ModelAttribute("post") Post form(Post post)
-    {
-    	return post;
     }
     
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
