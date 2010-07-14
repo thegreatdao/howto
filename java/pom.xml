@@ -64,12 +64,6 @@
 			<url>http://projectlombok.org/mavenrepo</url>
 		</repository>
 		<repository>
-            <id>flex-mojos-repository</id>
-            <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
-            <releases> <enabled>true</enabled> </releases>
-            <snapshots> <enabled>false</enabled> </snapshots>
-        </repository>
-		<repository>
 			<id>local</id>
 			<url>http://localhost:8081/artifactory/repo/</url>
 			<snapshots>
@@ -442,10 +436,6 @@
 		</resources>
 
 		<plugins>
-			<plugin>
-	          <groupId>org.sonatype.flexmojos</groupId>
-	          <artifactId>flexmojos-maven-plugin</artifactId>
-	        </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
