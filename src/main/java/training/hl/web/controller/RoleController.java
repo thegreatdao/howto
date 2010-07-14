@@ -32,10 +32,11 @@ public class RoleController
 		return baseHibernateDao.findAll(Role.class);
 	}
 
-	@ModelAttribute("role")
-	public Role setUp(@RequestParam(value = "id", required = false) Long id)
-	{
-		Role role = new Role();
+	
+	@RequestMapping(method=RequestMethod.GET)
+    public @ModelAttribute("role") Role form(@RequestParam(value = "id", required = false) Long id)
+    {
+    	Role role = new Role();
 		if (id != null)
 		{
 			role = baseHibernateDao.findById(Role.class, id);
@@ -45,12 +46,6 @@ public class RoleController
 			throw new TrainingRootException("Role with id " + id + " doesn't exists!");
 		}
 		return role;
-	}
-	
-	@RequestMapping(method=RequestMethod.GET)
-    public @ModelAttribute("role") Role form(Role role)
-    {
-    	return role;
     }
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")

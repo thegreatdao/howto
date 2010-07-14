@@ -33,10 +33,10 @@ public class CategoryController
 		return baseHibernateDao.findAll(Category.class);
 	}
 	
-	@ModelAttribute("category")
-	public Category setUp(@RequestParam(value = "id", required = false) Long id)
-	{
-		Category category = new Category();
+	@RequestMapping(method=RequestMethod.GET)
+    public @ModelAttribute("category") Category form(@RequestParam(value = "id", required = false) Long id)
+    {
+    	Category category = new Category();
 		if (id != null)
 		{
 			category = baseHibernateDao.findById(Category.class, id);
@@ -46,12 +46,6 @@ public class CategoryController
 			throw new TrainingRootException("Category with id " + id + " doesn't exists!");
 		}
 		return category;
-	}
-	
-	@RequestMapping(method=RequestMethod.GET)
-    public @ModelAttribute("category") Category form(Category category)
-    {
-    	return category;
     }
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")

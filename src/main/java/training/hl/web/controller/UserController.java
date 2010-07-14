@@ -45,8 +45,14 @@ public class UserController
 		return baseHibernateDao.findAll(User.class);
 	}
     
-    @ModelAttribute("user")
-    public User setUp(@RequestParam(value = "id", required = false) Long id)
+    @ModelAttribute("roles")
+    public Collection<Role> setUpRoles()
+    {
+    	return baseHibernateDao.findAll(Role.class);
+    }
+    
+    @RequestMapping(method=RequestMethod.GET)
+    public @ModelAttribute("user") User form(@RequestParam(value = "id", required = false) Long id)
     {
     	User user = new User();
     	if(id != null)
@@ -57,18 +63,6 @@ public class UserController
 		{
 			throw new TrainingRootException("User with id " + id + " doesn't exists!");
 		}
-    	return user;
-    }
-    
-    @ModelAttribute("roles")
-    public Collection<Role> setUpRoles()
-    {
-    	return baseHibernateDao.findAll(Role.class);
-    }
-    
-    @RequestMapping(method=RequestMethod.GET)
-    public @ModelAttribute("user") User form(User user)
-    {
     	return user;
     }
     
