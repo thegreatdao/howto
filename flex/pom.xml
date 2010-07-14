@@ -32,6 +32,9 @@
             <type>pom</type>
           </dependency>
         </dependencies>
+        <configuration>
+			<sourceFile>${basedir}/src/main/flex/training/hl/Main.mxml</sourceFile>
+		</configuration>
       </plugin>
     </plugins>
 

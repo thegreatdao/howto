@@ -14,6 +14,11 @@ package training.hl.model.manager
 		private var _user : User;
 		private static const SAVE_USER_LIST : String = "saveUserList";
 		private static const USER_CHANGED : String = "userChanged";
+	
+		public function UserManager(dispatcher:IEventDispatcher=null):void
+		{
+			super(dispatcher);
+		}
 		
 		[Bindable(event="saveUserList")]
 		public function get users():ArrayCollection
