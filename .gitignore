@@ -2,6 +2,8 @@
 .settings
 .project
 java/training.log
+target/
+java/target
 lucene/
 Thumbs.db
 java/java.exe.stackdump
