@@ -30,6 +30,10 @@ public class BaseDao
 	{
 		hibernateTemplate.saveOrUpdate(entity);
 	}
+	public <T extends RootEntity> void merge(T entity)
+	{
+		hibernateTemplate.merge(entity);
+	}
 
 	public <T extends RootEntity> void delete(T entity)
 	{

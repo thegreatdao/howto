@@ -63,7 +63,14 @@ public class RoleController
     	{
 			return "role/form";
 		}
-    	baseHibernateDao.save(role);
+    	if(role.getId() != null)
+    	{
+    		baseHibernateDao.merge(role);
+    	}
+    	else
+    	{
+    		baseHibernateDao.save(role);
+    	}
     	return "redirect:/role/form.html?id=" + role.getId();
     }
     

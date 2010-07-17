@@ -29,6 +29,7 @@
             classpath:aop-context.xml
 			/WEB-INF/spring/training-servlet.xml
 			/WEB-INF/spring/security-context.xml
+			/WEB-INF/spring/flex-servlet.xml
         </param-value>
     </context-param>
     

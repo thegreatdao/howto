@@ -1,11 +1,10 @@
 .classpath
 .settings
 .project
-target/
-java/traning.log
+java/training.log
 lucene/
 Thumbs.db
-java.exe.stackdump
+java/java.exe.stackdump
 .springBeans
 flex/bin-debug
 flex/target
