@@ -1,6 +1,7 @@
 package training.hl.web.controller;
 
 import java.util.Collection;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -51,20 +52,23 @@ public class RoleController
 	@RequestMapping(method={RequestMethod.POST})
     public String save(@Valid Role role, BindingResult result)
     {
+		if (result.hasErrors())
+		{
+			return "role/form";
+		}
+		Set<User> users = null;
 		if(role.getId() != null)
 		{
 			Role roleUser = baseHibernateDao.findById(Role.class, role.getId());
 			if(StringUtils.equals(roleUser.getName(), "ROLE_USER"))
 			{
-				throw new TrainingRootException("ROLE_USER is a fixed role which is read-only");
+				throw new TrainingRootException(roleUser.getName() + " is a fixed role which is read-only");
 			}
-		}
-    	if (result.hasErrors())
-    	{
-			return "role/form";
+			users = roleUser.getUsers();
 		}
     	if(role.getId() != null)
-    	{
+    	{	
+    		role.setUsers(users);
     		baseHibernateDao.merge(role);
     	}
     	else
