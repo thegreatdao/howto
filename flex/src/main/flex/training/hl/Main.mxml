@@ -18,6 +18,7 @@
 			import mx.controls.Alert;
 			import mx.rpc.events.FaultEvent;
 			import mx.rpc.events.ResultEvent;
+			
 			private function init():void
 			{
 				userService.getAllUsers();
@@ -25,9 +26,8 @@
 
 			protected function userService_resultHandler(event:ResultEvent):void
 			{
-				Alert.show("OK");
+				Alert.show(event.result[0].toString());
 			}
-
 
 			protected function userService_faultHandler(event:FaultEvent):void
 			{
@@ -38,9 +38,7 @@
 	</fx:Script>
 	<fx:Declarations>
 		<map:TrainingMap/>
-		<s:AMFChannel id="trainingAmf" uri="http://localhost:8888/flex/messagebroker/amf"/>
-		<s:ChannelSet id="channelSet" channels="{[trainingAmf]}"/>
-		<s:RemoteObject id="userService" destination="trainingFlexService" channelSet="{channelSet}" result="userService_resultHandler(event)" fault="userService_faultHandler(event)"/>
+		<s:RemoteObject id="userService" destination="trainingFlexService" result="userService_resultHandler(event)" fault="userService_faultHandler(event)"/>
 	</fx:Declarations>
 	
 	<view:MainContainer/>

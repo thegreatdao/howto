@@ -2,7 +2,7 @@
 .settings
 .project
 target/
-traning.log
+java/traning.log
 lucene/
 Thumbs.db
 java.exe.stackdump

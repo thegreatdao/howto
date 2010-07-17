@@ -16,5 +16,20 @@ package training.hl.model.vo
 		public function User()
 		{
 		}
+		
+		public function toString():String
+		{
+			var s:String = "user : [";
+			s += "id : " + id + ",";
+			s += "userName : " + userName + ",";
+			s += "firstName : " + firstName + ",";
+			s += "lastName : " + lastName + ",";
+			s += "age : " + age + ",";
+			s += "bio : " + bio + ",";
+			s += "bio : " + bio + ",";
+			s += "homePage : " + homePage + ",";
+			s += "hobbies : " + hobbies + "]";
+			return s;
+		}
 	}
 }
