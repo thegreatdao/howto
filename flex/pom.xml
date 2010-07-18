@@ -36,6 +36,8 @@
 			<sourceFile>${basedir}/src/main/flex/training/hl/Main.mxml</sourceFile>
 			<services>${basedir}/../java/src/main/webapp/WEB-INF/flex/services-config.xml</services>
 			<contextRoot>/</contextRoot>
+			<baseOutputDirectory>${basedir}/src/main/flex</baseOutputDirectory>
+			<output>${basedir}/../java/src/main/webapp/swf/flex.swf</output>
 		</configuration>
       </plugin>
     </plugins>
