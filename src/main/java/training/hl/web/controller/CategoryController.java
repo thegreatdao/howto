@@ -14,7 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import training.hl.bean.Category;
 import training.hl.bean.User;
@@ -34,9 +33,9 @@ public class CategoryController
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-    public @ModelAttribute("category") Category form(@RequestParam(value = "id", required = false) Long id)
+    public @ModelAttribute("category") Category form(Long id)
     {
-    	Category category = new Category();
+		Category category = new Category();
 		if (id != null)
 		{
 			category = baseHibernateDao.findById(Category.class, id);
@@ -45,7 +44,7 @@ public class CategoryController
 		{
 			throw new TrainingRootException("Category with id " + id + " doesn't exists!");
 		}
-		return category;
+    	return category;
     }
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -65,9 +64,9 @@ public class CategoryController
 	
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(method={RequestMethod.GET})
-    public String delete(Category category)
+    public String delete(Long id)
     {
-    	baseHibernateDao.delete(category);
+    	baseHibernateDao.delete(Category.class, id);
     	return "redirect:/category/show.html";
     }
 }

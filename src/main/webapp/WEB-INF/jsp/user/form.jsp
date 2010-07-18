@@ -75,6 +75,8 @@
 				<form:errors path="roles"/>
 			</div>
 
+			<div class="clear" style="margin-bottom: 10px;"></div>
+			
 			<div>
 				<label><fmt:message key="user.profile.homePage"/>: <span class="small"><fmt:message key="user.profile.homePage.add"/></span></label>
 				<form:input path="profile.homePage" id="home_page" />

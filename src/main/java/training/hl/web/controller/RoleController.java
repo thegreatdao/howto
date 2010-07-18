@@ -13,7 +13,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import training.hl.bean.Role;
@@ -33,11 +32,10 @@ public class RoleController
 		return baseHibernateDao.findAll(Role.class);
 	}
 
-	
 	@RequestMapping(method=RequestMethod.GET)
-    public @ModelAttribute("role") Role form(@RequestParam(value = "id", required = false) Long id)
+    public @ModelAttribute("role") Role form(Long id)
     {
-    	Role role = new Role();
+		Role role = new Role();
 		if (id != null)
 		{
 			role = baseHibernateDao.findById(Role.class, id);
@@ -81,11 +79,12 @@ public class RoleController
     
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(method=RequestMethod.GET)
-    public String delete(Role role)
+    public String delete(Long id)
     {
+		Role role = baseHibernateDao.findById(Role.class, id);
 		if(StringUtils.equals(role.getName(),"ROLE_USER"))
 		{
-			throw new TrainingRootException("ROLE_USER is a fixed role which is read-only");
+			throw new TrainingRootException(role.getName() + " is a fixed role which is read-only");
 		}
     	baseHibernateDao.delete(role);
     	return "redirect:/role/show.html";

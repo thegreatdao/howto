@@ -16,7 +16,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import training.hl.bean.Category;
 import training.hl.bean.Post;
@@ -44,7 +43,7 @@ public class PostController
 	}
 	
     @RequestMapping(method={RequestMethod.GET})
-    public @ModelAttribute("post") Post form(@RequestParam(value = "id", required = false) Long id)
+    public @ModelAttribute("post") Post form(Long id)
     {
     	Post post = new Post();
 		if (id != null)
@@ -75,14 +74,14 @@ public class PostController
 	
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(method={RequestMethod.GET})
-    public String delete(Post post)
+    public String delete(Long id)
     {
-    	baseHibernateDao.delete(post);
+    	baseHibernateDao.delete(Category.class, id);
     	return "redirect:/post/show.html";
     }
     
     @RequestMapping(method=RequestMethod.GET, value="/post/search")
-    public String findPostsByTitle(@RequestParam(value = "title", required = false) String title, Model model)
+    public String findPostsByTitle(String title, Model model)
     {
     	if(StringUtils.isBlank(title))
     	{

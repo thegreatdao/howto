@@ -2,8 +2,10 @@ package training.hl.web.controller;
 
 import java.util.Collection;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import training.hl.bean.Role;
 import training.hl.bean.User;
@@ -52,7 +53,7 @@ public class UserController
     }
     
     @RequestMapping(method=RequestMethod.GET)
-    public @ModelAttribute("user") User form(@RequestParam(value = "id", required = false) Long id)
+    public @ModelAttribute("user") User form(Long id)
     {
     	User user = new User();
     	if(id != null)
@@ -79,11 +80,17 @@ public class UserController
     	return "redirect:/user/form.html?id=" + user.getId();
     }
     
-    @PreAuthorize("#user.userName != principal.username and hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(method={RequestMethod.GET})
-    public String delete(User user)
+    public String delete(Long id, HttpServletRequest request)
     {
-    	baseHibernateDao.delete(user);
+    	String userName = request.getRemoteUser();
+    	User userToBeDeleted = baseHibernateDao.findById(User.class, id);
+    	if(StringUtils.equals(userName, userToBeDeleted.getUserName()))
+    	{
+    		throw new TrainingRootException("You cannot delete yourself!");
+    	}
+    	baseHibernateDao.delete(userToBeDeleted);
     	return "redirect:/user/show.html";
     }
     
