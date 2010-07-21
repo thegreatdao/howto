@@ -11,7 +11,7 @@
   <artifactId>flex</artifactId>
   <version>1.0</version>
   <packaging>swf</packaging>
-  <name>flex Flex</name>
+  <name>flex</name>
   <properties>		
 		<flex.version>4.1.0.16248</flex.version>
 	</properties>
@@ -40,6 +40,7 @@
 			<output>${basedir}/../java/src/main/webapp/swf/flex.swf</output>
 		</configuration>
       </plugin>
+	  
     </plugins>
 
   </build>
@@ -110,6 +111,12 @@
       <artifactId>mate-framework</artifactId>
       <version>0.8.9</version>
       <type>swc</type>
+   </dependency>
+    <dependency>
+      <groupId>training.hl</groupId>
+      <artifactId>java</artifactId>
+      <version>1.0</version>
+      <scope>provided</scope>
    </dependency>
   </dependencies>
 </project>
