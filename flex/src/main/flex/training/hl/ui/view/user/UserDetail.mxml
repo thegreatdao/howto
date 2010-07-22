@@ -11,6 +11,8 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.controls.Alert;
+			
 			import training.hl.ui.presenter.UserDetailPresentationModel;
 			[Bindable]
 			public var model:UserDetailPresentationModel;
@@ -34,8 +36,9 @@
 	</mx:FormItem>
 	
 	<mx:FormItem label="Gender" required="true" width="382">
-		<s:RadioButton x="118" y="1" label="Male"/>
-		<s:RadioButton x="161" y="3" label="Female"/>
+		<mx:RadioButtonGroup id="gender" itemClick="Alert.show(event.currentTarget.selectedValue)"/>
+		<mx:RadioButton x="118" y="1" label="Male" groupName="gender" value="MALE"/>
+		<mx:RadioButton x="161" y="3" label="Female" groupName="gender" value="FEMALE"/>
 	</mx:FormItem>
 	
 	<mx:FormItem label="Gender" required="true" width="382">
