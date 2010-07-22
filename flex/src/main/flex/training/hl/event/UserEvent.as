@@ -2,7 +2,7 @@ package training.hl.event
 {
 	import flash.events.Event;
 	
-	import training.hl.model.vo.User;
+	import training.hl.bean.User;
 	
 	public class UserEvent extends Event
 	{

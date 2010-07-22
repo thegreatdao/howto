@@ -26,7 +26,7 @@ package training.hl.bean {
         private var _name:String;
         private var _users:ListCollectionView;
 
-        override meta function isInitialized(name:String = null):Boolean {
+        meta function isInitialized(name:String = null):Boolean {
             if (!name)
                 return __initialized;
 

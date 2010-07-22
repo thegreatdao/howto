@@ -2,7 +2,8 @@ package training.hl.model.manager
 {
 	import mx.controls.Alert;
 	
-	import training.hl.model.vo.User;
+	import training.hl.bean.Role;
+	import training.hl.bean.User;
 
 	public class UserParser
 	{
@@ -10,16 +11,23 @@ package training.hl.model.manager
 		{
 			var userList:Array = new Array();
 			
-			for each( var user:XML in users..user)
+			for each(var user:XML in users..user)
 			{
 				var currentUser:User = new User();
 				currentUser.age = user.age;
 				currentUser.firstName = user.firstName;
 				currentUser.lastName = user.lastName;
 				currentUser.userName = user.userName;
-				currentUser.bio = user.profile.bio;
-				currentUser.hobbies = user.profile.hobbies;
-				currentUser.homePage = user.profile.homePage;
+				currentUser.profile.bio = user.profile.bio;
+				currentUser.profile.hobbies = user.profile.hobbies;
+				currentUser.profile.homePage = user.profile.homePage;
+				for each(var role:XML in user.role)
+				{
+					var currentRole:Role = new Role();
+					currentRole.name = role.name;
+					currentRole.id = role.id;
+					currentUser.roles.addItem(currentRole);
+				}
 				userList.push(currentUser);
 			}
 			

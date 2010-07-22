@@ -12,7 +12,7 @@
 		<![CDATA[
 			import mx.controls.Alert;
 			
-			import training.hl.model.vo.User;
+			import training.hl.bean.User;
 			import training.hl.ui.presenter.UserListPresentationModel;
 			
 			[Bindable]
@@ -34,8 +34,8 @@
 		<mx:DataGridColumn dataField="age" headerText="Age" width="30"/>
 		<mx:DataGridColumn dataField="userName" headerText="Account Name"/>
 		<mx:DataGridColumn labelFunction="formatUserName" headerText="User Name"/>
-		<mx:DataGridColumn dataField="bio" headerText="Bio"/>
-		<mx:DataGridColumn dataField="homePage" headerText="Homepage"/>
-		<mx:DataGridColumn dataField="hobbies" headerText="Hobbies"/>
+		<mx:DataGridColumn dataField="profile.bio" headerText="Bio"/>
+		<mx:DataGridColumn dataField="profile.homePage" headerText="Homepage"/>
+		<mx:DataGridColumn dataField="profile.hobbies" headerText="Hobbies"/>
 	</mx:columns>
 </mx:DataGrid>

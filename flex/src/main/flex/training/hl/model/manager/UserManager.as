@@ -6,7 +6,7 @@ package training.hl.model.manager
 	
 	import mx.collections.ArrayCollection;
 	
-	import training.hl.model.vo.User;
+	import training.hl.bean.User;
 	
 	public class UserManager extends EventDispatcher
 	{
@@ -14,7 +14,7 @@ package training.hl.model.manager
 		private var _user : User;
 		private static const SAVE_USER_LIST : String = "saveUserList";
 		private static const USER_CHANGED : String = "userChanged";
-	
+			
 		public function UserManager(dispatcher:IEventDispatcher=null):void
 		{
 			super(dispatcher);

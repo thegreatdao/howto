@@ -8,7 +8,7 @@ package training.hl.ui.presenter
 	import mx.controls.Alert;
 	
 	import training.hl.event.UserEvent;
-	import training.hl.model.vo.User;
+	import training.hl.bean.User;
 	
 	public class UserDetailPresentationModel extends EventDispatcher
 	{

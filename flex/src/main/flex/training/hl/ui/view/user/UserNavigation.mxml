@@ -39,7 +39,7 @@
 	</fx:Declarations>
 	
 	<user:UserDataGrid id="userList" y.userList="60" y.userDetail="-600"/>
-	<user:UserDetail id="userDetail" filters="{shadow}" y.userList="-1400" y.userDetail="60"/>
+	<user:UserDetailScroller id="userDetail" filters="{shadow}" y.userList="-1400" y.userDetail="60"/>
 	<common:Navigation filters="{shadow}"/>
 
 </s:Group>
