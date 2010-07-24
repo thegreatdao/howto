@@ -10,6 +10,7 @@ package training.hl.model.manager
 	
 	public class UserManager extends EventDispatcher
 	{
+		private var dispatcher:IEventDispatcher;
 		private var _users : ArrayCollection;
 		private var _user : User;
 		private static const SAVE_USER_LIST : String = "saveUserList";

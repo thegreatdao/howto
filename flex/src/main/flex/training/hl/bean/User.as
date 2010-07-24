@@ -13,7 +13,7 @@ package training.hl.bean {
 	{
 		public function toString():String
 		{
-			return userName + " " + profile.hobbies + " " + profile.homePage + " number of roles: " + roles.length;
+			return userName + " " + profile.hobbies + " " + profile.homePage + " number of roles: " + roles.length + " gender: " + gender + "]";
 		}
     }
 }

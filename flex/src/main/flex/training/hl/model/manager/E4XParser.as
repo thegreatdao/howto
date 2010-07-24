@@ -4,8 +4,9 @@ package training.hl.model.manager
 	
 	import training.hl.bean.Role;
 	import training.hl.bean.User;
+	import training.hl.bean.enums.Gender;
 
-	public class UserParser
+	public class E4XParser
 	{
 		public function parseUsers(users:XML):Array
 		{
@@ -21,6 +22,14 @@ package training.hl.model.manager
 				currentUser.profile.bio = user.profile.bio;
 				currentUser.profile.hobbies = user.profile.hobbies;
 				currentUser.profile.homePage = user.profile.homePage;
+				if(user.gender == "FEMALE")
+				{
+					currentUser.gender = Gender.FEMALE;
+				}
+				else
+				{
+					currentUser.gender = Gender.MALE;
+				}
 				for each(var role:XML in user.role)
 				{
 					var currentRole:Role = new Role();
@@ -32,6 +41,21 @@ package training.hl.model.manager
 			}
 			
 			return userList;
-		}		
+		}
+		
+		public function parseRoles(roles:XML):Array
+		{
+			var roleList:Array = new Array();
+			
+			for each(var role:XML in roles..role)
+			{
+				var currentRole:Role = new Role();
+				currentRole.name = role.name;
+				currentRole.id = role.id;
+				roleList.push(currentRole);
+			}
+			
+			return roleList;
+		}
 	}
 }

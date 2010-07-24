@@ -4,18 +4,25 @@
 		 xmlns:mx="library://ns.adobe.com/flex/mx"
 		 width="100%"
 		 verticalGap="10"
-		 horizontalCenter="68">
+		 horizontalCenter="68"
+		 >
 	<fx:Declarations>
 	
 	</fx:Declarations>
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.collections.ListCollectionView;
 			import mx.controls.Alert;
 			
+			import org.granite.meta;
+			
+			import training.hl.bean.Role;
 			import training.hl.ui.presenter.UserDetailPresentationModel;
 			[Bindable]
 			public var model:UserDetailPresentationModel;
+
 		]]>
 	</fx:Script>
 	
@@ -37,14 +44,14 @@
 	
 	<mx:FormItem label="Gender" required="true" width="382">
 		<mx:RadioButtonGroup id="gender" itemClick="Alert.show(event.currentTarget.selectedValue)"/>
-		<mx:RadioButton x="118" y="1" label="Male" groupName="gender" value="MALE"/>
-		<mx:RadioButton x="161" y="3" label="Female" groupName="gender" value="FEMALE"/>
+		<mx:RadioButton x="118" y="1" label="Male" groupName="gender" value="MALE" selected="{model.male}"/>
+		<mx:RadioButton x="161" y="3" label="Female" groupName="gender" value="FEMALE" selected="{model.female}"/>
 	</mx:FormItem>
 	
-	<mx:FormItem label="Gender" required="true" width="382">
+	<mx:FormItem label="Role" required="true" width="382">
 		<mx:Tile direction="horizontal" x="174" y="0" width="300" height="100%">
-			<mx:Repeater id="role" dataProvider="{model.selectedUser.roles}">
-				<mx:CheckBox label="{role.currentItem.name}"/>
+			<mx:Repeater id="role" dataProvider="{model.roles}">
+				<mx:CheckBox label="{role.currentItem.name}" selected="{role.currentItem.checked}"/>
 			</mx:Repeater>
 		</mx:Tile>
 	</mx:FormItem>

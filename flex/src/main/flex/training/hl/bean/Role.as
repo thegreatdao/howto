@@ -9,6 +9,23 @@ package training.hl.bean {
 
     [Bindable]
     [RemoteClass(alias="training.hl.bean.Role")]
-    public class Role extends RoleBase {
+    public class Role extends RoleBase
+	{
+		private var _checked:Boolean;
+		
+		public function get checked():Boolean
+		{
+			return _checked;
+		}
+
+		public function set checked(value:Boolean):void
+		{
+			_checked = value;
+		}
+		
+		public function toString():String
+		{
+			return "name: " + name + " id: " + id;
+		}
     }
 }

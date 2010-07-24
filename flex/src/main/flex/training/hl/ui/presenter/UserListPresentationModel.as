@@ -13,9 +13,11 @@ package training.hl.ui.presenter
 	public class UserListPresentationModel extends EventDispatcher
 	{
 		public static const USERS_CHANGED:String = "usersChanged";
+		public static const ROLES_CHANGED:String = "rolesChanged";
 		public static const SELECTED_USER_CHANGED:String = "selectedUserChanged";
 		private var dispatcher:IEventDispatcher;
 		private var _users:ArrayCollection;
+		private var _roles:ArrayCollection;
 		private var _selectedUser:User;
 		
 		public function UserListPresentationModel(dispatcher:IEventDispatcher):void
@@ -33,7 +35,19 @@ package training.hl.ui.presenter
 		public function get users():ArrayCollection
 		{
 			return _users;
-		}			
+		}
+		
+		[Bindable(event="rolesChanged")]
+		public function get roles():ArrayCollection
+		{
+			return _roles;
+		}
+
+		public function set roles(value:ArrayCollection):void
+		{
+			_roles = value;
+			dispatchEvent(new Event(ROLES_CHANGED));
+		}
 
 		[Bindable(event="selectedUserChanged")]
 		public function get selectedUser():User
@@ -56,6 +70,8 @@ package training.hl.ui.presenter
 			event.user = user;
 			dispatcher.dispatchEvent(event);
 		}
+
+
 
 	}
 }
