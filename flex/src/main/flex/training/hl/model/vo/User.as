@@ -1,7 +1,7 @@
 package training.hl.model.vo
 {
 	[Bindable]
-	[RemoteClass(alias="training.hl.bean.User")]
+//	[RemoteClass(alias="training.hl.bean.User")]
 	public class User
 	{
 		public var id : Number;

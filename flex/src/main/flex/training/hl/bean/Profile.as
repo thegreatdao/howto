@@ -9,6 +9,11 @@ package training.hl.bean {
 
     [Bindable]
     [RemoteClass(alias="training.hl.bean.Profile")]
-    public class Profile extends ProfileBase {
+    public class Profile extends ProfileBase
+	{
+		public function Profile():void
+		{
+			
+		}
     }
 }

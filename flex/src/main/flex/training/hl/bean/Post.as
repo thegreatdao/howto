@@ -9,6 +9,11 @@ package training.hl.bean {
 
     [Bindable]
     [RemoteClass(alias="training.hl.bean.Post")]
-    public class Post extends PostBase {
+    public class Post extends PostBase
+	{
+		public function Post():void
+		{
+			
+		}
     }
 }

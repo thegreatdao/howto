@@ -13,6 +13,11 @@ package training.hl.bean {
 	{
 		private var _checked:Boolean;
 		
+		public function Role():void
+		{
+			
+		}
+		
 		public function get checked():Boolean
 		{
 			return _checked;

@@ -41,7 +41,7 @@
 			<HTTPServiceInvoker instance="{roleService}">
 				<resultHandlers>
 					<MethodInvoker generator="{E4XParser}" method="parseRoles" arguments="{resultObject}" />
-					<MethodInvoker generator="{RoleManager}" method="saveRoleList" arguments="{lastReturn}" />	
+					<MethodInvoker generator="{RoleManager}" method="saveRoleList" arguments="{lastReturn}" />
 				</resultHandlers>
 			</HTTPServiceInvoker>
 		</EventHandlers>
@@ -49,6 +49,10 @@
 		<EventHandlers type="{UserEvent.SELECT}">
 			<MethodInvoker generator="{UserManager}" method="selectUser" arguments="{event.user}"/>
 		</EventHandlers>
+		
+		<Injectors targets="{UserManager}" >
+			<PropertyInjector targetKey="roles" source="{RoleManager}" sourceKey="roles" />
+		</Injectors>
 		
 		<Injectors targets="{UserDetail}" >
 			<ObjectBuilder generator="{UserDetailPresentationModel}" constructorArguments="{scope.dispatcher}" />
@@ -61,7 +65,7 @@
 		
 		<Injectors target="{UserDetailPresentationModel}" >
 			<PropertyInjector targetKey="selectedUser" source="{UserManager}" sourceKey="user" />
-			<PropertyInjector targetKey="roles" source="{RoleManager}" sourceKey="roles" />
+			<PropertyInjector targetKey="roles" source="{UserManager}" sourceKey="roles" />
 		</Injectors>
 		
 		<Injectors target="{UserDataGrid}">

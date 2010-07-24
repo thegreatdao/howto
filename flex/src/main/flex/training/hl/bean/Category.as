@@ -9,6 +9,11 @@ package training.hl.bean {
 
     [Bindable]
     [RemoteClass(alias="training.hl.bean.Category")]
-    public class Category extends CategoryBase {
+    public class Category extends CategoryBase
+	{
+		public function Category():void
+		{
+			
+		}
     }
 }

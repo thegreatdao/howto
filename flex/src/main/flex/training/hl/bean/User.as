@@ -11,6 +11,11 @@ package training.hl.bean {
     [RemoteClass(alias="training.hl.bean.User")]
     public class User extends UserBase
 	{
+		public function User():void
+		{
+			
+		}
+		
 		public function toString():String
 		{
 			return userName + " " + profile.hobbies + " " + profile.homePage + " number of roles: " + roles.length + " gender: " + gender + "]";

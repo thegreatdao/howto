@@ -64,7 +64,7 @@
 			</div>
 			
 			<div>
-				<label><fmt:message key="user.roles"/>: <span class="small"><fmt:message key="user.roles.select"/></span></label>
+				<label id="roles_label"><fmt:message key="user.roles"/>: <span class="small"><fmt:message key="user.roles.select"/></span></label>
 				<div id="roles">
 	                  <form:checkboxes path="roles" items="${roles}" itemLabel="name" itemValue="id"/>
 				</div>
@@ -106,6 +106,16 @@
 			
 		</form:form>
 	</fieldset>
-
+	<script type="text/javascript">
+		$(
+			function()
+			{
+				$('#roles_label').toggle(
+					function(){$('input:checkbox').attr('checked','checked');},
+					function(){$('input:checkbox').removeAttr('checked');}
+				)
+			}
+		)
+	</script>
 </div>
 <div class="clear"></div>
