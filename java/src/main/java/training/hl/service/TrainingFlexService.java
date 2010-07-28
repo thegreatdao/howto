@@ -7,4 +7,5 @@ import training.hl.bean.User;
 public interface TrainingFlexService
 {
 	public Collection<User> getAllUsers();
+	public void saveUser(User user);
 }

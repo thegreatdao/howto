@@ -71,7 +71,7 @@ public class User extends RootEntity
 	private Gender gender;
 	@Column(insertable=false, updatable=false)
 	private Date createdDate;
-	@OneToMany(mappedBy="user", cascade={CascadeType.ALL, CascadeType.REMOVE})
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	@XmlTransient
 	private Set<Post> posts = new HashSet<Post>();
 	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)

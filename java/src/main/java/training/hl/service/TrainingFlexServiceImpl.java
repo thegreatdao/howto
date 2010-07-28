@@ -21,4 +21,10 @@ public class TrainingFlexServiceImpl implements TrainingFlexService
 	{
 		return baseHibernateDao.findAll(User.class);
 	}
+
+	@Override
+	public void saveUser(User user)
+	{
+		baseHibernateDao.save(user);
+	}
 }

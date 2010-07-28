@@ -12,7 +12,6 @@
 	<fx:Script>
 		<![CDATA[
 			import training.hl.model.constant.EffectConstant;
-			import training.hl.model.vo.User;
 			import training.hl.ui.presenter.UserPresentationModel;
 			[Bindable]
 			public var model:UserPresentationModel;
