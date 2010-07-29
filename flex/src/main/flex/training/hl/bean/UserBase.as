@@ -9,14 +9,10 @@ package training.hl.bean {
 
     import flash.utils.IDataInput;
     import flash.utils.IDataOutput;
-    
-    import mx.collections.ArrayCollection;
     import mx.collections.ListCollectionView;
-    
     import org.granite.collections.IPersistentCollection;
     import org.granite.meta;
     import org.granite.util.Enum;
-    
     import training.hl.bean.enums.Gender;
 
     use namespace meta;
@@ -36,8 +32,8 @@ package training.hl.bean {
         private var _lastName:String;
         private var _password:String;
         private var _posts:ListCollectionView;
-        private var _profile:Profile = new Profile();
-        private var _roles:ListCollectionView = new  ListCollectionView(new ArrayCollection());
+        private var _profile:Profile;
+        private var _roles:ListCollectionView;
         private var _userName:String;
 
         meta function isInitialized(name:String = null):Boolean {

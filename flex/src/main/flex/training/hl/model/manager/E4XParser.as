@@ -1,7 +1,9 @@
 package training.hl.model.manager
 {
-	import mx.controls.Alert;
+	import mx.collections.ArrayCollection;
+	import mx.collections.ListCollectionView;
 	
+	import training.hl.bean.Profile;
 	import training.hl.bean.Role;
 	import training.hl.bean.User;
 	import training.hl.bean.enums.Gender;
@@ -19,6 +21,8 @@ package training.hl.model.manager
 				currentUser.firstName = user.firstName;
 				currentUser.lastName = user.lastName;
 				currentUser.userName = user.userName;
+				var profile:Profile = new Profile();
+				currentUser.profile = profile;
 				currentUser.profile.bio = user.profile.bio;
 				currentUser.profile.hobbies = user.profile.hobbies;
 				currentUser.profile.homePage = user.profile.homePage;
@@ -30,6 +34,8 @@ package training.hl.model.manager
 				{
 					currentUser.gender = Gender.MALE;
 				}
+				var roles:ListCollectionView = new ListCollectionView(new ArrayCollection());
+				currentUser.roles= roles;
 				for each(var role:XML in user.role)
 				{
 					var currentRole:Role = new Role();
@@ -39,7 +45,6 @@ package training.hl.model.manager
 				}
 				userList.push(currentUser);
 			}
-			
 			return userList;
 		}
 		

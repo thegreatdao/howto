@@ -24,19 +24,7 @@
 			
 			private function init():void
 			{
-//				userService.getAllUsers();
-				var user:User = new User();
-				user.age = 20;
-				user.firstName = "Flex";
-				user.lastName = "Mate";
-				user.userName = "FlexMate";
-				user.password = "flexmate";
-				var profile:Profile = new Profile();
-				profile.bio = "flex born hard core";
-				profile.hobbies = "programming in flex";
-				profile.homePage = "www.flex.org";
-				user.profile = profile;
-				userService.saveUser(user);
+				userService.getAllUsers();			
 			}
 
 			protected function userService_resultHandler(event:ResultEvent):void
