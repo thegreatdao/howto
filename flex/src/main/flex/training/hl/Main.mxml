@@ -20,11 +20,16 @@
 			import mx.rpc.events.ResultEvent;
 			
 			import training.hl.bean.Profile;
+			import training.hl.bean.Role;
 			import training.hl.bean.User;
 			
 			private function init():void
 			{
-				userService.getAllUsers();			
+				var role:Role = new Role();
+				role.name = "ROLE_FLEX4";
+				role.description = "flex 4's role";
+				trainingService.saveRole(role);
+				trainingService.getAllUsers();
 			}
 
 			protected function userService_resultHandler(event:ResultEvent):void
@@ -41,7 +46,7 @@
 	</fx:Script>
 	<fx:Declarations>
 		<map:TrainingMap/>
-		<s:RemoteObject id="userService" destination="trainingFlexService" result="userService_resultHandler(event)" fault="userService_faultHandler(event)"/>
+		<s:RemoteObject id="trainingService" destination="trainingFlexService" result="userService_resultHandler(event)" fault="userService_faultHandler(event)"/>
 	</fx:Declarations>
 	
 	<view:MainContainer/>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.flex.remoting.RemotingDestination;
 import org.springframework.stereotype.Service;
 
+import training.hl.bean.Role;
 import training.hl.bean.User;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
 
@@ -26,5 +27,11 @@ public class TrainingFlexServiceImpl implements TrainingFlexService
 	public void saveUser(User user)
 	{
 		baseHibernateDao.save(user);
+	}
+
+	@Override
+	public void saveRole(Role role)
+	{
+		baseHibernateDao.save(role);
 	}
 }
