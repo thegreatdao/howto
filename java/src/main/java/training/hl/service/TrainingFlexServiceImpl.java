@@ -34,4 +34,10 @@ public class TrainingFlexServiceImpl implements TrainingFlexService
 	{
 		baseHibernateDao.save(role);
 	}
+
+	@Override
+	public Collection<Role> getAllRoles()
+	{
+		return baseHibernateDao.findAll(Role.class);
+	}
 }
