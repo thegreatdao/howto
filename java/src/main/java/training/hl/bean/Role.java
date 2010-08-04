@@ -29,6 +29,7 @@ import lombok.EqualsAndHashCode;
 @XmlRootElement
 public class Role extends RootEntity
 {
+
 	private static final long serialVersionUID = -4366181788207274076L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -45,6 +46,15 @@ public class Role extends RootEntity
 	@JoinTable(name="user_role", joinColumns={@JoinColumn(name="role_id")}, inverseJoinColumns={@JoinColumn(name = "user_id")})
 	@XmlTransient
 	private Set<User> users = new HashSet<User>();
+
+	//for flex remoting, because flex deserialize null to 0
+	public void setId(Long id)
+	{
+		if(id!=null && id == 0)
+		{
+			id = null;
+		}
+	}
 	
 	@Override
 	public String toString()

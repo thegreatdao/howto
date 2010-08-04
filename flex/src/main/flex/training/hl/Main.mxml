@@ -25,14 +25,13 @@
 			
 			private function init():void
 			{
-				/*
 				var role:Role = new Role();
 				role.name = "ROLE_FLEX4";
 				role.description = "flex 4's role";
+				role.id = undefined;
 				trainingService.saveRole(role);
-				*/
-				trainingService.getAllRoles();
-				trainingService.getAllUsers();
+				//trainingService.getAllRoles();
+				//trainingService.getAllUsers();
 			}
 
 			protected function userService_resultHandler(event:ResultEvent):void
@@ -42,7 +41,7 @@
 
 			protected function userService_faultHandler(event:FaultEvent):void
 			{
-				//Alert.show(event.fault.toString());
+				Alert.show(event.fault.toString());
 			}
 
 		]]>

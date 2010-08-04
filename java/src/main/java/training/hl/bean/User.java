@@ -90,4 +90,13 @@ public class User extends RootEntity
 		category.setUser(this);
 		categories.add(category);
 	}
+	
+	//for flex remoting, because flex deserialize null to 0
+	public void setId(Long id)
+	{
+		if(id!=null && id == 0)
+		{
+			id = null;
+		}
+	}
 }

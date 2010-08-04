@@ -6,15 +6,9 @@
  */
 
 package training.hl.bean {
-	import flash.utils.IExternalizable;
 
     [Bindable]
     [RemoteClass(alias="training.hl.bean.User")]
-    public class User extends UserBase implements IExternalizable{
-	
-		public function toString():String
-		{
-			return userName + " " + profile.hobbies + " " + profile.homePage + " number of roles: " + roles.length + " gender: " + gender + "]";
-		}
+    public class User extends UserBase {
     }
 }
