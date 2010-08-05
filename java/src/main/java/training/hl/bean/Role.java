@@ -47,15 +47,6 @@ public class Role extends RootEntity
 	@XmlTransient
 	private Set<User> users = new HashSet<User>();
 
-	//for flex remoting, because flex deserialize null to 0
-	public void setId(Long id)
-	{
-		if(id!=null && id == 0)
-		{
-			id = null;
-		}
-	}
-	
 	@Override
 	public String toString()
 	{

@@ -6,8 +6,8 @@
  */
 
 package training.hl.bean.enums {
+	import training.hl.enum.Enum;
 
-    import org.granite.util.Enum;
 
     [Bindable]
     [RemoteClass(alias="training.hl.bean.enums.Gender")]

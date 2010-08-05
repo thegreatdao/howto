@@ -15,21 +15,45 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.collections.ListCollectionView;
 			import mx.controls.Alert;
+			import mx.controls.List;
 			import mx.rpc.events.FaultEvent;
 			import mx.rpc.events.ResultEvent;
 			
 			import training.hl.bean.Profile;
 			import training.hl.bean.Role;
 			import training.hl.bean.User;
+			import training.hl.bean.enums.Gender;
 			
 			private function init():void
 			{
+				/*
 				var role:Role = new Role();
 				role.name = "ROLE_FLEX4";
 				role.description = "flex 4's role";
 				role.id = undefined;
 				trainingService.saveRole(role);
+				*/
+				var user:User = new User();
+				user.age = 26;
+				user.firstName = "HL";
+				user.lastName = "LI";
+				user.password = "secret";
+				user.userName = "Lulikuokong";
+				var profile:Profile = new Profile();
+				profile.bio = "born in China";
+				profile.hobbies = "gaming";
+				profile.homePage = "emptyyourmind.com";
+				user.profile = profile;
+				var role:Role = new Role();
+				role.id = 1;
+				var roles:ListCollectionView = new ListCollectionView(new ArrayCollection());
+				roles.addItem(role);
+				user.roles = roles;
+				user.gender = Gender.MALE;				
+				trainingService.saveUser(user);
 				//trainingService.getAllRoles();
 				//trainingService.getAllUsers();
 			}

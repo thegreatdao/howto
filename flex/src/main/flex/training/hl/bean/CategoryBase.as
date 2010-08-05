@@ -27,7 +27,7 @@ package training.hl.bean {
         private var _posts:ListCollectionView;
         private var _user:User;
 
-        override meta function isInitialized(name:String = null):Boolean {
+        meta function isInitialized(name:String = null):Boolean {
             if (!name)
                 return __initialized;
 
@@ -73,7 +73,7 @@ package training.hl.bean {
             return _user;
         }
 
-        override public function readExternal(input:IDataInput):void {
+        public function readExternal(input:IDataInput):void {
             __initialized = input.readObject() as Boolean;
             __detachedState = input.readObject() as String;
             if (meta::isInitialized()) {
@@ -89,7 +89,7 @@ package training.hl.bean {
             }
         }
 
-        override public function writeExternal(output:IDataOutput):void {
+        public function writeExternal(output:IDataOutput):void {
             output.writeObject(__initialized);
             output.writeObject(__detachedState);
             if (meta::isInitialized()) {
