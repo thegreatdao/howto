@@ -1,7 +1,6 @@
 package training.hl.model.manager
 {
 	import mx.collections.ArrayCollection;
-	import mx.collections.ListCollectionView;
 	
 	import training.hl.bean.Profile;
 	import training.hl.bean.Role;
@@ -34,7 +33,7 @@ package training.hl.model.manager
 				{
 					currentUser.gender = Gender.MALE;
 				}
-				var roles:ListCollectionView = new ListCollectionView(new ArrayCollection());
+				var roles:ArrayCollection = new ArrayCollection();
 				currentUser.roles= roles;
 				for each(var role:XML in user.role)
 				{
