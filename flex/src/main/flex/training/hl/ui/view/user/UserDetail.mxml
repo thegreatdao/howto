@@ -5,9 +5,12 @@
 		 width="100%"
 		 verticalGap="10"
 		 horizontalCenter="68"
+		 creationComplete="init()"
 		 >
 	<fx:Declarations>
-	
+		<mx:StringValidator id="firstNameValidator" minLength="1" maxLength="20" source="{firstName}" property="text"/>
+		<mx:StringValidator id="lastNameValidator" minLength="1" maxLength="20" source="{lastName}" property="text"/>
+		<mx:StringValidator id="userNameValidator" minLength="1" maxLength="20" source="{userName}" property="text"/>
 	</fx:Declarations>
 	
 	<fx:Script>
@@ -15,6 +18,8 @@
 			import mx.collections.ArrayCollection;
 			import mx.collections.ListCollectionView;
 			import mx.controls.Alert;
+			import mx.events.ValidationResultEvent;
+			import mx.validators.Validator;
 			
 			import org.granite.meta;
 			
@@ -22,28 +27,83 @@
 			import training.hl.ui.presenter.UserDetailPresentationModel;
 			[Bindable]
 			public var model:UserDetailPresentationModel;
-
+			[Bindable]
+			private var validatorArr:Array;
+			
+			private function init():void
+			{
+				validatorArr = new Array();
+				validatorArr.push(firstNameValidator);
+				validatorArr.push(lastNameValidator);
+				validatorArr.push(userNameValidator);
+				Alert.show(role.getChildAt(0).toString());
+			}
+			
+			private function validateForm(evt:MouseEvent):void
+			{				
+				var totalNumOfErrors:int = 0;
+				var validatorErrorArray:Array = Validator.validateAll(validatorArr);
+				var genderSelected:Boolean = true;
+				if(gender.selectedValue == null)
+				{
+					totalNumOfErrors++;
+					genderSelected = false;
+				}
+				totalNumOfErrors += validatorErrorArray.length;
+				if(totalNumOfErrors == 0)
+				{
+					Alert.show("The form is valid!", "Valid form...");
+				}
+				else
+				{
+					var err:ValidationResultEvent;
+					var errorMessageArray:Array = [];
+					for each (err in validatorErrorArray)
+					{
+						var errField:String = FormItem(err.currentTarget.source.parent).label
+						errorMessageArray.push(errField + ": " + err.message);
+					}
+					var errorMessage:String = "";
+					if(errorMessageArray.length != 0)
+					{
+						errorMessage += errorMessageArray.join("\n\n");
+					}
+					if(!genderSelected)
+					{
+						if(totalNumOfErrors == 1)
+						{						
+							errorMessage += "Please select gender";
+						}
+						else
+						{
+							errorMessage += "\n\nGender: Please select one.";
+						}
+					}
+					Alert.show(errorMessage, "Invalid form...", Alert.OK);
+				}
+			}
+			
 		]]>
 	</fx:Script>
 	
 	<mx:FormItem label="User Name" required="true">
-		<s:TextInput width="300" text="{model.selectedUser.userName}"/>
+		<s:TextInput width="300" text="{model.selectedUser.userName}" id="userName"/>
 	</mx:FormItem>
 	
 	<mx:FormItem label="First Name" required="true">
-		<s:TextInput width="300" text="{model.selectedUser.firstName}"/>
+		<s:TextInput width="300" text="{model.selectedUser.firstName}" id="firstName"/>
 	</mx:FormItem>
 	
 	<mx:FormItem label="Last Name" required="true">
-		<s:TextInput width="300" text="{model.selectedUser.lastName}"/>
+		<s:TextInput width="300" text="{model.selectedUser.lastName}" id="lastName"/>
 	</mx:FormItem>
 	
 	<mx:FormItem label="Age" required="true">
-		<s:NumericStepper minimum="20" maximum="80" value="{model.selectedUser.age as Number}"/>
+		<s:NumericStepper minimum="20" maximum="80" value="{model.selectedUser.age as Number}" id="age"/>
 	</mx:FormItem>
 	
 	<mx:FormItem label="Gender" required="true" width="382">
-		<mx:RadioButtonGroup id="gender" itemClick="Alert.show(event.currentTarget.selectedValue)"/>
+		<mx:RadioButtonGroup id="gender"/>
 		<mx:RadioButton x="118" y="1" label="Male" groupName="gender" value="MALE" selected="{model.male}"/>
 		<mx:RadioButton x="161" y="3" label="Female" groupName="gender" value="FEMALE" selected="{model.female}"/>
 	</mx:FormItem>
@@ -56,20 +116,20 @@
 		</mx:Tile>
 	</mx:FormItem>
 	
-	<mx:FormItem label="Homepage" width="382">
+	<mx:FormItem label="Homepage" width="382" id="homePage">
 		<s:TextInput width="300" text="{model.selectedUser.profile.homePage}"/>
 	</mx:FormItem>
 	
-	<mx:FormItem label="Bio">
+	<mx:FormItem label="Bio" id="bio">
 		<s:TextArea width="300" text="{model.selectedUser.profile.bio}"/>
 	</mx:FormItem>
 	
-	<mx:FormItem label="Hobbies">
+	<mx:FormItem label="Hobbies" id="hobbies">
 		<s:TextInput width="300" text="{model.selectedUser.profile.hobbies}"/>
 	</mx:FormItem>
 	
 	<mx:FormItem direction="horizontal" paddingTop="10">
-		<s:Button label="Submit" styleName="navButton"/>
+		<s:Button label="Submit" styleName="navButton" id="submit" click="validateForm(event)"/>
 		<s:Button label="Delete" styleName="navButton"/>
 	</mx:FormItem>
 	

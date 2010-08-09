@@ -35,6 +35,8 @@
 				role.id = undefined;
 				trainingService.saveRole(role);
 				*/
+				
+				/*
 				var user:User = new User();
 				user.age = 26;
 				user.firstName = "Qian";
@@ -53,6 +55,7 @@
 				roles.addItem(role);
 				user.roles = roles;
 				trainingService.saveUser(user);
+				*/
 			}
 
 			protected function userService_resultHandler(event:ResultEvent):void
