@@ -36,11 +36,31 @@
 				validatorArr.push(firstNameValidator);
 				validatorArr.push(lastNameValidator);
 				validatorArr.push(userNameValidator);
-				Alert.show(role.getChildAt(0).toString());
 			}
 			
-			private function validateForm(evt:MouseEvent):void
-			{				
+			private function clickCheckBoxHandler(event:MouseEvent):void
+			{
+				var checkbox:Object = event.currentTarget;
+				var roleId:Number = Number(checkbox.getRepeaterItem().id);
+				var checked:Boolean = checkbox.selected;
+				for each(var role:Role in model.roles)
+				{
+					if(role.id == roleId)
+					{
+						if(checked)
+						{
+							role.checked = true;
+						}
+						else
+						{
+							role.checked = false;	
+						}
+					}
+				}
+			}
+			
+			private function validateForm(event:MouseEvent):void
+			{
 				var totalNumOfErrors:int = 0;
 				var validatorErrorArray:Array = Validator.validateAll(validatorArr);
 				var genderSelected:Boolean = true;
@@ -111,7 +131,7 @@
 	<mx:FormItem label="Role" required="true" width="382">
 		<mx:Tile direction="horizontal" x="174" y="0" width="300" height="100%">
 			<mx:Repeater id="role" dataProvider="{model.roles}">
-				<mx:CheckBox label="{role.currentItem.name}" selected="{role.currentItem.checked}"/>
+				<mx:CheckBox label="{role.currentItem.name}" selected="{role.currentItem.checked}" click="clickCheckBoxHandler(event)"/>
 			</mx:Repeater>
 		</mx:Tile>
 	</mx:FormItem>
