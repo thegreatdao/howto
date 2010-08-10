@@ -4,8 +4,7 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   width="680"
 			   xmlns:map="training.hl.map.*" 
-			   xmlns:view="training.hl.ui.view.*"
-			   initialize="init()">
+			   xmlns:view="training.hl.ui.view.*">
 	
 	<s:layout>
 		<s:HorizontalLayout horizontalAlign="center" paddingTop="20" paddingBottom="20"/>
@@ -13,65 +12,8 @@
 	
 	<fx:Style source="assets/css/Style.css"/>
 	
-	<fx:Script>
-		<![CDATA[
-			import mx.collections.ArrayCollection;
-			import mx.controls.Alert;
-			import mx.controls.List;
-			import mx.rpc.events.FaultEvent;
-			import mx.rpc.events.ResultEvent;
-			
-			import training.hl.bean.Profile;
-			import training.hl.bean.Role;
-			import training.hl.bean.User;
-			import training.hl.bean.enums.Gender;
-			
-			private function init():void
-			{
-				/*
-				var role:Role = new Role();
-				role.name = "ROLE_FLEX4";
-				role.description = "flex 4's role";
-				role.id = undefined;
-				trainingService.saveRole(role);
-				*/
-				
-				/*
-				var user:User = new User();
-				user.age = 26;
-				user.firstName = "Qian";
-				user.lastName = "Li";
-				user.password = "secret";
-				user.userName = "Luliqianli";
-				var profile:Profile = new Profile();
-				profile.bio = "born in China";
-				profile.hobbies = "gaming";
-				profile.homePage = "emptyyourmind.com";
-				user.profile = profile;
-				user.gender = Gender.FEMALE;
-				var role:Role = new Role();
-				role.id = 1;
-				var roles:ArrayCollection = new ArrayCollection();
-				roles.addItem(role);
-				user.roles = roles;
-				trainingService.saveUser(user);
-				*/
-			}
-
-			protected function userService_resultHandler(event:ResultEvent):void
-			{
-			}
-
-			protected function userService_faultHandler(event:FaultEvent):void
-			{
-				Alert.show(event.fault.toString());
-			}
-
-		]]>
-	</fx:Script>
 	<fx:Declarations>
-		<map:TrainingMap/>
-		<s:RemoteObject id="trainingService" destination="trainingFlexService" result="userService_resultHandler(event)" fault="userService_faultHandler(event)"/>
+		<map:TrainingMap/>		
 	</fx:Declarations>
 	
 	<view:MainContainer/>

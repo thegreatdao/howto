@@ -11,24 +11,33 @@
 		<mx:StringValidator id="firstNameValidator" minLength="1" maxLength="20" source="{firstName}" property="text"/>
 		<mx:StringValidator id="lastNameValidator" minLength="1" maxLength="20" source="{lastName}" property="text"/>
 		<mx:StringValidator id="userNameValidator" minLength="1" maxLength="20" source="{userName}" property="text"/>
+		<s:RemoteObject id="trainingService" destination="trainingFlexService" result="userService_resultHandler(event)" fault="userService_faultHandler(event)"/>
 	</fx:Declarations>
 	
 	<fx:Script>
 		<![CDATA[
+			import flashx.textLayout.factory.TruncationOptions;
+			
 			import mx.collections.ArrayCollection;
 			import mx.collections.ListCollectionView;
 			import mx.controls.Alert;
 			import mx.events.ValidationResultEvent;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
 			import mx.validators.Validator;
 			
 			import org.granite.meta;
 			
+			import training.hl.bean.Profile;
 			import training.hl.bean.Role;
+			import training.hl.bean.User;
+			import training.hl.bean.enums.Gender;
 			import training.hl.ui.presenter.UserDetailPresentationModel;
 			[Bindable]
 			public var model:UserDetailPresentationModel;
 			[Bindable]
 			private var validatorArr:Array;
+			private var validForm:Boolean;
 			
 			private function init():void
 			{
@@ -70,9 +79,22 @@
 					genderSelected = false;
 				}
 				totalNumOfErrors += validatorErrorArray.length;
+				var hasUserRole:Boolean = false;
+				for each(var role:Role in model.roles)
+				{
+					if(role.checked && role.name == 'ROLE_USER')
+					{
+						hasUserRole = true;
+					}
+				}
+				if(!hasUserRole)
+				{
+					totalNumOfErrors++;
+				}
 				if(totalNumOfErrors == 0)
 				{
-					Alert.show("The form is valid!", "Valid form...");
+//					Alert.show("The form is valid!", "Valid form...");
+					validForm = true;
 				}
 				else
 				{
@@ -92,17 +114,70 @@
 					{
 						if(totalNumOfErrors == 1)
 						{						
-							errorMessage += "Please select gender";
+							errorMessage += "Gender: Please select one.";
 						}
 						else
 						{
 							errorMessage += "\n\nGender: Please select one.";
 						}
 					}
+					if(!hasUserRole)
+					{
+						if(totalNumOfErrors == 1)
+						{						
+							errorMessage += "Role: Please select at one role and ROLE_USER has to be selected.";
+						}
+						else
+						{
+							errorMessage += "\n\nRole: Please select at one role and ROLE_USER has to be selected.";
+						}
+					}
 					Alert.show(errorMessage, "Invalid form...", Alert.OK);
 				}
 			}
 			
+			private function saveUser(event:MouseEvent):void
+			{
+				validateForm(event);
+				if(validForm)
+				{
+					var user:User = model.selectedUser;
+					if(user == null)
+					{
+						user = new User();
+					}
+					user.firstName = firstName.text;
+					user.lastName = lastName.text;
+					user.userName = userName.text;
+					if(gender.selectedValue.toString() == "FEMALE")
+					{
+						user.gender = Gender.FEMALE;
+					}
+					else
+					{
+						user.gender = Gender.MALE;	
+					}
+					Alert.show('before roles');
+					user.roles = model.roles;
+					var profile:Profile = new Profile();
+					user.profile = profile;
+					profile.hobbies = hobbies.text;
+					profile.homePage = homePage.text;
+					profile.bio = bio.text;
+					trainingService.saveUser(user);
+				}
+			}
+			
+			private function userService_resultHandler(event:ResultEvent):void
+			{
+				Alert.show("SUCCESSFUL REQUEST");
+			}
+			
+			private function userService_faultHandler(event:FaultEvent):void
+			{
+				Alert.show(event.fault.toString());
+			}
+
 		]]>
 	</fx:Script>
 	
@@ -136,20 +211,20 @@
 		</mx:Tile>
 	</mx:FormItem>
 	
-	<mx:FormItem label="Homepage" width="382" id="homePage">
-		<s:TextInput width="300" text="{model.selectedUser.profile.homePage}"/>
+	<mx:FormItem label="Homepage" width="382">
+		<s:TextInput width="300" text="{model.selectedUser.profile.homePage}" id="homePage"/>
 	</mx:FormItem>
 	
-	<mx:FormItem label="Bio" id="bio">
-		<s:TextArea width="300" text="{model.selectedUser.profile.bio}"/>
+	<mx:FormItem label="Bio">
+		<s:TextArea width="300" text="{model.selectedUser.profile.bio}" id="bio"/>
 	</mx:FormItem>
 	
-	<mx:FormItem label="Hobbies" id="hobbies">
-		<s:TextInput width="300" text="{model.selectedUser.profile.hobbies}"/>
+	<mx:FormItem label="Hobbies">
+		<s:TextInput width="300" text="{model.selectedUser.profile.hobbies}" id="hobbies"/>
 	</mx:FormItem>
 	
 	<mx:FormItem direction="horizontal" paddingTop="10">
-		<s:Button label="Submit" styleName="navButton" id="submit" click="validateForm(event)"/>
+		<s:Button label="Submit" styleName="navButton" id="submit" click="saveUser(event)"/>
 		<s:Button label="Delete" styleName="navButton"/>
 	</mx:FormItem>
 	

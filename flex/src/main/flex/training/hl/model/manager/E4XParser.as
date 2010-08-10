@@ -16,6 +16,7 @@ package training.hl.model.manager
 			for each(var user:XML in users..user)
 			{
 				var currentUser:User = new User();
+				currentUser.id = user.id;
 				currentUser.age = user.age;
 				currentUser.firstName = user.firstName;
 				currentUser.lastName = user.lastName;
