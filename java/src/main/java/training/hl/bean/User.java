@@ -94,9 +94,10 @@ public class User extends RootEntity
 	//for flex remoting, because flex deserialize null to 0, have to change identity start value to non-zero value
 	public void setId(Long id)
 	{
-		if(id!=null && id == 0)
+		if(id == 0)
 		{
 			id = null;
 		}
+		this.id = id;
 	}
 }

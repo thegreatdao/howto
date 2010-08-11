@@ -93,7 +93,6 @@
 				}
 				if(totalNumOfErrors == 0)
 				{
-//					Alert.show("The form is valid!", "Valid form...");
 					validForm = true;
 				}
 				else
@@ -141,14 +140,15 @@
 				validateForm(event);
 				if(validForm)
 				{
-					var user:User = model.selectedUser;
-					if(user == null)
+					var user:User = new User();
+					if(model.selectedUser!=null)
 					{
-						user = new User();
+						user.id = model.selectedUser.id;
 					}
 					user.firstName = firstName.text;
 					user.lastName = lastName.text;
 					user.userName = userName.text;
+					user.age = age.value;
 					if(gender.selectedValue.toString() == "FEMALE")
 					{
 						user.gender = Gender.FEMALE;
@@ -157,13 +157,20 @@
 					{
 						user.gender = Gender.MALE;	
 					}
-					Alert.show('before roles');
-					user.roles = model.roles;
+					var roles:ArrayCollection = new ArrayCollection();
+					for each(var role:Role in model.roles)
+					{
+						if(role.checked)
+						{
+							roles.addItem(role);
+						}
+					}
+					user.roles = roles;
 					var profile:Profile = new Profile();
-					user.profile = profile;
 					profile.hobbies = hobbies.text;
 					profile.homePage = homePage.text;
 					profile.bio = bio.text;
+					user.profile = profile;
 					trainingService.saveUser(user);
 				}
 			}
