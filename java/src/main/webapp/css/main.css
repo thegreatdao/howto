@@ -134,12 +134,19 @@ table
     width: 680px;
 }
 
-table th
+table thead tr
 {
-    text-align: left;
-    font-weight: normal;
-    padding: 0.2em 0.5em;
-    border-top: 1px dotted #C39C4E;
+	cursor: pointer;	
+}
+
+table thead tr th.headerSortDown
+{
+	background:url("../images/desc.gif") no-repeat scroll right center transparent;
+}
+
+table thead tr th.headerSortUp
+{
+	background:url("../images/asc.gif") no-repeat scroll right center transparent;
 }
 
 table td
@@ -149,16 +156,12 @@ table td
     padding: 0.2em 0.5em;
 }
 
-table thead th
+table thead tr th
 {
+    padding: 0.2em 0.5em;
 	font-weight: bold;
-    text-align: right;
+    text-align: center;
     border-bottom: 1px solid #C39C4E;
-}
-
-table th.Corner
-{
-    text-align: left;
 }
 
 table tr.odd
@@ -355,7 +358,7 @@ legend
 
 #search_form input[type="text"]
 {
-	color: #EA9A1C;	
+	color: #800000;	
 	border-color: #FFFFFF;
 	width: 160px;
     height: 20px;
@@ -415,7 +418,7 @@ legend
 	width: 200px;	
 }
 	
-#app_form input:focus, #app_form textarea:focus, #login input:focus
+#app_form input:focus, #app_form textarea:focus, #login input:focus, #search_form input:focus
 {
 	border-color: #D2691E #D2691E #FF8C00;
 }

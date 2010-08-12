@@ -50,6 +50,14 @@
 			<MethodInvoker generator="{UserManager}" method="selectUser" arguments="{event.user}"/>
 		</EventHandlers>
 		
+		<EventHandlers type="{UserEvent.ADD}">
+			<MethodInvoker generator="{UserListPresentationModel}" method="addUser" arguments="{event.user}"/>
+		</EventHandlers>
+		
+		<EventHandlers type="{UserEvent.DELETE}">
+			<MethodInvoker generator="{UserListPresentationModel}" method="deleteUser" arguments="{event.user}"/>
+		</EventHandlers>
+		
 		<Injectors targets="{UserManager}" >
 			<PropertyInjector targetKey="roles" source="{RoleManager}" sourceKey="roles" />
 		</Injectors>
@@ -74,6 +82,8 @@
 		
 		<Injectors target="{Navigation}">
 			<PropertyInjector targetKey="model" source="{UserPresentationModel}"/>
+			<PropertyInjector targetKey="userDetailPresentationModel" source="{UserDetailPresentationModel}"/>
+			<PropertyInjector targetKey="userListPresentationModel" source="{UserListPresentationModel}"/>
 		</Injectors>
 		
 		<Injectors target="{UserNavigation}">
@@ -81,7 +91,6 @@
 		</Injectors>
 		
 		<s:HTTPService id="userService" url="http://localhost:8888/ws/data/users" resultFormat="e4x" />
-		
 		<s:HTTPService id="roleService" url="http://localhost:8888/ws/data/roles" resultFormat="e4x" />
 	</fx:Declarations>
 	

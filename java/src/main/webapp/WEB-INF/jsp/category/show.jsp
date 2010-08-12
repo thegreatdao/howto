@@ -25,7 +25,7 @@
 				</div>
 				</sec:authorize>
 			</td>	
-			<td><fmt:formatDate value="${category.createdDate}" pattern="yyyy-dd-MM"/></td>
+			<td><fmt:formatDate value="${category.createdDate}" pattern="yyyy-dd-MM k-mm"/></td>
 			<td>${category.user.userName}</td>
 		</tr>
 	</c:forEach>

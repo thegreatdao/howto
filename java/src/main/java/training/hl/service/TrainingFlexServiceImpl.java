@@ -50,4 +50,10 @@ public class TrainingFlexServiceImpl implements TrainingFlexService
 	{
 		return baseHibernateDao.findAll(Role.class);
 	}
+
+	@Override
+	public void deleteUser(Long userId)
+	{
+		baseHibernateDao.delete(User.class, userId);
+	}
 }

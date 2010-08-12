@@ -11,40 +11,40 @@
 		<mx:StringValidator id="firstNameValidator" minLength="1" maxLength="20" source="{firstName}" property="text"/>
 		<mx:StringValidator id="lastNameValidator" minLength="1" maxLength="20" source="{lastName}" property="text"/>
 		<mx:StringValidator id="userNameValidator" minLength="1" maxLength="20" source="{userName}" property="text"/>
+		<mx:StringValidator id="passwordValidator" minLength="1" maxLength="20" source="{password}" property="text"/>
 		<s:RemoteObject id="trainingService" destination="trainingFlexService" result="userService_resultHandler(event)" fault="userService_faultHandler(event)"/>
 	</fx:Declarations>
 	
 	<fx:Script>
 		<![CDATA[
-			import flashx.textLayout.factory.TruncationOptions;
-			
 			import mx.collections.ArrayCollection;
-			import mx.collections.ListCollectionView;
 			import mx.controls.Alert;
+			import mx.events.ItemClickEvent;
 			import mx.events.ValidationResultEvent;
 			import mx.rpc.events.FaultEvent;
 			import mx.rpc.events.ResultEvent;
 			import mx.validators.Validator;
 			
-			import org.granite.meta;
-			
 			import training.hl.bean.Profile;
 			import training.hl.bean.Role;
 			import training.hl.bean.User;
 			import training.hl.bean.enums.Gender;
+			import training.hl.event.UserEvent;
 			import training.hl.ui.presenter.UserDetailPresentationModel;
 			[Bindable]
 			public var model:UserDetailPresentationModel;
 			[Bindable]
 			private var validatorArr:Array;
 			private var validForm:Boolean;
+			private var user:User;
 			
 			private function init():void
 			{
 				validatorArr = new Array();
+				validatorArr.push(userNameValidator);
+				validatorArr.push(passwordValidator);
 				validatorArr.push(firstNameValidator);
 				validatorArr.push(lastNameValidator);
-				validatorArr.push(userNameValidator);
 			}
 			
 			private function clickCheckBoxHandler(event:MouseEvent):void
@@ -73,7 +73,7 @@
 				var totalNumOfErrors:int = 0;
 				var validatorErrorArray:Array = Validator.validateAll(validatorArr);
 				var genderSelected:Boolean = true;
-				if(gender.selectedValue == null)
+				if(!model.female && !model.male)
 				{
 					totalNumOfErrors++;
 					genderSelected = false;
@@ -140,12 +140,13 @@
 				validateForm(event);
 				if(validForm)
 				{
-					var user:User = new User();
-					if(model.selectedUser!=null)
+					user = new User();
+					if(model.selectedUser != null)
 					{
 						user.id = model.selectedUser.id;
 					}
 					user.firstName = firstName.text;
+					user.password = password.text;
 					user.lastName = lastName.text;
 					user.userName = userName.text;
 					user.age = age.value;
@@ -177,12 +178,28 @@
 			
 			private function userService_resultHandler(event:ResultEvent):void
 			{
-				Alert.show("SUCCESSFUL REQUEST");
+				var userEvent:UserEvent = new UserEvent(UserEvent.ADD);
+				userEvent.user = user;
+				dispatchEvent(userEvent);
+				Alert.show("REQUEST SUCCEEDED");
 			}
 			
 			private function userService_faultHandler(event:FaultEvent):void
 			{
 				Alert.show(event.fault.toString());
+			}
+			
+			private function selectGender(event:ItemClickEvent):void
+			{
+				var gender:String = event.currentTarget.selectedValue;
+				if(gender == 'FEMALE')
+				{
+					model.female = true;
+				}
+				else
+				{
+					model.male = true;	
+				}
 			}
 
 		]]>
@@ -190,6 +207,10 @@
 	
 	<mx:FormItem label="User Name" required="true">
 		<s:TextInput width="300" text="{model.selectedUser.userName}" id="userName"/>
+	</mx:FormItem>
+	
+	<mx:FormItem label="Password" required="true">
+		<s:TextInput width="300" text="{model.selectedUser.password}" id="password" displayAsPassword="true"/>
 	</mx:FormItem>
 	
 	<mx:FormItem label="First Name" required="true">
@@ -205,7 +226,7 @@
 	</mx:FormItem>
 	
 	<mx:FormItem label="Gender" required="true" width="382">
-		<mx:RadioButtonGroup id="gender"/>
+		<mx:RadioButtonGroup id="gender" itemClick="selectGender(event)"/>
 		<mx:RadioButton x="118" y="1" label="Male" groupName="gender" value="MALE" selected="{model.male}"/>
 		<mx:RadioButton x="161" y="3" label="Female" groupName="gender" value="FEMALE" selected="{model.female}"/>
 	</mx:FormItem>
@@ -232,7 +253,6 @@
 	
 	<mx:FormItem direction="horizontal" paddingTop="10">
 		<s:Button label="Submit" styleName="navButton" id="submit" click="saveUser(event)"/>
-		<s:Button label="Delete" styleName="navButton"/>
 	</mx:FormItem>
 	
 </mx:Form>

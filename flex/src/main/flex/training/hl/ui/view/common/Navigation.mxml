@@ -7,25 +7,117 @@
 				   right="20"
 				   height="52"
 				   currentState="list">
+	<fx:Declarations>
+		<s:RemoteObject id="trainingService" destination="trainingFlexService" result="userService_resultHandler(event)" fault="userService_faultHandler(event)"/>
+	</fx:Declarations>
 	
 	<fx:Script>
 		<![CDATA[
 			import mx.containers.ViewStack;
 			import mx.controls.Alert;
+			import mx.events.CloseEvent;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
 			
 			import org.osmf.events.ViewEvent;
 			
+			import training.hl.bean.Role;
+			import training.hl.bean.User;
+			import training.hl.event.UserEvent;
 			import training.hl.model.constant.EffectConstant;
 			import training.hl.model.constant.NavigationConstant;
+			import training.hl.ui.presenter.UserDetailPresentationModel;
+			import training.hl.ui.presenter.UserListPresentationModel;
 			import training.hl.ui.presenter.UserPresentationModel;
+
 			
 			[Bindable]
 			public var model:UserPresentationModel;
+			[Bindable]
+			public var userDetailPresentationModel:UserDetailPresentationModel;
+			[Bindable]
+			public var userListPresentationModel:UserListPresentationModel;
 			
 			private function setViewState(userViewState:String, currentState:String='list'):void
 			{
 				model.viewState = userViewState;
 				this.currentState = currentState;
+			}
+			
+			private function create():void
+			{
+				userListPresentationModel.selecteIndex = -1;
+				resetUser();
+				setViewState(NavigationConstant.USER_DETAIL,'detail');
+			}
+			
+			private function edit():void
+			{
+				var user:User = userDetailPresentationModel.selectedUser;
+				if(user == null || isNaN(user.id))
+				{
+					Alert.show('Please select a user before editing!');
+				}
+				else
+				{
+					setViewState(NavigationConstant.USER_DETAIL,'detail');
+				}
+			}
+			
+			private function deleteUser():void
+			{
+				var user:User = userDetailPresentationModel.selectedUser;
+				if(user == null || isNaN(user.id))
+				{
+					Alert.show('Please select a user to delete!');
+				}
+				else
+				{
+					Alert.show("Are you sure to delete this user?","User deletion confirmation window",Alert.OK|Alert.CANCEL,null,deleteUserById,null,Alert.OK);
+				}
+			}
+			
+			private function deleteUserById(eventObj:CloseEvent):void
+			{
+				if(eventObj.detail == Alert.OK)
+				{
+					var user:User = userDetailPresentationModel.selectedUser;
+					trainingService.deleteUser(user.id);
+				}
+			}
+			
+			private function userService_resultHandler(event:ResultEvent):void
+			{
+				var userEvent:UserEvent = new UserEvent(UserEvent.DELETE);
+				userEvent.user = userDetailPresentationModel.selectedUser;
+				dispatchEvent(userEvent);
+				resetUser();
+				Alert.show("REQUEST SUCCEEDED");
+			}
+			
+			private function userService_faultHandler(event:FaultEvent):void
+			{
+				Alert.show(event.fault.toString());
+			}
+			
+			private function goBackTODetailList():void
+			{
+				userListPresentationModel.selecteIndex = -1;
+				userDetailPresentationModel.selectedUser = new User();
+				setViewState(NavigationConstant.USER_LIST);
+			}
+			
+			private function resetUser():void
+			{
+				var user:User = new User();
+				userDetailPresentationModel.selectedUser = user;
+				user.age = 20;
+				for each (var role:Role in userDetailPresentationModel.roles)
+				{
+					role.checked = false;
+				}
+				userDetailPresentationModel.female = false;
+				userDetailPresentationModel.male = false;
 			}
 		]]>
 	</fx:Script>
@@ -44,14 +136,14 @@
 		</s:Transition>
 	</s:transitions>
 	
-	<s:HGroup id="listNavigation" verticalAlign="middle" horizontalAlign="center" width="100%" height="100%" includeIn="list">		
-		<s:Button label="Create" styleName="navButton" click="setViewState(NavigationConstant.USER_DETAIL,'detail');"/>
-		<s:Button label="Edit" styleName="navButton" click="setViewState(NavigationConstant.USER_DETAIL,'detail');"/>
-		<s:Button label="Delete" styleName="navButton"/>
+	<s:HGroup id="listNavigation" verticalAlign="middle" horizontalAlign="center" width="100%" height="100%" includeIn="list">
+		<s:Button label="Create" styleName="navButton" click="create()"/>
+		<s:Button label="Edit" styleName="navButton" click="edit()"/>
+		<s:Button label="Delete" styleName="navButton" click="deleteUser()"/>
 	</s:HGroup>
 	
 	<s:HGroup id="detailNavigation" verticalAlign="middle" horizontalAlign="center" width="100%" height="100%" includeIn="detail">
-		<s:Button label="Back" styleName="navButton" click="setViewState(NavigationConstant.USER_LIST);"/>
+		<s:Button label="Back" styleName="navButton" click="goBackTODetailList()"/>
 	</s:HGroup>
 	
 </s:BorderContainer>

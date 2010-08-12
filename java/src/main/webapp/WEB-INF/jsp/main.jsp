@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="<c:url value="/css/main.css" />" />
 	<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/js/jquery.tools.min.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/js/jquery.tablesorter.min.js" />"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -56,7 +57,7 @@
 					</div>
 				</div>
 			</div>
-		</div>	
+		</div>
 		<script type="text/javascript">
 			$(
 					function()
@@ -86,6 +87,7 @@
 								$('#searchForm').submit();
 							}
 						);
+						$("table").tablesorter();
 					}
 			)
 		</script>
