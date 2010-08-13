@@ -55,9 +55,9 @@
 			private function edit():void
 			{
 				var user:User = userDetailPresentationModel.selectedUser;
-				if(user == null)
+				if(user == null || isNaN(user.id))
 				{
-					Alert.show('Please select a user before editing!');
+					Alert.show('Please select a user before editing!', "ERROR WINDOW");
 				}
 				else
 				{
@@ -68,9 +68,9 @@
 			private function deleteUser():void
 			{
 				var user:User = userDetailPresentationModel.selectedUser;
-				if(user == null)
+				if(user == null || isNaN(user.id))
 				{
-					Alert.show('Please select a user to delete!');
+					Alert.show('Please select a user to delete!', "ERROR WINDOW");
 				}
 				else
 				{

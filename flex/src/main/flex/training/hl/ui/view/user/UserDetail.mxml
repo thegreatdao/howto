@@ -187,7 +187,7 @@
 			
 			private function userService_faultHandler(event:FaultEvent):void
 			{
-				Alert.show(event.fault.toString());
+				Alert.show(event.fault.toString(), "ERROR WINDOW");
 			}
 			
 			private function selectGender(event:ItemClickEvent):void
