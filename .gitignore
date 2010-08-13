@@ -15,3 +15,8 @@ flex/.flexProperties
 flex/.project
 flex/html-template/
 java/src/main/webapp/flex-debug
+java/src/main/webapp/swf/*.html
+java/src/main/webapp/swf/*.swf
+java/src/main/webapp/swf/*.js
+java/src/main/webapp/swf/assets/
+java/src/main/webapp/swf/history/
