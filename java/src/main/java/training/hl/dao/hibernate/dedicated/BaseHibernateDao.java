@@ -2,8 +2,10 @@ package training.hl.dao.hibernate.dedicated;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -43,6 +45,32 @@ public class BaseHibernateDao extends BaseDao
     	Criteria criteria = prepareCriteria(entityClass, criterions);
 		return criteria.list();
     }
+	
+	public void executeByNamedQuery(String namedQuery, Map<String, Object> parameters)
+	{
+		Query query = hibernateTemplate.getSessionFactory().getCurrentSession().getNamedQuery(namedQuery);
+		for(Map.Entry<String, Object> entry : parameters.entrySet())
+		{
+			query.setParameter(entry.getKey(), entry.getValue());
+		}
+		query.executeUpdate();
+	}
+	
+	@SuppressWarnings("unchecked")
+	private <T extends RootEntity> T uniqueResultFromNamedQuery(String namedQuery, Map<String, Object> parameters)
+	{
+		Query query = hibernateTemplate.getSessionFactory().getCurrentSession().getNamedQuery(namedQuery);
+		for(Map.Entry<String, Object> entry : parameters.entrySet())
+		{
+			query.setParameter(entry.getKey(), entry.getValue());
+		}
+		return (T) query.uniqueResult();
+	}
+	
+	public void deleteEntityByNamedQueryResult(String namedQuery, Map<String, Object> parameters)
+	{
+		delete(uniqueResultFromNamedQuery(namedQuery, parameters));
+	}
 	
     private <T extends RootEntity> Criteria prepareCriteria(Class<T> entityClass, Criterion... criterions)
     {

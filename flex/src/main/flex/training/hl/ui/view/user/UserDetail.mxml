@@ -23,6 +23,7 @@
 			import mx.events.ValidationResultEvent;
 			import mx.rpc.events.FaultEvent;
 			import mx.rpc.events.ResultEvent;
+			import mx.utils.StringUtil;
 			import mx.validators.Validator;
 			
 			import training.hl.bean.Profile;
@@ -145,10 +146,10 @@
 					{
 						user.id = model.selectedUser.id;
 					}
-					user.firstName = firstName.text;
-					user.password = password.text;
-					user.lastName = lastName.text;
-					user.userName = userName.text;
+					user.firstName = StringUtil.trim(firstName.text);
+					user.password = StringUtil.trim(password.text);
+					user.lastName = StringUtil.trim(lastName.text);
+					user.userName = StringUtil.trim(userName.text);
 					user.age = age.value;
 					if(gender.selectedValue.toString() == "FEMALE")
 					{
@@ -168,9 +169,9 @@
 					}
 					user.roles = roles;
 					var profile:Profile = new Profile();
-					profile.hobbies = hobbies.text;
-					profile.homePage = homePage.text;
-					profile.bio = bio.text;
+					profile.hobbies = StringUtil.trim(hobbies.text);
+					profile.homePage = StringUtil.trim(homePage.text);
+					profile.bio = StringUtil.trim(bio.text);
 					user.profile = profile;
 					trainingService.saveUser(user);
 				}
@@ -179,9 +180,9 @@
 			private function userService_resultHandler(event:ResultEvent):void
 			{
 				var userEvent:UserEvent = new UserEvent(UserEvent.ADD);
-				userEvent.user = user;
+				userEvent.user = User(event.result);
 				dispatchEvent(userEvent);
-				Alert.show("REQUEST SUCCEEDED");
+				Alert.show("User saved/updated!", "User Comfirmation Window");
 			}
 			
 			private function userService_faultHandler(event:FaultEvent):void
@@ -210,7 +211,7 @@
 	</mx:FormItem>
 	
 	<mx:FormItem label="Password" required="true">
-		<s:TextInput width="300" text="{model.selectedUser.password}" id="password" displayAsPassword="true"/>
+		<s:TextInput width="300" text="{model.emptyPassword}" id="password" displayAsPassword="true"/>
 	</mx:FormItem>
 	
 	<mx:FormItem label="First Name" required="true">

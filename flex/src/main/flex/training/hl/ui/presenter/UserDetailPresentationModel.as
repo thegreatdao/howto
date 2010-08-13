@@ -19,11 +19,13 @@ package training.hl.ui.presenter
 		private var _roles:ArrayCollection;
 		private var _male:Boolean;
 		private var _female:Boolean;
+		private var _emptyPassword:String;
 		
 		public static const USER_CHANGED:String = "userChanged";
 		public static const GENDER_CHANGED_TO_MALE:String = "genderChangedToMale";
 		public static const GENDER_CHANGED_TO_FEMALE:String = "genderChangedToFemale";
 		public static const ROLES_CHANGED:String = "rolesChanged";
+		public static const RESET_PASSWORD_TO_EMPTY:String = "resetPasswordToEmpty";
 		
 		public function UserDetailPresentationModel(dispatcher:IEventDispatcher)
 		{
@@ -86,6 +88,18 @@ package training.hl.ui.presenter
 			_roles = value;
 			dispatchEvent(new Event(ROLES_CHANGED));
 		}
+
+		[Bindable(event="resetPasswordToEmpty")]
+		public function get emptyPassword():String
+		{
+			return _emptyPassword;
+		}
+
+		public function set emptyPassword(value:String):void
+		{
+			dispatchEvent(new Event(RESET_PASSWORD_TO_EMPTY));
+		}
+
 
 	}
 }

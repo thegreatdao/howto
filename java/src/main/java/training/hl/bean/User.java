@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -42,9 +44,18 @@ import training.hl.bean.enums.Gender;
 @JsonIgnoreProperties(value={"categories", "roles", "posts", "password", "profile"})
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+@NamedQueries
+(
+	{
+		@NamedQuery(name = User.DELETE_USER_BY_USERNAME, query = "delete from User where userName=:userName"),
+		@NamedQuery(name = User.FIND_USER_BY_USERNAME, query = "from User where userName=:userName")
+	}
+)
 public class User extends RootEntity
 {
 	private static final long serialVersionUID = 5840474281304089091L;
+	public static final String DELETE_USER_BY_USERNAME = "deleteUserByUsername";
+	public static final String FIND_USER_BY_USERNAME = "findUserByUserName";
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

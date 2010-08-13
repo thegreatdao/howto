@@ -7,6 +7,7 @@ package training.hl.ui.presenter
 	import flash.events.IEventDispatcher;
 	
 	import mx.collections.ArrayCollection;
+	import mx.controls.Alert;
 	
 	import training.hl.bean.User;
 	import training.hl.event.UserEvent;
@@ -88,22 +89,21 @@ package training.hl.ui.presenter
 
 		public function addUser(user:User):void
 		{
-			if(isNaN(user.id))
+			var index:int = 0;
+			var newUser:Boolean = true;
+			for each(var existingUser:User in _users)
+			{
+				if(existingUser.id == user.id)
+				{
+					_users.removeItemAt(index);
+					_users.addItem(user);
+					newUser = false;
+				}
+				index++;				
+			}
+			if(newUser)
 			{
 				_users.addItem(user);
-			}
-			else
-			{
-				var index:int = 0;
-				for each(var existingUser:User in _users)
-				{
-					if(existingUser.id == user.id)
-					{
-						_users.removeItemAt(index);
-						_users.addItem(user);
-					}
-					index++;
-				}
 			}
 		}
 		

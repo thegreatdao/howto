@@ -18,6 +18,7 @@
 			import mx.events.CloseEvent;
 			import mx.rpc.events.FaultEvent;
 			import mx.rpc.events.ResultEvent;
+			import mx.utils.StringUtil;
 			
 			import org.osmf.events.ViewEvent;
 			
@@ -54,7 +55,7 @@
 			private function edit():void
 			{
 				var user:User = userDetailPresentationModel.selectedUser;
-				if(user == null || isNaN(user.id))
+				if(user == null)
 				{
 					Alert.show('Please select a user before editing!');
 				}
@@ -67,17 +68,17 @@
 			private function deleteUser():void
 			{
 				var user:User = userDetailPresentationModel.selectedUser;
-				if(user == null || isNaN(user.id))
+				if(user == null)
 				{
 					Alert.show('Please select a user to delete!');
 				}
 				else
 				{
-					Alert.show("Are you sure to delete this user?","User deletion confirmation window",Alert.OK|Alert.CANCEL,null,deleteUserById,null,Alert.OK);
+					Alert.show("Are you sure to delete this user?","User deletion confirmation window",Alert.OK|Alert.CANCEL,null,deleteUserByUserName,null,Alert.OK);
 				}
 			}
 			
-			private function deleteUserById(eventObj:CloseEvent):void
+			private function deleteUserByUserName(eventObj:CloseEvent):void
 			{
 				if(eventObj.detail == Alert.OK)
 				{
@@ -92,7 +93,7 @@
 				userEvent.user = userDetailPresentationModel.selectedUser;
 				dispatchEvent(userEvent);
 				resetUser();
-				Alert.show("REQUEST SUCCEEDED");
+				Alert.show("User deleted!", "User Comfirmation Window");
 			}
 			
 			private function userService_faultHandler(event:FaultEvent):void
@@ -104,6 +105,7 @@
 			{
 				userListPresentationModel.selecteIndex = -1;
 				userDetailPresentationModel.selectedUser = new User();
+				userDetailPresentationModel.emptyPassword = null;
 				setViewState(NavigationConstant.USER_LIST);
 			}
 			

@@ -11,6 +11,7 @@
 			 >
 	<fx:Script>
 		<![CDATA[
+			import mx.controls.Alert;
 			
 			import training.hl.bean.User;
 			import training.hl.ui.presenter.UserListPresentationModel;

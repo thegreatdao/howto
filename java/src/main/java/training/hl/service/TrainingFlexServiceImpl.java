@@ -1,6 +1,8 @@
 package training.hl.service;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +30,7 @@ public class TrainingFlexServiceImpl implements TrainingFlexService
 	}
 
 	@Override
-	public void saveUser(User user)
+	public User saveUser(User user)
 	{
 		Set<Role> roles = user.getRoles();
 		for(Role role : roles)
@@ -37,6 +39,7 @@ public class TrainingFlexServiceImpl implements TrainingFlexService
 		}
 		user.setPassword(passwordEncoder.encodePassword(user.getPassword(), null));
 		baseHibernateDao.save(user);
+		return user;
 	}
 
 	@Override
@@ -55,5 +58,13 @@ public class TrainingFlexServiceImpl implements TrainingFlexService
 	public void deleteUser(Long userId)
 	{
 		baseHibernateDao.delete(User.class, userId);
+	}
+
+	@Override
+	public void deleteUserByUsername(String userName)
+	{
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("userName", userName);
+		baseHibernateDao.deleteEntityByNamedQueryResult(User.FIND_USER_BY_USERNAME, parameters);
 	}
 }
