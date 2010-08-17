@@ -237,6 +237,18 @@
 		</dependency>
 
 		<dependency>
+		     <groupId>org.springframework</groupId>
+		     <artifactId>spring-jms</artifactId>
+		     <version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+		     <groupId>org.apache.activemq</groupId>
+		     <artifactId>activemq-core</artifactId>
+		     <version>5.3.2</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.apache.el</groupId>
 			<artifactId>com.springsource.org.apache.el</artifactId>
 			<version>6.0.20</version>
@@ -334,6 +346,12 @@
         </dependency>
           
         <dependency>  
+        	<groupId>org.apache.xbean</groupId>
+        	<artifactId>com.springsource.org.apache.xbean.spring</artifactId>
+        	<version>3.6.0</version>
+       	</dependency>
+       	
+        <dependency>  
         	<groupId>org.codehaus.jackson</groupId>  
         	<artifactId>com.springsource.org.codehaus.jackson.mapper</artifactId>  
         	<version>1.4.2</version> 
@@ -406,6 +424,13 @@
 			<version>1.6</version>
 		</dependency>		
 
+		<!-- 
+		<dependency>
+		  <groupId>displaytag</groupId>
+		  <artifactId>displaytag</artifactId>
+		  <version>1.1.1</version>
+		</dependency>
+		 -->
 	</dependencies>
 
 	<licenses>
