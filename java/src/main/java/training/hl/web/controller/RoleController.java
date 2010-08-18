@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import training.hl.bean.Role;
 import training.hl.bean.User;
+import training.hl.bean.pagination.Pagination;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
 import training.hl.exception.TrainingRootException;
 
@@ -27,9 +28,17 @@ public class RoleController
 	private BaseHibernateDao baseHibernateDao;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public @ModelAttribute("roles") Collection<Role> show()
+	public @ModelAttribute("pagination") Pagination<Role> show(Integer currentIndex, Integer numOfRecordsPerPage)
 	{
-		return baseHibernateDao.findAll(Role.class);
+		if(currentIndex == null)
+		{
+			currentIndex = 0;
+		}
+		if(numOfRecordsPerPage == null)
+		{
+			numOfRecordsPerPage = 6;
+		}
+		return baseHibernateDao.getPaginatedCollection(Role.class, currentIndex, numOfRecordsPerPage, "id", true);
 	}
 
 	@RequestMapping(method=RequestMethod.GET)

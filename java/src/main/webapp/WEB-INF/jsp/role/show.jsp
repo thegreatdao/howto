@@ -1,6 +1,6 @@
 <ul class="tabs">
 	<li id="role_tab"><a href="javascript:void(0);"><fmt:message key="role.roleList"/></a></li>
-	<li id="user_tab"><a href="javascript:void(0);"><fmt:message key="user.userList"/></a><img src="http://www.sanbaldo.com/wordpress/wp-content/remembermilk_orange.gif" id="ajax_icon"/></li>
+	<li id="user_tab"><a href="javascript:void(0);"><fmt:message key="user.userList"/></a><img src="<c:url value="/images/ajax_orange.gif"/>" id="ajax_icon"/></li>
 </ul>
 <div class="panes">	
 	<div id="role_list">
@@ -13,7 +13,7 @@
 				</tr>
 			</thead>
 			
-			<c:forEach items="${roles}" var="role">
+			<c:forEach items="${pagination.records}" var="role">
 				<tr>
 					<td>
 						<span class="user_action">${role.name}</span>
@@ -42,6 +42,8 @@
 		<div id="action">
 			<a href="<c:url value="/role/form.html" />"><img src="<c:url value="/images/group_add.png" />" id="action_img"/><fmt:message key="role.add.role"/></a>
 		</div>
+		<div id="pagination_panel">
+		</div>
 	</div>
 	<div id="user_list"></div>
 	<div id="post_list"></div>
@@ -50,7 +52,17 @@
 	$(
 		function()
 		{
-			//$("ul.tabs").tabs("div.panes > div");
+			$('#pagination_panel').pagination(
+					${pagination.totalNumOfRecords},
+					{
+						num_display_entries: 2,
+						items_per_page: ${pagination.numOfRecordsPerPage},
+						num_edge_entries: 2,
+						num_display_entries: 2,
+						current_page: ${pagination.currentIndex},
+						callback: handlePagainationClick
+					}
+			);
 			$('#role_tab a').addClass('current');
 			$('#role_tab').click(
 				function()
@@ -118,4 +130,31 @@
 			);
 		}
 	)
+	
+	function handlePagainationClick(new_page_index, pagination_container)
+	{
+		var currrentIndex = getParameterByName("currentIndex");
+		if(new_page_index!=currrentIndex)
+		{
+			var url = "<c:url value="/role/show.html"/>" + "?currentIndex=" + new_page_index;
+			window.location = url;
+		}		
+	}
+
+	function getParameterByName( name )
+	{
+	  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+	  var regexS = "[\\?&]"+name+"=([^&#]*)";
+	  var regex = new RegExp( regexS );
+	  var results = regex.exec( window.location.href );
+	  if( results == null )
+	  {
+	    return "";
+	  }
+	  else
+	  {
+	    return decodeURIComponent(results[1].replace(/\+/g, " "));
+	  }
+	}
+		
 </script>

@@ -8,8 +8,10 @@
 	<link rel="stylesheet" href="<c:url value="/css/text.css" />" />
 	<link rel="stylesheet" href="<c:url value="/css/960.css" />" />
 	<link rel="stylesheet" href="<c:url value="/css/main.css" />" />
+	<link rel="stylesheet" href="<c:url value="/css/pagination.css" />" />
 	<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/js/jquery.tools.min.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/js/jquery.pagination.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/js/jquery.tablesorter.min.js" />"></script>
 	</head>
 	<body>
