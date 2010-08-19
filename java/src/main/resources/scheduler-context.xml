@@ -13,6 +13,6 @@
 
 	<task:annotation-driven/>
 	
-	<context:component-scan base-package="training.hl.scheduler, training.hl.messaging"/>
+	<context:component-scan base-package="training.hl.scheduler"/>
 	
 </beans>

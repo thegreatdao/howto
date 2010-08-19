@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:jms="http://www.springframework.org/schema/jms"
 	xmlns:amq="http://activemq.apache.org/schema/core"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
@@ -10,8 +11,11 @@
 		http://www.springframework.org/schema/jms/spring-jms-3.0.xsd
 		http://activemq.apache.org/schema/core
 		http://activemq.apache.org/schema/core/activemq-core-5.3.2.xsd
+		http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		">
 
+	<context:component-scan base-package="training.hl.messaging, training.hl.messaging.listener" />
 	<amq:broker useJmx="false" persistent="false">
 		<amq:transportConnectors>
 			<amq:transportConnector uri="tcp://localhost:61616" />
@@ -47,7 +51,4 @@
 		 <constructor-arg ref="connectionFactory"/>
 	</bean>
 	
-	<bean id="jmsExceptionListener" class="training.hl.messaging.listener.JmsExceptionListener"/>
-	
-	<bean id="messageConsumer" class="training.hl.messaging.MessageConsumer"/>
 </beans>

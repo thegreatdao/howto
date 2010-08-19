@@ -5,11 +5,15 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MessageConsumer implements MessageListener
 {
+	protected static final Logger LOG = LoggerFactory.getLogger(MessageConsumer.class);
+	
 	@Override
 	public void onMessage(final Message message)
 	{
@@ -18,12 +22,11 @@ public class MessageConsumer implements MessageListener
 			final TextMessage textMessage = (TextMessage)message;
 			try
 			{
-				System.out.print("----------------------------------------");
-				System.out.println(textMessage.getText());
+				LOG.info(textMessage.getText());
 			}
 			catch (final JMSException e)
 			{
-				e.printStackTrace();
+				LOG.error("jsm error: ", e);
 			}
 		}
 	}
