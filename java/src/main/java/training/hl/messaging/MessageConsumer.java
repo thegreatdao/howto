@@ -3,11 +3,13 @@ package training.hl.messaging;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
-import javax.jms.TextMessage;
+import javax.jms.ObjectMessage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
+import training.hl.bean.Role;
 
 @Component
 public class MessageConsumer implements MessageListener
@@ -17,12 +19,13 @@ public class MessageConsumer implements MessageListener
 	@Override
 	public void onMessage(final Message message)
 	{
-		if(message instanceof TextMessage)
+		if(message instanceof ObjectMessage)
 		{
-			final TextMessage textMessage = (TextMessage)message;
+			ObjectMessage objectMessage = (ObjectMessage)message;
 			try
 			{
-				LOG.info(textMessage.getText());
+				Role role = (Role)objectMessage.getObject();
+				LOG.info(role.toString());
 			}
 			catch (final JMSException e)
 			{
