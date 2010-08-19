@@ -1,18 +1,25 @@
 package training.hl.scheduler;
 
 import org.joda.time.DateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import training.hl.bean.Role;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
+import training.hl.messaging.MessageProducer;
 
 @Component
-public class CronUserScheduler
+public class TrainingScheduler
 {
+	protected static final Logger LOG = LoggerFactory.getLogger(TrainingScheduler.class);
+	
 	@Autowired
 	private BaseHibernateDao baseHibernateDao;
+	@Autowired
+	private MessageProducer messageProducer;
 	
 	/*
 	 * create a robot user every 30sec
@@ -26,5 +33,12 @@ public class CronUserScheduler
 		role.setName("ROLE_" + suffix);
 		role.setDescription("role created by scheduler " + suffix);
 		baseHibernateDao.save(role);
+	}
+	
+	@Scheduled(fixedRate=2000)
+	public void jsmPlainMessage()
+	{
+		DateTime dateTime = new DateTime();
+		messageProducer.send("message sent at : " + dateTime);
 	}
 }
