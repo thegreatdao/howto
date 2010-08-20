@@ -35,7 +35,10 @@ public class TrainingScheduler
 		baseHibernateDao.save(role);
 	}
 	
-	@Scheduled(fixedRate=2000)
+	/*
+	 * create a robot user every 30sec
+	 */
+	@Scheduled(fixedRate=30000)
 	public void jsmPlainMessage()
 	{
 		DateTime dateTime = new DateTime();

@@ -55,6 +55,8 @@
 			$('#pagination_panel').pagination(
 					${pagination.totalNumOfRecords},
 					{
+						prev_text: "<fmt:message key="prev"/>",
+						next_text: "<fmt:message key="next"/>",						
 						num_display_entries: 2,
 						items_per_page: ${pagination.numOfRecordsPerPage},
 						num_edge_entries: 2,
