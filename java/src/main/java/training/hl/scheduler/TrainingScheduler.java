@@ -33,7 +33,7 @@ public class TrainingScheduler
 		DateTime dateTime = new DateTime();
 		int suffix = dateTime.getDayOfYear() + dateTime.getHourOfDay() + dateTime.getMinuteOfDay() + dateTime.getSecondOfDay();
 		Role role = new Role();
-		role.setName("ROLE_" + suffix);
+		role.setName("ROLE_" + suffix + "_" + trainingJmxBean.getSuffix());
 		role.setDescription("role created by scheduler " + suffix);
 		baseHibernateDao.save(role);
 	}
@@ -51,6 +51,6 @@ public class TrainingScheduler
 	@Scheduled(fixedRate=6000)
 	public void monitorJmxBeanAttribute()
 	{
-		LOG.info("------------------- JMX BEAN ATTRIBUTE IS : " + trainingJmxBean.getSomething());
+		LOG.info("------------------- JMX BEAN ATTRIBUTE IS : " + trainingJmxBean.getSuffix());
 	}
 }

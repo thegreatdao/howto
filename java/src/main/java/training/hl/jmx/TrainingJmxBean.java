@@ -1,25 +1,30 @@
 package training.hl.jmx;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.jmx.export.annotation.ManagedAttribute;
 import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.stereotype.Component;
 
 @Component
-@ManagedResource(objectName = "spring:name=trainingJmxBean", description = "our training JMX-managed bean")
+@ManagedResource(objectName = "training:name=trainingJmxBean", description = "our training JMX-managed bean")
 public class TrainingJmxBean
 {
-	private String something;
+	private String suffix;
 
 	@ManagedAttribute
-	public String getSomething()
+	public String getSuffix()
 	{
-		return something;
+		if(StringUtils.isEmpty(suffix))
+		{
+			return "";
+		}
+		return suffix;
 	}
 
 	@ManagedAttribute
-	public void setSomething(String something)
+	public void setSuffix(String suffix)
 	{
-		this.something = something;
+		this.suffix = suffix;
 	}
-	
+
 }
