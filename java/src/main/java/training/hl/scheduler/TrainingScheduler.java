@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import training.hl.bean.Role;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
+import training.hl.jmx.TrainingJmxBean;
 import training.hl.messaging.MessageProducer;
 
 @Component
@@ -20,6 +21,8 @@ public class TrainingScheduler
 	private BaseHibernateDao baseHibernateDao;
 	@Autowired
 	private MessageProducer messageProducer;
+	@Autowired
+	private TrainingJmxBean trainingJmxBean;
 	
 	/*
 	 * create a robot user every 30sec
@@ -43,5 +46,11 @@ public class TrainingScheduler
 	{
 		DateTime dateTime = new DateTime();
 		messageProducer.send("message sent at : " + dateTime);
+	}
+	
+	@Scheduled(fixedRate=6000)
+	public void monitorJmxBeanAttribute()
+	{
+		LOG.info("------------------- JMX BEAN ATTRIBUTE IS : " + trainingJmxBean.getSomething());
 	}
 }

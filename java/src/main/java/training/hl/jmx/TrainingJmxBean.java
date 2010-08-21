@@ -2,11 +2,13 @@ package training.hl.jmx;
 
 import org.springframework.jmx.export.annotation.ManagedAttribute;
 import org.springframework.jmx.export.annotation.ManagedResource;
+import org.springframework.stereotype.Component;
 
-@ManagedResource(objectName = "spring:name=trainingJmxBean", description = "our training JMX-managed beand")
+@Component
+@ManagedResource(objectName = "spring:name=trainingJmxBean", description = "our training JMX-managed bean")
 public class TrainingJmxBean
 {
-	public String something;
+	private String something;
 
 	@ManagedAttribute
 	public String getSomething()
@@ -14,6 +16,7 @@ public class TrainingJmxBean
 		return something;
 	}
 
+	@ManagedAttribute
 	public void setSomething(String something)
 	{
 		this.something = something;

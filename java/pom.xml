@@ -477,6 +477,7 @@
 				<configuration>
 					<webDefaultXml>src/main/resources/webdefault.xml</webDefaultXml>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<jettyConfig>src/etc/jetty-jmx.xml</jettyConfig>
 					<contextPath>/</contextPath>
 					<stopPort>9966</stopPort>
 					<stopKey>foo</stopKey>

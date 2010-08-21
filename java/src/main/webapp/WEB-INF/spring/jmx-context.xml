@@ -2,20 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd		
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	 	http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd		
 		">
 
-	<bean id="exporter" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false"
-		p:autodetect="true" p:namingStrategy-ref="namingStrategy" p:assembler-ref="assembler" />
+	<context:component-scan base-package="training.hl.jmx" />
 	
-	<bean id="attributeSource" class="org.springframework.jmx.export.annotation.AnnotationJmxAttributeSource" />
-	
-	<bean id="assembler" class="org.springframework.jmx.export.assembler.MetadataMBeanInfoAssembler"
-		p:attributeSource-ref="attributeSource"/>
-		
-	<bean id="namingStrategy"
-		class="org.springframework.jmx.export.naming.MetadataNamingStrategy" p:attributeSource-ref="attributeSource"/>
-		
+	<context:mbean-export/>
 		
 </beans>

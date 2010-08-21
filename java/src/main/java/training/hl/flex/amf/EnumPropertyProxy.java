@@ -22,31 +22,32 @@ public class EnumPropertyProxy extends BeanProxy
     // Serialization
     /////////////////////////////////////////////
  
-    @Override public
-    String getAlias(final Object aInstance)
+    @Override 
+    public String getAlias(final Object aInstance)
     {
         return super.getClassName(aInstance);
     }
  
-    @Override public
-    List<String> getPropertyNames(final Object aInstance)
+    @Override 
+    public List<String> getPropertyNames(final Object aInstance)
     {
         final List<String> propertyNames = new ArrayList<String>(1);
         propertyNames.add("name");
         return propertyNames;
     }
  
-    @Override public
-    Class<String> getType(final Object aInstance, final String aPropertyName)
+    @Override
+    public Class<String> getType(final Object aInstance, final String aPropertyName)
     {
-        if("name".equals(aPropertyName)) {
+        if("name".equals(aPropertyName))
+        {
             return String.class;
         }
         return null;
     }
  
-    @Override public
-    Object getValue(final Object aInstance, final String aPropertyName)
+    @Override
+    public Object getValue(final Object aInstance, final String aPropertyName)
     {
         if("name".equals(aPropertyName) && aInstance instanceof Enum<?>) 
         {
@@ -78,16 +79,18 @@ public class EnumPropertyProxy extends BeanProxy
     }
  
     @SuppressWarnings("unchecked")
-	@Override public
-    Object instanceComplete(java.lang.Object o)
+	@Override
+	public Object instanceComplete(java.lang.Object o)
     {
         final Map<String, String> tempInstance = (Map<String, String>) o;
         final String className = tempInstance.get("className");
         final String name = tempInstance.get("name");
         final Class<Enum<?>> enumClass = getClassFromClassName(className);
  
-        for(final Enum<?> constant : enumClass.getEnumConstants()) {
-            if(constant.toString().equals(name)) {
+        for(final Enum<?> constant : enumClass.getEnumConstants())
+        {
+            if(constant.toString().equals(name))
+            {
                 return constant;
             }
         }
@@ -99,7 +102,7 @@ public class EnumPropertyProxy extends BeanProxy
     // Registration
     /////////////////////////////////////////////
  
-    static public EnumPropertyProxy registerPropertyProxy()
+    public static EnumPropertyProxy registerPropertyProxy()
     {
         PropertyProxyRegistry.getRegistry().register(Enum.class, new EnumPropertyProxy());
  

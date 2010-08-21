@@ -60,7 +60,7 @@
 						num_display_entries: 2,
 						items_per_page: ${pagination.numOfRecordsPerPage},
 						num_edge_entries: 2,
-						num_display_entries: 2,
+						num_display_entries: 6,
 						current_page: ${pagination.currentIndex},
 						callback: handlePagainationClick
 					}
