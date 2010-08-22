@@ -6,7 +6,6 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,11 +19,10 @@ public class ReportController
 	private BaseHibernateDao baseHibernateDao;
 	
     @RequestMapping(method=RequestMethod.GET)
-	public String users(ModelMap modelMap)
+	public JRBeanCollectionDataSource users()
 	{
 		Collection<User> users = baseHibernateDao.findAll(User.class);
 		JRBeanCollectionDataSource jrBeanCollectionDataSource = new JRBeanCollectionDataSource(users, false);
-		modelMap.put("users", jrBeanCollectionDataSource);
-		return "users";
+		return jrBeanCollectionDataSource;
 	}
 }

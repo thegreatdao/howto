@@ -13,7 +13,6 @@
 	<mvc:view-controller path="/index.html" />
 	<mvc:view-controller path="/ria/index.html" />
 	<mvc:view-controller path="/report/index.html" />
-	<mvc:view-controller path="/report/users.html" />
 
 	<mvc:interceptors>
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="locale"/>
