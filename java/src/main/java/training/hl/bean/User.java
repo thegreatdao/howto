@@ -102,10 +102,13 @@ public class User extends RootEntity
 		categories.add(category);
 	}
 	
-	//for flex remoting, because flex deserialize null to 0, have to change identity start value to non-zero value
+	/*
+	 * some ugly hack
+	 * for flex remoting, because flex deserialize null to 0, have to change identity start value to non-zero value
+	 */
 	public void setId(Long id)
 	{
-		if(id == 0)
+		if(id == null || id == 0)
 		{
 			id = null;
 		}
