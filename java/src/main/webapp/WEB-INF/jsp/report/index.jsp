@@ -1,0 +1,1 @@
+<a href="<c:url value="/report/user.html"/>" target="blank">report</a>

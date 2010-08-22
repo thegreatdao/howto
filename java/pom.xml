@@ -30,6 +30,11 @@
 			<url>http://repository.jboss.org/maven2</url> </repository>
 		-->
 		<repository>
+          <id>jasperreports</id>
+          <url>http://jasperreports.sourceforge.net/maven2</url>
+        </repository>
+        
+		<repository>
 			<id>jboss-public-repository-group</id>
 			<name>JBoss Public Maven Repository Group</name>
 			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
@@ -423,6 +428,12 @@
 			<artifactId>joda-time</artifactId>
 			<version>1.6</version>
 		</dependency>		
+
+		<dependency>
+		    <groupId>net.sf.jasperreports</groupId>
+		    <artifactId>jasperreports</artifactId>
+		    <version>3.7.0</version>
+		</dependency>
 
 		<!-- 
 		<dependency>

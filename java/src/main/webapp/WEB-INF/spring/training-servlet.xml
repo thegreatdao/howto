@@ -12,6 +12,8 @@
 	<mvc:annotation-driven/>
 	<mvc:view-controller path="/index.html" />
 	<mvc:view-controller path="/ria/index.html" />
+	<mvc:view-controller path="/report/index.html" />
+	<mvc:view-controller path="/report/user.html" />
 
 	<mvc:interceptors>
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="locale"/>
@@ -39,12 +41,14 @@
 		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"
 		p:viewClass="org.springframework.web.servlet.view.JstlView" p:order="2" />
 
-	<bean
-		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<map>
 				<entry key="java.lang.Throwable" value="general-error" />
 			</map>
 		</property>
 	</bean>
+	
+	<bean id="pdfViewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver" p:order="0" p:basename="views" />
+	
 </beans>

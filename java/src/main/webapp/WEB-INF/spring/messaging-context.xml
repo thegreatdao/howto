@@ -28,7 +28,7 @@
 	
 	<amq:connectionFactory id="jmsFactory" brokerURL="vm://localhost" />
 
-	<jms:listener-container concurrency="10">		
+	<jms:listener-container concurrency="10">
 	    <jms:listener destination="embeddedQueue" ref="messageConsumer" />
 	</jms:listener-container>
 

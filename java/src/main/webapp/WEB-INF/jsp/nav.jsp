@@ -5,6 +5,7 @@
 	<li><a href="<c:url value="/post/show.html" />"><fmt:message key="post"/></a></li>
 	<li><a href="<c:url value="/category/show.html" />"><fmt:message key="category"/></a></li>
 	<li><a href="<c:url value="/ria/index.html" />"><fmt:message key="ria"/></a></li>
+	<li><a href="<c:url value="/report/index.html" />"><fmt:message key="report"/></a></li>
 </ul>
 
 <div id="login">
