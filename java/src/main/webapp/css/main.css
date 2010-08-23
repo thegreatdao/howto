@@ -101,7 +101,7 @@ body
 {
 	background:url("../images/left_menu_bullet.gif") no-repeat scroll left center transparent;
 	margin: 0px;
-	/*padding: 0 0 0 16px;*/
+	padding: 0 0 0 16px;
 	font-weight: bold;
 	border-bottom: 1px dashed #C39C4E;
 }
