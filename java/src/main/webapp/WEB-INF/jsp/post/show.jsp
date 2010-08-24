@@ -1,4 +1,4 @@
-<div class="tabular_data"><fmt:message key="post.postList"/></div>
+<div class="title"><fmt:message key="post.postList"/></div>
 <table>
 	<thead>
 		<tr>

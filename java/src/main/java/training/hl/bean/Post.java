@@ -26,7 +26,6 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 
-
 @Data
 @Entity
 @EqualsAndHashCode(callSuper=false)

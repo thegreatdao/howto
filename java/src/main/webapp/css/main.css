@@ -4,13 +4,20 @@ body
 	/*background: url("../images/bg.png") repeat-x scroll center bottom #6F605A;*/
 }
 
-.tabular_data
+.title
 {
 	margin-bottom: 10px;
 	text-align: center;
-	font-weight: bold;	
+	font-weight: bold;
 }
-	
+
+span.title
+{
+	margin: 16px 36px 0 0;
+	float: left;
+	width: 50px;
+}
+
 #wrapper
 {
 	margin: 6px auto;
@@ -169,7 +176,7 @@ table tr.odd
 	background-color: #EFEFEF;
 }
 
-div#action a, #search_form a
+div#action a, #search_form a, .reports a
 {
 	text-decoration: none;
 	color: #EA9A1C;
@@ -181,6 +188,20 @@ div#action a, #search_form a
     -opera-border-radius:3px;
     -khtml-border-radius:3px;
     border-radius:3px;
+}
+
+.reports a
+{
+	display: block;
+	width: 110px;
+	text-align: right;
+	float: left;
+	margin: 0 10px;
+	background:url("../images/doc.png") no-repeat scroll left center transparent;
+	/*background-color: #6F605A;*/
+	height: 30px;
+	padding: 20px 10px 0 0;
+	font-weight: bold;
 }
 
 div#action
@@ -200,11 +221,16 @@ div#action
 	margin-right: 20px;
 }
 
-div#action a:hover
+div#action a:hover, .reports a:hover
 {
 	color: #C39C4E;
 	background-color: #F5F5F5;
 	border: 1px solid #EA9A1C;
+}
+
+.reports
+{
+	margin: 30px 0;
 }
 
 fieldset
@@ -627,4 +653,15 @@ ul.tabs li
 	float: right;
 	margin-right: 10px;
 	display: none;
+}
+
+.invisible_div
+{
+	height: 20px;
+}
+
+.title.border_bottom
+{
+	border-bottom: 4px solid #C39C4E;
+	padding-bottom: 16px;
 }

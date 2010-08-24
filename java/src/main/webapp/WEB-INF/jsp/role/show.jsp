@@ -4,7 +4,7 @@
 </ul>
 <div class="panes">	
 	<div id="role_list">
-		<div class="tabular_data"><fmt:message key="role.roleList"/></div>
+		<div class="title"><fmt:message key="role.roleList"/></div>
 		<table>
 			<thead>
 				<tr>
@@ -110,7 +110,7 @@
 							function(data)
 							{
 								$('#ajax_icon').fadeIn();
-								var userTable = '<div class="tabular_data"><fmt:message key="user.userList"/></div><table><thead><tr><th><fmt:message key="user.userName"/></th><th><fmt:message key="user.firstName"/></th><th><fmt:message key="user.lastName"/></th><th><fmt:message key="user.age"/></th><th><fmt:message key="user.gender"/></tr></thead>';
+								var userTable = '<div class="title"><fmt:message key="user.userList"/></div><table><thead><tr><th><fmt:message key="user.userName"/></th><th><fmt:message key="user.firstName"/></th><th><fmt:message key="user.lastName"/></th><th><fmt:message key="user.age"/></th><th><fmt:message key="user.gender"/></tr></thead>';
 								for(var index in data)
 								{
 									userTable += '<tr><td><span class="user_action">' + data[index].userName + '</span></td>';
