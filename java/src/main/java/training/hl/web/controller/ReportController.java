@@ -1,6 +1,9 @@
 package training.hl.web.controller;
 
 import java.util.Collection;
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
 
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
@@ -23,13 +26,15 @@ public class ReportController
 	private BaseHibernateDao baseHibernateDao;
 	
     @RequestMapping(method=RequestMethod.GET)
-	public ModelMap users(String format)
+	public ModelMap users(String format, HttpServletRequest request)
 	{
     	ModelMap model = new ModelMap();
 		Collection<User> users = baseHibernateDao.findAll(User.class);
 		JRBeanCollectionDataSource jrBeanCollectionDataSource = new JRBeanCollectionDataSource(users, false);
 		model.put("usersReportList", jrBeanCollectionDataSource);
 		model.put("format", format);
+		model.put("request", request);
+    	request.getSession().setAttribute("IMAGES_MAP", new HashMap<Object, Object>());
 		return model;
 	}
     
