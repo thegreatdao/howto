@@ -26,7 +26,7 @@ import training.hl.dao.hibernate.BaseDao;
 public class BaseHibernateDao extends BaseDao
 {
 	@Autowired
-	private HibernateTemplate hibernateTemplate;
+	protected HibernateTemplate hibernateTemplate;
 	
 	public <T extends RootEntity, PK extends Serializable> void delete(Class<T> entityClass, PK id)
 	{

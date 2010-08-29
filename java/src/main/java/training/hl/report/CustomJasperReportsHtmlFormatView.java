@@ -22,5 +22,5 @@ public class CustomJasperReportsHtmlFormatView extends JasperReportsHtmlView
 		}
 		super.renderReport(populatedReport, model, response);
 	}
-	
+
 }

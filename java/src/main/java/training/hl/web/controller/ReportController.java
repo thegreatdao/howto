@@ -1,5 +1,6 @@
 package training.hl.web.controller;
 
+import java.io.File;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -18,6 +19,7 @@ import training.hl.bean.Post;
 import training.hl.bean.Role;
 import training.hl.bean.User;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
+import training.hl.dao.hibernate.dedicated.UserHibernateDao;
 
 @Controller
 public class ReportController
@@ -25,10 +27,12 @@ public class ReportController
 	@Autowired
 	private BaseHibernateDao baseHibernateDao;
 	
+	public static final String REPORT_IMAGE_DIR = "REPORT_IMAGE_DIR";
+	
     @RequestMapping(method=RequestMethod.GET)
 	public ModelMap users(String format, HttpServletRequest request)
 	{
-    	ModelMap model = new ModelMap();
+    	ModelMap model = getModelMap(request);
 		Collection<User> users = baseHibernateDao.findAll(User.class);
 		JRBeanCollectionDataSource jrBeanCollectionDataSource = new JRBeanCollectionDataSource(users, false);
 		model.put("usersReportList", jrBeanCollectionDataSource);
@@ -39,9 +43,9 @@ public class ReportController
 	}
     
     @RequestMapping(method=RequestMethod.GET)
-    public ModelMap roles(String format)
+    public ModelMap roles(String format, HttpServletRequest request)
     {
-    	ModelMap model = new ModelMap();
+    	ModelMap model = getModelMap(request);
     	Collection<Role> users = baseHibernateDao.findAll(Role.class);
     	JRBeanCollectionDataSource jrBeanCollectionDataSource = new JRBeanCollectionDataSource(users, false);
     	model.put("rolesReportList", jrBeanCollectionDataSource);
@@ -50,9 +54,9 @@ public class ReportController
     }
     
     @RequestMapping(method=RequestMethod.GET)
-    public ModelMap posts(String format)
+    public ModelMap posts(String format, HttpServletRequest request)
     {
-    	ModelMap model = new ModelMap();
+    	ModelMap model = getModelMap(request);
     	Collection<Post> users = baseHibernateDao.findAll(Post.class);
     	JRBeanCollectionDataSource jrBeanCollectionDataSource = new JRBeanCollectionDataSource(users, false);
     	model.put("postsReportList", jrBeanCollectionDataSource);
@@ -61,13 +65,25 @@ public class ReportController
     }
     
     @RequestMapping(method=RequestMethod.GET)
-    public ModelMap categories(String format)
+    public ModelMap categories(String format, HttpServletRequest request)
     {
-    	ModelMap model = new ModelMap();
+    	ModelMap model = getModelMap(request);
     	Collection<Category> users = baseHibernateDao.findAll(Category.class);
     	JRBeanCollectionDataSource jrBeanCollectionDataSource = new JRBeanCollectionDataSource(users, false);
     	model.put("categoriesReportList", jrBeanCollectionDataSource);
     	model.put("format", format);
     	return model;
+    }
+    
+    private ModelMap getModelMap(HttpServletRequest request)
+    {
+    	ModelMap modelMap = new ModelMap();
+    	String contextPath = request.getContextPath();
+    	String webBaseDirString = request.getSession().getServletContext().getRealPath(contextPath);
+		File webBaseDir = new File(webBaseDirString);
+    	File imagesDir = new File(webBaseDir, "images");
+    	String reportImageDir = imagesDir.getPath() + System.getProperty("file.separator");
+    	modelMap.put(REPORT_IMAGE_DIR, reportImageDir);
+    	return modelMap;
     }
 }

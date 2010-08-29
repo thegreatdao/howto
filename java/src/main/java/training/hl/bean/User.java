@@ -48,7 +48,8 @@ import training.hl.bean.enums.Gender;
 (
 	{
 		@NamedQuery(name = User.DELETE_USER_BY_USERNAME, query = "delete from User where userName=:userName"),
-		@NamedQuery(name = User.FIND_USER_BY_USERNAME, query = "from User where userName=:userName")
+		@NamedQuery(name = User.FIND_USER_BY_USERNAME, query = "from User where userName=:userName"),
+		@NamedQuery(name = User.FIND_USERS_WITH_CATEGORIES_EAGER_LOADED, query = "from User")
 	}
 )
 public class User extends RootEntity
@@ -56,6 +57,7 @@ public class User extends RootEntity
 	private static final long serialVersionUID = 5840474281304089091L;
 	public static final String DELETE_USER_BY_USERNAME = "deleteUserByUsername";
 	public static final String FIND_USER_BY_USERNAME = "findUserByUserName";
+	public static final String FIND_USERS_WITH_CATEGORIES_EAGER_LOADED = "findUsersWithCategoriesEagerLoaded";
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -108,10 +110,10 @@ public class User extends RootEntity
 	*/
 	public void setId(Long id)
 	{
-	if(id == null || id == 0)
-	{
-	id = null;
-	}
-	this.id = id;
+		if(id == null || id == 0)
+		{
+			id = null;
+		}
+		this.id = id;
 	}
 }
