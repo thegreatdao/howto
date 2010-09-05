@@ -19,7 +19,6 @@ import training.hl.bean.Post;
 import training.hl.bean.Role;
 import training.hl.bean.User;
 import training.hl.dao.hibernate.dedicated.BaseHibernateDao;
-import training.hl.dao.hibernate.dedicated.UserHibernateDao;
 
 @Controller
 public class ReportController
