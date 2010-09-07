@@ -48,9 +48,10 @@ public class TrainingScheduler
 		messageProducer.send("message sent at : " + dateTime);
 	}
 	
-	@Scheduled(fixedRate=6000)
+	@Scheduled(fixedRate=60000)
 	public void monitorJmxBeanAttribute()
 	{
 		LOG.info("------------------- JMX BEAN ATTRIBUTE IS : " + trainingJmxBean.getSuffix());
+		LOG.error("triggering a sound! enjoy");
 	}
 }
