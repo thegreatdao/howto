@@ -11,6 +11,12 @@ body
 	font-weight: bold;
 }
 
+#index
+{
+	border-bottom: 4px solid #C39C4E;
+	padding-bottom: 6px;
+}
+
 span.title
 {
 	margin: 16px 36px 0 0;
