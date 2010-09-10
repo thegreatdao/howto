@@ -671,3 +671,8 @@ ul.tabs li
 	border-bottom: 4px solid #C39C4E;
 	padding-bottom: 16px;
 }
+
+.hidden
+{
+	display: none;
+}

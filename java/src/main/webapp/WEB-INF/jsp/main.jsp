@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="<c:url value="/js/jquery.pagination.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/js/jquery.tablesorter.min.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/js/zoomer.js" />"></script>
+	<script type="text/javascript" src="<c:url value="/js/jquery.quicksand.min.js" />"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -92,9 +93,47 @@
 							}
 						);
 						$("table").tablesorter();
-						$('ul.thumb li').Zoomer({speedView:200,speedRemove:400,altAnim:true,speedTitle:400,debug:false});
+						zoom();
+						/*
+						$('#swap').click(
+							function(e)
+							{
+								$('.thumb').quicksand( $('.all li'), {
+								  duration: 3000,
+								  attribute: 'id',
+								  easing: 'easeInOutQuad'
+								});
+								e.preventDefault();
+							}
+						);
+						*/
+						$('div.title a').each(
+							function()
+							{
+								$(this).click(
+									function()
+									{
+										var id = $(this).attr('id');
+										var indexOfUnderScore = id.indexOf('_');
+										var destination = id.substring(0, indexOfUnderScore);										
+										destination = '#' + destination + ' li';
+										filter('.thumb', destination);
+									}
+								);
+							}
+						)
 					}
-			)
+			)						
+			
+			function filter(source, destination)
+			{
+				$(source).quicksand($(destination), function(){ zoom();});
+			}
+			
+			function zoom()
+			{
+				$('ul.thumb li').Zoomer({speedView:200,speedRemove:400,altAnim:true,speedTitle:400,debug:false});
+			}
 		</script>
 		
 	</body>
