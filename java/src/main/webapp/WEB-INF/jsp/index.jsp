@@ -1,6 +1,8 @@
 <div class="title" id="index"><fmt:message key="materials"/></div>
 <div id="filter">
 	<a href="javascript:void(0);" id="all_link">All</a>
+	<a href="javascript:void(0);" id="ide_link">IDE</a>
+	<a href="javascript:void(0);" id="build_link">Build</a>
 	<a href="javascript:void(0);" id="server_link">Servers</a>
 	<a href="javascript:void(0);" id="db_link">Database</a>
 	<a href="javascript:void(0);" id="frameworks_link">Frameworks</a>
@@ -104,4 +106,10 @@
 </ul>
 <ul id="vcs" class="hidden">
 	<li data-id="git"><a href="http://git-scm.com/" target="blank"><img src="<c:url value="/images/tools/git.png"/>" alt="Git" /></a></li>
+</ul>
+<ul id="ide" class="hidden">
+	<li data-id="springIDE"><a href="http://www.springsource.org/node/489" target="blank"><img src="<c:url value="/images/tools/springide.png"/>" alt="Spring IDE" /></a></li>
+</ul>
+<ul id="build" class="hidden">
+	<li data-id="maven"><a href="http://maven.apache.org/" target="blank"><img src="<c:url value="/images/tools/maven.png"/>" alt="Maven" /></a></li>
 </ul>
