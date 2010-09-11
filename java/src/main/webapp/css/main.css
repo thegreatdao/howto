@@ -182,7 +182,7 @@ table tr.odd
 	background-color: #EFEFEF;
 }
 
-div#action a, #search_form a, .reports a
+div#action a, #search_form a, .reports a, div#filter a
 {
 	text-decoration: none;
 	color: #EA9A1C;
@@ -227,7 +227,12 @@ div#action
 	margin-right: 20px;
 }
 
-div#action a:hover, .reports a:hover
+div#filter
+{
+	text-align: center;
+}
+
+div#action a:hover, .reports a:hover, div#filter a:hover
 {
 	color: #C39C4E;
 	background-color: #F5F5F5;

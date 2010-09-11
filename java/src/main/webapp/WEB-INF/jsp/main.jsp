@@ -3,19 +3,24 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 	<head>
-	<title><tiles:getAsString name="title"/></title>
-	<link rel="stylesheet" href="<c:url value="/css/reset.css" />" />
-	<link rel="stylesheet" href="<c:url value="/css/text.css" />" />
-	<link rel="stylesheet" href="<c:url value="/css/960.css" />" />
-	<link rel="stylesheet" href="<c:url value="/css/main.css" />" />
-	<link rel="stylesheet" href="<c:url value="/css/pagination.css" />" />
-	<link rel="stylesheet" href="<c:url value="/css/zoomer.css" />" />
-	<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js" />"></script>
-	<script type="text/javascript" src="<c:url value="/js/jquery.tools.min.js" />"></script>
-	<script type="text/javascript" src="<c:url value="/js/jquery.pagination.js" />"></script>
-	<script type="text/javascript" src="<c:url value="/js/jquery.tablesorter.min.js" />"></script>
-	<script type="text/javascript" src="<c:url value="/js/zoomer.js" />"></script>
-	<script type="text/javascript" src="<c:url value="/js/jquery.quicksand.min.js" />"></script>
+		<title><tiles:getAsString name="title"/></title>
+		<link rel="stylesheet" href="<c:url value="/css/reset.css" />" />
+		<link rel="stylesheet" href="<c:url value="/css/text.css" />" />
+		<link rel="stylesheet" href="<c:url value="/css/960.css" />" />
+		<link rel="stylesheet" href="<c:url value="/css/main.css" />" />
+		<link rel="stylesheet" href="<c:url value="/css/pagination.css" />" />
+		<link rel="stylesheet" href="<c:url value="/css/zoomer.css" />" />
+		<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/js/jquery.tools.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/js/jquery.pagination.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/js/jquery.tablesorter.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/js/zoomer.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/js/jquery.easing.1.3.js" />"></script>
+		<!--
+		<script type="text/javascript" src="<c:url value="/js/jquery-css-transform.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/js/jquery-animate-css-rotate-scale.js" />"></script>
+		-->
+		<script type="text/javascript" src="<c:url value="/js/jquery.quicksand.min.js" />"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -107,7 +112,7 @@
 							}
 						);
 						*/
-						$('div.title a').each(
+						$('div#filter a').each(
 							function()
 							{
 								$(this).click(
@@ -127,7 +132,8 @@
 			
 			function filter(source, destination)
 			{
-				$(source).quicksand($(destination), function(){ zoom();});
+				//$(source).quicksand($(destination), { duration: 1000, easing: 'swing', adjustHeight: false, useScaling: true}, function(){ zoom();});
+				$(source).quicksand($(destination), { duration: 1000, easing: 'swing', adjustHeight: false}, function(){zoom();});
 			}
 			
 			function zoom()
