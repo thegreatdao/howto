@@ -133,7 +133,7 @@
 			function filter(source, destination)
 			{
 				//$(source).quicksand($(destination), { duration: 1000, easing: 'swing', adjustHeight: false, useScaling: true}, function(){ zoom();});
-				$(source).quicksand($(destination), { duration: 1000, easing: 'swing', adjustHeight: false}, function(){zoom();});
+				$(source).quicksand($(destination), { duration: 1000, easing: 'easeInOutQuint', adjustHeight: false}, function(){zoom();});
 			}
 			
 			function zoom()

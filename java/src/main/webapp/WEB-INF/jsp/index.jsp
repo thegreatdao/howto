@@ -9,9 +9,9 @@
 	<a href="javascript:void(0);" id="ci_link">Continuous Integration</a>
 	<a href="javascript:void(0);" id="test_link">Testing</a>
 </div>
-<ul class="thumb">
-	<li data-id="git"><a href="http://git-scm.com/" target="blank"><img src="<c:url value="/images/tools/git.png"/>" alt="Git" /></a></li>
+<ul class="thumb">	
 	<li data-id="artifactory"><a href="http://www.jfrog.org/products.php" target="blank"><img src="<c:url value="/images/tools/artifactory.png"/>" alt="Artifactory" /></a></li>
+	<li data-id="git"><a href="http://git-scm.com/" target="blank"><img src="<c:url value="/images/tools/git.png"/>" alt="Git" /></a></li>
 	<li data-id="hibernate"><a href="http://www.hibernate.org/" target="blank"><img src="<c:url value="/images/tools/hibernate.png"/>" alt="Hibernate" /></a></li>
 	<li data-id="jetty"><a href="http://jetty.codehaus.org/jetty/" target="blank"><img src="<c:url value="/images/tools/jetty.png"/>" alt="Jetty" /></a></li>
 	<li data-id="teamcity"><a href="http://www.jetbrains.com/teamcity/" target="blank"><img src="<c:url value="/images/tools/teamcity.png"/>" alt="Teamcity" /></a></li>
@@ -37,8 +37,8 @@
 	<li data-id="hsql"><a href="http://hsqldb.org/" target="blank"><img src="<c:url value="/images/tools/hsql.png"/>" alt="HyperSQL Database" /></a></li>
 </ul>
 <ul id="all" class="hidden">
-	<li data-id="git"><a href="http://git-scm.com/" target="blank"><img src="<c:url value="/images/tools/git.png"/>" alt="Git" /></a></li>
 	<li data-id="artifactory"><a href="http://www.jfrog.org/products.php" target="blank"><img src="<c:url value="/images/tools/artifactory.png"/>" alt="Artifactory" /></a></li>
+	<li data-id="git"><a href="http://git-scm.com/" target="blank"><img src="<c:url value="/images/tools/git.png"/>" alt="Git" /></a></li>
 	<li data-id="hibernate"><a href="http://www.hibernate.org/" target="blank"><img src="<c:url value="/images/tools/hibernate.png"/>" alt="Hibernate" /></a></li>
 	<li data-id="jetty"><a href="http://jetty.codehaus.org/jetty/" target="blank"><img src="<c:url value="/images/tools/jetty.png"/>" alt="Jetty" /></a></li>
 	<li data-id="teamcity"><a href="http://www.jetbrains.com/teamcity/" target="blank"><img src="<c:url value="/images/tools/teamcity.png"/>" alt="Teamcity" /></a></li>
