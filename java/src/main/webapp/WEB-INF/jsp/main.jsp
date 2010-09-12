@@ -10,12 +10,13 @@
 		<link rel="stylesheet" href="<c:url value="/css/main.css" />" />
 		<link rel="stylesheet" href="<c:url value="/css/pagination.css" />" />
 		<link rel="stylesheet" href="<c:url value="/css/zoomer.css" />" />
-		<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/js/jquery-1.3.2.min.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/js/jquery.tools.min.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/js/jquery.pagination.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/js/jquery.tablesorter.min.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/js/zoomer.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/js/jquery.easing.1.3.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/js/jquery.qtip-1.0.0-rc3.min.js" />"></script>
 		<!--
 		<script type="text/javascript" src="<c:url value="/js/jquery-css-transform.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/js/jquery-animate-css-rotate-scale.js" />"></script>
@@ -28,11 +29,11 @@
 				<div class="container_12">
 					<div class="grid_12">
 						<div id="logo">
-							<a href="/"><img src="<c:url value="/images/howto.png" />" title="How To"/></a>
+							<a href="/" title="How To" class="qTip"><img src="<c:url value="/images/howto.png" />"/></a>
 						</div>
 						<div id="language">
-							<a href="?locale=en_us"><img src="<c:url value="/images/us.png" />" title="<fmt:message key="lang.en"/>" /></a>
-							<a href="?locale=zh_CN"><img src="<c:url value="/images/cn.png" />" title="<fmt:message key="lang.cn"/>" /></a>
+							<a href="?locale=en_us"  class="qTip" title="<fmt:message key="lang.en"/>" ><img src="<c:url value="/images/us.png" />"/></a>
+							<a href="?locale=zh_CN"  class="qTip" title="<fmt:message key="lang.cn"/>" ><img src="<c:url value="/images/cn.png" />"/></a>
 						</div>
 					</div>
 				</div>
@@ -99,19 +100,6 @@
 						);
 						$("table").tablesorter();
 						zoom();
-						/*
-						$('#swap').click(
-							function(e)
-							{
-								$('.thumb').quicksand( $('.all li'), {
-								  duration: 3000,
-								  attribute: 'id',
-								  easing: 'easeInOutQuad'
-								});
-								e.preventDefault();
-							}
-						);
-						*/
 						$('div#filter a').each(
 							function()
 							{
@@ -126,7 +114,8 @@
 									}
 								);
 							}
-						)
+						);
+						$('a.qTip').qtip({ style: { name: 'light', tip: true} });
 					}
 			)						
 			
