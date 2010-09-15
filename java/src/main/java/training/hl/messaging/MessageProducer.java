@@ -19,7 +19,7 @@ public class MessageProducer
 	@Autowired
 	private JmsTemplate jmsTemplate;
 	
-	public void send(final String message)
+	public void sendNewRole()
 	{
 		DateTime dateTime = new DateTime();
 		int suffix = dateTime.getDayOfYear() + dateTime.getHourOfDay() + dateTime.getMinuteOfDay() + dateTime.getSecondOfDay();
