@@ -4,6 +4,7 @@
 <html>
 	<head>
 		<title><tiles:getAsString name="title"/></title>
+		<link rel="shortcut icon" href="<c:url value="/images/favicon.ico"/>" >
 		<link rel="stylesheet" href="<c:url value="/css/reset.css" />" />
 		<link rel="stylesheet" href="<c:url value="/css/text.css" />" />
 		<link rel="stylesheet" href="<c:url value="/css/960.css" />" />
@@ -17,6 +18,7 @@
 		<script type="text/javascript" src="<c:url value="/js/zoomer.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/js/jquery.easing.1.3.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/js/jquery.qtip-1.0.0-rc3.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/js/swfobject.js" />"></script>
 		<!--
 		<script type="text/javascript" src="<c:url value="/js/jquery-css-transform.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/js/jquery-animate-css-rotate-scale.js" />"></script>
@@ -116,6 +118,7 @@
 							}
 						);
 						$('a.qTip').qtip({ style: { name: 'light', tip: true} });
+						displayTagCloud();												
 					}
 			)						
 			
@@ -128,6 +131,36 @@
 			function zoom()
 			{
 				$('ul.thumb li').Zoomer({speedView:200,speedRemove:400,altAnim:true,speedTitle:400,debug:false});
+			}
+			
+			function displayTagCloud()
+			{
+				var hostPlusPort = 'http://' + window.location.hostname + ':' + window.location.port;
+				var home = hostPlusPort;
+				var usersList = hostPlusPort + '/user/show.html';
+				var rolesList = hostPlusPort + '/role/show.html';
+				var postsList = hostPlusPort + '/post/show.html';
+				var categoriesList = hostPlusPort + '/category/show.html';
+				var ria = hostPlusPort + '/ria/index.html';
+				var reportsList = hostPlusPort + '/report/index.html';				
+				var so = new SWFObject("<c:url value="/swf/tagcloud.swf"/>", "tc", "220", "200", "7", "#FFFFFF");
+				so.addParam("wmode", "transparent");
+				so.addVariable("mode", "tags");
+				so.addVariable("distr", "true");
+				so.addVariable("tcolor", "0xff0000");
+				so.addVariable("hicolor", "0x000000");
+				so.addVariable("tagcloud",
+					"<tags>" + 
+					"<a href='" + home + "' style='9'><fmt:message key='home'/></a>" +
+					"<a href='" + usersList + "'  style='10'><fmt:message key='user'/></a>" +
+					"<a href='" + rolesList + "'  style='20'><fmt:message key='role'/></a>" +
+					"<a href='" + postsList + "'  style='12'><fmt:message key='post'/></a>" +
+					"<a href='" + categoriesList + "'  style='15'><fmt:message key='category'/></a>" +
+					"<a href='" + ria + "'  style='9'><fmt:message key='ria'/></a>" +
+					"<a href='" + reportsList + "'  style='10'><fmt:message key='report'/></a>" +
+					"</tags>"
+				);
+				so.write("tagcloud");				
 			}
 		</script>
 		

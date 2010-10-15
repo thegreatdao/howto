@@ -681,3 +681,10 @@ ul.tabs li
 {
 	display: none;
 }
+
+#tagcloud
+{
+	margin-top: 60px;
+	border: 1px solid #CFCFCF;
+	background-color: #FFFFFF;
+}

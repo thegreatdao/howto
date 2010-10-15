@@ -11,19 +11,23 @@
 <div id="login">
 	<sec:authorize ifNotGranted="ROLE_USER">
 		<form action="/j_spring_security_check" method="post">
-		 <div>
-		    <label><fmt:message key="user.userName"/>:</label>
-		    <input type="text" name="j_username"/>
-		    <label><fmt:message key="user.password"/>:</label>
-		    <input type="password" name="j_password"/>
-		    <input type="checkbox" name="_spring_security_remember_me"/><span><fmt:message key="user.remember.me" /></span>
-		    <input name="submit" type="submit" value="<fmt:message key="user.login" />"/>
-		  </div>
+			<div>
+				<label><fmt:message key="user.userName"/>:</label>
+				<input type="text" name="j_username"/>
+				<label><fmt:message key="user.password"/>:</label>
+				<input type="password" name="j_password"/>
+				<input type="checkbox" name="_spring_security_remember_me"/><span><fmt:message key="user.remember.me" /></span>
+				<input name="submit" type="submit" value="<fmt:message key="user.login" />"/>
+			</div>
 		</form>
 	</sec:authorize>
 	<sec:authorize	ifAnyGranted="ROLE_USER">
 		<div>
-			<fmt:message key="user.welcome.back"/> <sec:authentication property="principal.username" /><a href="<c:url value="/j_spring_security_logout"/>"><fmt:message key="user.logout" /></a>			 
+			<fmt:message key="user.welcome.back"/>
+			<sec:authentication property="principal.username" />
+			<a href="<c:url value="/j_spring_security_logout"/>"><fmt:message key="user.logout" /></a>			 
 		</div>
 	</sec:authorize>
 </div>
+
+<div id="tagcloud"></div>
