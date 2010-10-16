@@ -118,6 +118,7 @@
 							}
 						);
 						$('a.qTip').qtip({ style: { name: 'light', tip: true} });
+						selectNav();
 						displayTagCloud();												
 					}
 			)						
@@ -133,16 +134,48 @@
 				$('ul.thumb li').Zoomer({speedView:200,speedRemove:400,altAnim:true,speedTitle:400,debug:false});
 			}
 			
+			function selectNav()
+			{
+				var path = $(location).attr('pathname');
+				var tab = 'home';
+				if(path.indexOf("user") != -1)
+				{
+					tab = "user";
+				}
+				else if(path.indexOf("role") != -1)
+				{
+					tab = "role";
+				}
+				else if(path.indexOf("post") != -1)
+				{
+					tab = "post";
+				}
+				else if(path.indexOf("category") != -1)
+				{
+					tab = "category";
+				}
+				else if(path.indexOf("ria") != -1)
+				{
+					tab = "flex";
+				}
+				else if(path.indexOf("report") != -1)
+				{
+					tab = "report";
+				}
+				$('#'+tab).css('color','#663300');
+			}
+			
 			function displayTagCloud()
 			{
-				var hostPlusPort = 'http://' + window.location.hostname + ':' + window.location.port;
-				var home = hostPlusPort;
-				var usersList = hostPlusPort + '/user/show.html';
-				var rolesList = hostPlusPort + '/role/show.html';
-				var postsList = hostPlusPort + '/post/show.html';
-				var categoriesList = hostPlusPort + '/category/show.html';
-				var ria = hostPlusPort + '/ria/index.html';
-				var reportsList = hostPlusPort + '/report/index.html';				
+				var jLocation = $(location);
+				var protocolPlusHost = jLocation.attr('protocol') + '//' + jLocation.attr('host');				
+				var home = protocolPlusHost;
+				var usersList = protocolPlusHost + '/user/show.html';
+				var rolesList = protocolPlusHost + '/role/show.html';
+				var postsList = protocolPlusHost + '/post/show.html';
+				var categoriesList = protocolPlusHost + '/category/show.html';
+				var ria = protocolPlusHost + '/ria/index.html';
+				var reportsList = protocolPlusHost + '/report/index.html';				
 				var so = new SWFObject("<c:url value="/swf/tagcloud.swf"/>", "tc", "220", "200", "7", "#FFFFFF");
 				so.addParam("wmode", "transparent");
 				so.addVariable("mode", "tags");
