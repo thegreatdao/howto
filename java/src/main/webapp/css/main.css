@@ -688,3 +688,10 @@ ul.tabs li
 	border: 1px solid #CFCFCF;
 	background-color: #FFFFFF;
 }
+
+#login span#login_error
+{
+	margin-left: 0;
+	color: red;
+	margin-top: -10px;
+}

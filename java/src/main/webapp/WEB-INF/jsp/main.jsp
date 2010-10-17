@@ -119,7 +119,8 @@
 						);
 						$('a.qTip').qtip({ style: { name: 'light', tip: true} });
 						selectNav();
-						displayTagCloud();												
+						displayTagCloud();
+						 $('#login_error').fadeOut('slow').fadeIn('slow').fadeOut('slow').fadeIn('slow').fadeOut('slow').fadeIn('slow');
 					}
 			)						
 			

@@ -10,6 +10,9 @@
 
 <div id="login">
 	<sec:authorize ifNotGranted="ROLE_USER">
+		<c:if test="${not empty param.login}">
+			<span id="login_error"><fmt:message key="login.error"/></span>
+		</c:if>
 		<form action="/j_spring_security_check" method="post">
 			<div>
 				<label><fmt:message key="user.userName"/>:</label>
