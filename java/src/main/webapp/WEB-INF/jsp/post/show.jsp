@@ -8,7 +8,7 @@
 			<th><fmt:message key="post.creator"/></th>
 		</tr>
 	</thead>
-	
+	<tbody>
 	<c:forEach items="${posts}" var="post">
 		<tr>
 			<td>
@@ -29,6 +29,7 @@
 			<td>${post.user.userName}</td>
 		</tr>
 	</c:forEach>
+	</tbody>
 </table>
 
 <sec:authorize	ifAnyGranted="ROLE_ADMIN">

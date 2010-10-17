@@ -83,12 +83,8 @@ public class PostController
     @RequestMapping(method=RequestMethod.GET, value="/post/search")
     public String findPostsByTitle(String title, Model model)
     {
-    	if(StringUtils.isBlank(title))
-    	{
-    		model.addAttribute("posts", baseHibernateDao.findAll(Post.class));
-    	}
-    	else
-    	{
+    	if(StringUtils.isNotBlank(title))
+		{
     		model.addAttribute("posts", baseHibernateDao.findBySearch(new String[]{"title"}, Post.class, title));
     	}
     	return "post/show";
