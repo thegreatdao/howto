@@ -202,12 +202,31 @@ div#action a, #search_form a, .reports a, div#filter a
 	width: 110px;
 	text-align: right;
 	float: left;
-	margin: 0 10px;
-	background:url("../images/doc.png") no-repeat scroll left center transparent;
+	margin: 0 10px;	
 	/*background-color: #6F605A;*/
 	height: 30px;
 	padding: 20px 10px 0 0;
 	font-weight: bold;
+}
+
+.reports a.pdf
+{
+	background:url("../images/pdf.png") no-repeat scroll left center transparent;
+}
+
+.reports a.csv
+{
+	background:url("../images/doc.png") no-repeat scroll left center transparent;
+}
+
+.reports a.excel
+{
+	background:url("../images/excel.png") no-repeat scroll left center transparent;
+}
+
+.reports a.html
+{
+	background:url("../images/html.png") no-repeat scroll left center transparent;
 }
 
 div#action
