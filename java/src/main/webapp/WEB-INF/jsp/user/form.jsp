@@ -59,7 +59,7 @@
 			</div>
 			
 			<div class="clear"></div>
-			<div class="radio_error">
+			<div id="radio_error">
 				<form:errors path="gender"/>
 			</div>
 			

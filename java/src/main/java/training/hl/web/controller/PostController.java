@@ -76,7 +76,7 @@ public class PostController
     @RequestMapping(method={RequestMethod.GET})
     public String delete(Long id)
     {
-    	baseHibernateDao.delete(Category.class, id);
+    	baseHibernateDao.delete(Post.class, id);
     	return "redirect:/post/show.html";
     }
     

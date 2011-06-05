@@ -64,7 +64,7 @@
 			<div id="footer">
 				<div class="container_12">
 					<div class="grid_12" id="footer_texts">
-						<div>copyright&copy; 2010</div>
+						<div>copyright&copy; 2011</div>
 					</div>
 					<div class="grid_12" id="footer_bottom">
 					</div>

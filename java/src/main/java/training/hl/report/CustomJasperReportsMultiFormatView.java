@@ -18,9 +18,9 @@ import org.springframework.web.servlet.view.jasperreports.JasperReportsXlsView;
 public class CustomJasperReportsMultiFormatView extends JasperReportsMultiFormatView
 {
 	
-	@SuppressWarnings("unchecked")
 	public CustomJasperReportsMultiFormatView()
 	{
+		@SuppressWarnings("rawtypes")
 		Map<String, Class> formatMappings = new HashMap<String, Class>(4);
 		formatMappings.put("csv", JasperReportsCsvView.class);
 		formatMappings.put("html", CustomJasperReportsHtmlFormatView.class);
