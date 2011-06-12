@@ -86,6 +86,7 @@ public class User extends RootEntity
 	private Gender gender;
 	private String icon;
 	private String image;
+	@XmlTransient
 	@Transient
 	private CommonsMultipartFile file;
 	@Column(insertable=false, updatable=false)
