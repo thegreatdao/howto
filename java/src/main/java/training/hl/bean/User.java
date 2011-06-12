@@ -19,6 +19,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -34,6 +35,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import training.hl.bean.enums.Gender;
 
@@ -82,6 +84,10 @@ public class User extends RootEntity
 	@NotNull
 	@Enumerated(EnumType.ORDINAL)
 	private Gender gender;
+	private String icon;
+	private String image;
+	@Transient
+	private CommonsMultipartFile file;
 	@Column(insertable=false, updatable=false)
 	private Date createdDate;
 	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)

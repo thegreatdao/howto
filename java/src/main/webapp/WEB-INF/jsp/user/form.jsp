@@ -2,7 +2,7 @@
 <div id="app_form">
 	<fieldset>
 		<legend><fmt:message key="user.form"/></legend>
-		<form:form method="post" modelAttribute="user" action="save.html">
+		<form:form method="post" modelAttribute="user" action="save.html" enctype="multipart/form-data">
 
 			<div>
 				<label><fmt:message key="user.userName"/>: <span class="small"><fmt:message key="user.userName.add"/></span></label>
@@ -48,6 +48,15 @@
 			
 			<div class="form_error">
 				<form:errors path="age"/>
+			</div>
+			
+			<div>
+				<label><fmt:message key="user.image"/>: <span class="small"><fmt:message key="user.image.add"/></span></label>
+				<form:input type="file" path="file" name="file"/>
+			</div>
+			
+			<div class="form_error">
+				<form:errors path="file"/>
 			</div>
 			
 			<div>

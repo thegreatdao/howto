@@ -32,6 +32,6 @@ public class TrainingScheduler
 	public void monitorJmxBeanAttribute()
 	{
 		LOG.info("------------------- JMX BEAN ATTRIBUTE IS : " + trainingJmxBean.getSuffix());
-		LOG.error("triggering a sound! enjoy");
+//		LOG.error("triggering a sound! enjoy");
 	}
 }
